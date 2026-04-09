@@ -25,6 +25,7 @@
     </header>
 
     <nav class="category-tabs" id="category-tabs">
+        <button class="tab-btn sidebar-toggle-btn" id="sidebar-toggle-btn" onclick="toggleSidebar()" title="Toggle sidebar">☰</button>
         <!-- Tabs injected by JS -->
     </nav>
 
@@ -54,6 +55,8 @@
 
         <!-- Initiative Tracker Panel -->
         <aside class="initiative-panel hidden" id="initiative-panel">
+            <div class="init-resize-handle" id="init-resize-handle"></div>
+            <div class="initiative-inner">
             <div class="initiative-header">
                 <h2>⚔ Initiative Tracker</h2>
                 <button class="card-btn close-btn" title="Close" onclick="toggleInitiativePanel()">&times;</button>
@@ -85,6 +88,7 @@
             <div class="initiative-footer">
                 <button class="btn btn-clear-init" onclick="clearInitiative()">Clear All</button>
             </div>
+            </div><!-- /initiative-inner -->
         </aside>
     </main>
 

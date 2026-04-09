@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadGlobalIndex();
     setupSearchHandlers();
     loadDarkMode();
+    setupInitiativeResize();
 });
 
 async function loadCategories() {
@@ -971,6 +972,53 @@ function loadDarkMode() {
     }
 }
 
+// ===== SIDEBAR TOGGLE =====
+function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    const btn = document.getElementById("sidebar-toggle-btn");
+    sidebar.classList.toggle("collapsed");
+    btn.classList.toggle("sidebar-hidden");
+}
+
+// ===== INITIATIVE PANEL RESIZE =====
+function setupInitiativeResize() {
+    const handle = document.getElementById("init-resize-handle");
+    if (!handle) return;
+
+    let startX, startWidth;
+
+    handle.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        const panel = document.getElementById("initiative-panel");
+        startX = e.clientX;
+        startWidth = panel.offsetWidth;
+        handle.classList.add("dragging");
+        document.body.style.cursor = "col-resize";
+        document.body.style.userSelect = "none";
+
+        function onMouseMove(e) {
+            const dx = startX - e.clientX; // dragging left increases width
+            const mainContent = document.querySelector(".main-content");
+            const maxWidth = mainContent.offsetWidth - 440; // leave room for at least one card
+            let newWidth = startWidth + dx;
+            if (newWidth < 380) newWidth = 380;
+            if (newWidth > maxWidth) newWidth = maxWidth;
+            panel.style.width = newWidth + "px";
+        }
+
+        function onMouseUp() {
+            handle.classList.remove("dragging");
+            document.body.style.cursor = "";
+            document.body.style.userSelect = "";
+            document.removeEventListener("mousemove", onMouseMove);
+            document.removeEventListener("mouseup", onMouseUp);
+        }
+
+        document.addEventListener("mousemove", onMouseMove);
+        document.addEventListener("mouseup", onMouseUp);
+    });
+}
+
 // ===== INITIATIVE TRACKER =====
 let initiativeRows = [];
 let hpEditRowId = null;
@@ -1125,13 +1173,22 @@ function renderInitiativeTable() {
 
         // Notes
         const tdNotes = document.createElement("td");
+        tdNotes.className = "init-notes-cell";
         const notesInp = document.createElement("input");
         notesInp.type = "text";
         notesInp.className = "init-notes-input";
         notesInp.value = row.notes;
         notesInp.placeholder = "...";
-        notesInp.addEventListener("change", (e) => { row.notes = e.target.value; });
+        const notesTooltip = document.createElement("div");
+        notesTooltip.className = "notes-tooltip" + (row.notes ? " has-content" : "");
+        notesTooltip.textContent = row.notes;
+        notesInp.addEventListener("input", (e) => {
+            row.notes = e.target.value;
+            notesTooltip.textContent = row.notes;
+            notesTooltip.classList.toggle("has-content", !!row.notes);
+        });
         tdNotes.appendChild(notesInp);
+        tdNotes.appendChild(notesTooltip);
 
         // Delete
         const tdDel = document.createElement("td");

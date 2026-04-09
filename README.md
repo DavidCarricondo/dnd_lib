@@ -1,62 +1,66 @@
 # D&D 5e SRD Library
 
-A local offline Flask application serving Dungeons & Dragons 5th Edition SRD data from JSON files. The app provides a web UI and a simple REST API for browsing categories, items, searching, and resolving cross-references.
+A local offline Flask application serving Dungeons & Dragons 5th Edition SRD data from JSON files. The app provides a web UI styled after classic D&D stat blocks, with a REST API for browsing categories, items, searching, and resolving cross-references.
 
 ## Features
 
-- Serves SRD category data from `data/2014/` JSON files
-- Provides a web interface at `/`
-- API endpoints for categories, category items, specific items, search, and item resolution
-- Supports adding custom items via API
+- **Offline SRD Browser** — Serves all SRD category data from `data/2014/` JSON files
+- **D&D-styled cards** — Stat blocks for monsters, spells, equipment, classes, races, and more
+- **Search** — Global search bar with optional category filter
+- **Category tabs** — Browse items by category with a collapsible sidebar (toggle with ☰ button)
+- **Cross-references** — Clickable links between items open floating popups
+- **Multiple cards** — Open several item cards side by side in the main panel
+- **Monster spellcasting** — Spells grouped by level with clickable spell links
+- **Custom items** — Add custom items to any category; characters use a simplified name/HP/AC form
+- **Initiative Tracker** — Right-side panel for combat tracking:
+  - Search and add monsters or characters to the initiative table
+  - Columns: Initiative, Name, HP, AC, Condition, Notes
+  - Click HP to apply damage (subtracted from current HP)
+  - Initiative auto-sorts highest first
+  - Conditions dropdown with all SRD conditions
+  - Panel is resizable by dragging the left edge
+- **Dark mode** — Toggle with the 🌙 button; preference saved to localStorage
+- **JSON viewer** — View raw JSON for any item card
 
 ## Requirements
 
-- Python 3.10+ (or compatible Python 3)
-- `Flask`
+- Python 3.10+
+- Flask
 
 Install dependencies:
 
 ```bash
-python -m pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Run the application
-
-From the project root:
 
 ```bash
 python src/dnd_lib/app.py
 ```
 
-Then open:
-
-```text
-http://127.0.0.1:5000
-```
+Then open http://127.0.0.1:5000
 
 ## API Endpoints
 
 - `GET /api/categories` — list all available categories
 - `GET /api/category/<slug>` — list items in a category
 - `GET /api/item/<slug>/<item_index>` — get full item data
-- `GET /api/resolve/<item_index>` — resolve an item index to its category and name
+- `GET /api/resolve/<item_index>` — resolve an item index to its category
 - `GET /api/search?q=<query>&category=<slug>` — search across SRD data
-- `POST /api/custom/<slug>` — add a custom item to a category
+- `GET /api/initiative-search?q=<query>` — search monsters and characters for initiative tracker
+- `POST /api/custom/<slug>` — add a custom item to a category (JSON body)
+- `POST /api/character` — create a character with `{name, hp, ac}`
 
 ## Data Structure
 
-The app loads JSON files from `data/2014/` using the slug-to-filename mapping in `src/dnd_lib/app.py`.
-
-Example file names:
-
-- `5e-SRD-Classes.json`
-- `5e-SRD-Spells.json`
-- `5e-SRD-Monsters.json`
+The app loads JSON files from `data/2014/`. Categories include Classes, Spells, Monsters, Equipment, Magic Items, Races, Feats, Features, Conditions, Skills, Traits, Characters, and more.
 
 ## Notes
 
-- The server is run in debug mode by default when launched directly.
-- Custom items are persisted back into the JSON files and are marked with `_custom: true`.
+- The server runs in debug mode by default when launched directly.
+- Custom items are persisted into the JSON files and marked with `_custom: true`.
+- Characters are stored in `5e-SRD-Characters.json`.
 
 ## License
 
