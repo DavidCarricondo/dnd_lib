@@ -229,6 +229,7 @@ function renderCard(item, category, cardId) {
         case "ability-scores": html += renderAbilityScore(item); break;
         case "subclasses": html += renderSubclass(item); break;
         case "subraces": html += renderSubrace(item); break;
+        case "characters": html += renderCharacter(item); break;
         default: html += renderGeneric(item); break;
     }
 
@@ -727,6 +728,14 @@ function renderSubrace(s) {
     return h;
 }
 
+// ---- Character ----
+function renderCharacter(c) {
+    let h = "";
+    h += propLine("Hit Points", c.hit_points);
+    h += propLine("Armor Class", c.armor_class);
+    return h;
+}
+
 // ---- Generic fallback ----
 function renderGeneric(item) {
     let h = "";
@@ -792,6 +801,7 @@ function renderCardBody(item, category) {
         case "ability-scores": return renderAbilityScore(item);
         case "subclasses": return renderSubclass(item);
         case "subraces": return renderSubrace(item);
+        case "characters": return renderCharacter(item);
         default: return renderGeneric(item);
     }
 }
@@ -811,6 +821,11 @@ function openRefAsCard() {
 
 // ===== CUSTOM ITEM MODAL =====
 function openCustomModal(slug) {
+    // For characters, use the character modal instead
+    if (slug === "characters") {
+        openCharacterModal();
+        return;
+    }
     document.getElementById("custom-name").value = "";
     document.getElementById("custom-json").value = "";
     document.getElementById("custom-error").classList.add("hidden");
@@ -954,4 +969,287 @@ function loadDarkMode() {
         document.body.classList.add("dark-mode");
         document.getElementById("dark-mode-btn").textContent = "☀️";
     }
+}
+
+// ===== INITIATIVE TRACKER =====
+let initiativeRows = [];
+let hpEditRowId = null;
+let initIdCounter = 0;
+
+// Conditions from the SRD
+const CONDITIONS = [
+    "", "Blinded", "Charmed", "Deafened", "Exhaustion",
+    "Frightened", "Grappled", "Incapacitated", "Invisible",
+    "Paralyzed", "Petrified", "Poisoned", "Prone",
+    "Restrained", "Stunned", "Unconscious"
+];
+
+function toggleInitiativePanel() {
+    const panel = document.getElementById("initiative-panel");
+    const btn = document.getElementById("initiative-toggle-btn");
+    panel.classList.toggle("hidden");
+    btn.classList.toggle("active");
+    setupInitiativeSearch();
+}
+
+function setupInitiativeSearch() {
+    const input = document.getElementById("init-search");
+    if (input._bound) return;
+    input._bound = true;
+
+    let debounce;
+    input.addEventListener("input", () => {
+        clearTimeout(debounce);
+        debounce = setTimeout(() => searchInitiativeItems(), 250);
+    });
+    input.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            document.getElementById("init-search-results").classList.add("hidden");
+        }
+    });
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".initiative-controls")) {
+            document.getElementById("init-search-results").classList.add("hidden");
+        }
+    });
+}
+
+async function searchInitiativeItems() {
+    const query = document.getElementById("init-search").value.trim();
+    const resultsEl = document.getElementById("init-search-results");
+
+    if (!query) {
+        resultsEl.classList.add("hidden");
+        return;
+    }
+
+    const res = await fetch(`/api/initiative-search?q=${encodeURIComponent(query)}`);
+    const results = await res.json();
+
+    resultsEl.innerHTML = "";
+    if (results.length === 0) {
+        resultsEl.innerHTML = '<div class="init-search-item"><span>No results</span></div>';
+    } else {
+        results.forEach(r => {
+            const div = document.createElement("div");
+            div.className = "init-search-item";
+            div.innerHTML = `
+                <span>${escapeHtml(r.name)} <small>(HP: ${r.hp}, AC: ${r.ac})</small></span>
+                <span class="init-type-badge ${r.type}">${r.type}</span>
+            `;
+            div.addEventListener("click", () => {
+                addToInitiative(r.name, r.hp, r.ac, r.type);
+                resultsEl.classList.add("hidden");
+                document.getElementById("init-search").value = "";
+            });
+            resultsEl.appendChild(div);
+        });
+    }
+    resultsEl.classList.remove("hidden");
+}
+
+function addToInitiative(name, hp, ac, type) {
+    initIdCounter++;
+    const row = {
+        id: initIdCounter,
+        initiative: 0,
+        name: name,
+        currentHp: hp,
+        maxHp: hp,
+        ac: ac,
+        condition: "",
+        notes: "",
+        type: type,
+    };
+    initiativeRows.push(row);
+    renderInitiativeTable();
+}
+
+function renderInitiativeTable() {
+    const tbody = document.getElementById("initiative-body");
+    tbody.innerHTML = "";
+
+    // Sort by initiative descending (highest first)
+    const sorted = [...initiativeRows].sort((a, b) => b.initiative - a.initiative);
+
+    sorted.forEach(row => {
+        const tr = document.createElement("tr");
+
+        // Initiative
+        const tdInit = document.createElement("td");
+        const initInp = document.createElement("input");
+        initInp.type = "number";
+        initInp.className = "init-input";
+        initInp.value = row.initiative;
+        initInp.addEventListener("change", (e) => {
+            row.initiative = parseInt(e.target.value) || 0;
+            renderInitiativeTable();
+        });
+        tdInit.appendChild(initInp);
+
+        // Name
+        const tdName = document.createElement("td");
+        const nameSpan = document.createElement("span");
+        nameSpan.className = `init-name is-${row.type}`;
+        nameSpan.textContent = row.name;
+        tdName.appendChild(nameSpan);
+
+        // HP
+        const tdHp = document.createElement("td");
+        const hpSpan = document.createElement("span");
+        hpSpan.className = "hp-cell";
+        if (row.currentHp <= 0) hpSpan.classList.add("dead");
+        else if (row.currentHp <= row.maxHp / 2) hpSpan.classList.add("bloodied");
+        hpSpan.textContent = `${row.currentHp}/${row.maxHp}`;
+        hpSpan.addEventListener("click", () => openHpModal(row.id));
+        tdHp.appendChild(hpSpan);
+
+        // AC
+        const tdAc = document.createElement("td");
+        tdAc.textContent = row.ac;
+        tdAc.style.textAlign = "center";
+
+        // Condition
+        const tdCond = document.createElement("td");
+        const condSel = document.createElement("select");
+        condSel.className = "init-condition-select";
+        CONDITIONS.forEach(c => {
+            const opt = document.createElement("option");
+            opt.value = c;
+            opt.textContent = c || "—";
+            if (c === row.condition) opt.selected = true;
+            condSel.appendChild(opt);
+        });
+        condSel.addEventListener("change", (e) => { row.condition = e.target.value; });
+        tdCond.appendChild(condSel);
+
+        // Notes
+        const tdNotes = document.createElement("td");
+        const notesInp = document.createElement("input");
+        notesInp.type = "text";
+        notesInp.className = "init-notes-input";
+        notesInp.value = row.notes;
+        notesInp.placeholder = "...";
+        notesInp.addEventListener("change", (e) => { row.notes = e.target.value; });
+        tdNotes.appendChild(notesInp);
+
+        // Delete
+        const tdDel = document.createElement("td");
+        const delBtn = document.createElement("button");
+        delBtn.className = "init-del-btn";
+        delBtn.textContent = "✕";
+        delBtn.title = "Remove";
+        delBtn.addEventListener("click", () => {
+            initiativeRows = initiativeRows.filter(r => r.id !== row.id);
+            renderInitiativeTable();
+        });
+        tdDel.appendChild(delBtn);
+
+        tr.append(tdInit, tdName, tdHp, tdAc, tdCond, tdNotes, tdDel);
+        tbody.appendChild(tr);
+    });
+}
+
+function clearInitiative() {
+    initiativeRows = [];
+    initIdCounter = 0;
+    renderInitiativeTable();
+}
+
+// ===== HP MODAL =====
+function openHpModal(rowId) {
+    hpEditRowId = rowId;
+    const row = initiativeRows.find(r => r.id === rowId);
+    if (!row) return;
+    document.getElementById("hp-modal-title").textContent = `${row.name} — ${row.currentHp}/${row.maxHp} HP`;
+    document.getElementById("hp-value").value = "";
+    document.getElementById("hp-modal").classList.remove("hidden");
+    document.getElementById("hp-modal-overlay").classList.remove("hidden");
+    setTimeout(() => document.getElementById("hp-value").focus(), 100);
+}
+
+function closeHpModal() {
+    document.getElementById("hp-modal").classList.add("hidden");
+    document.getElementById("hp-modal-overlay").classList.add("hidden");
+    hpEditRowId = null;
+}
+
+function applyHpChange() {
+    const val = parseInt(document.getElementById("hp-value").value);
+    if (isNaN(val)) { closeHpModal(); return; }
+
+    const row = initiativeRows.find(r => r.id === hpEditRowId);
+    if (!row) { closeHpModal(); return; }
+
+    row.currentHp = row.currentHp - val;
+    if (row.currentHp < 0) row.currentHp = 0;
+
+    closeHpModal();
+    renderInitiativeTable();
+}
+
+// Keyboard shortcut: Enter in HP modal
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && hpEditRowId !== null && !document.getElementById("hp-modal").classList.contains("hidden")) {
+        e.preventDefault();
+        applyHpChange();
+    }
+});
+
+// ===== CHARACTER MODAL =====
+function openCharacterModal() {
+    document.getElementById("char-name").value = "";
+    document.getElementById("char-hp").value = "";
+    document.getElementById("char-ac").value = "";
+    document.getElementById("char-error").classList.add("hidden");
+    document.getElementById("char-modal").classList.remove("hidden");
+    document.getElementById("char-modal-overlay").classList.remove("hidden");
+    setTimeout(() => document.getElementById("char-name").focus(), 100);
+}
+
+function closeCharacterModal() {
+    document.getElementById("char-modal").classList.add("hidden");
+    document.getElementById("char-modal-overlay").classList.add("hidden");
+}
+
+async function saveCharacter() {
+    const name = document.getElementById("char-name").value.trim();
+    const hp = parseInt(document.getElementById("char-hp").value);
+    const ac = parseInt(document.getElementById("char-ac").value);
+    const errorEl = document.getElementById("char-error");
+
+    if (!name) {
+        errorEl.textContent = "Name is required.";
+        errorEl.classList.remove("hidden");
+        return;
+    }
+    if (isNaN(hp) || hp < 0) {
+        errorEl.textContent = "HP must be a non-negative number.";
+        errorEl.classList.remove("hidden");
+        return;
+    }
+    if (isNaN(ac) || ac < 0) {
+        errorEl.textContent = "AC must be a non-negative number.";
+        errorEl.classList.remove("hidden");
+        return;
+    }
+
+    const res = await fetch("/api/character", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, hp, ac }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) {
+        errorEl.textContent = data.error || "Failed to create character.";
+        errorEl.classList.remove("hidden");
+        return;
+    }
+
+    closeCharacterModal();
+    // Add directly to initiative
+    addToInitiative(name, hp, ac, "character");
+    // Refresh global index
+    await loadGlobalIndex();
 }

@@ -18,6 +18,7 @@
                 </select>
                 <button id="search-btn" class="btn btn-search">Search</button>
                 <button id="dark-mode-btn" class="dark-mode-toggle" title="Toggle dark mode" onclick="toggleDarkMode()">🌙</button>
+                <button id="initiative-toggle-btn" class="btn btn-initiative" title="Toggle Initiative Tracker" onclick="toggleInitiativePanel()">⚔ Initiative</button>
             </div>
             <div id="search-results" class="search-results hidden"></div>
         </div>
@@ -50,6 +51,41 @@
                 </div>
             </div>
         </section>
+
+        <!-- Initiative Tracker Panel -->
+        <aside class="initiative-panel hidden" id="initiative-panel">
+            <div class="initiative-header">
+                <h2>⚔ Initiative Tracker</h2>
+                <button class="card-btn close-btn" title="Close" onclick="toggleInitiativePanel()">&times;</button>
+            </div>
+            <div class="initiative-controls">
+                <div class="initiative-search-row">
+                    <input type="text" id="init-search" placeholder="Search character or monster..." autocomplete="off">
+                    <button class="btn btn-add-init" onclick="openCharacterModal()">+ New Character</button>
+                </div>
+                <div id="init-search-results" class="init-search-results hidden"></div>
+            </div>
+            <div class="initiative-table-wrap">
+                <table class="initiative-table" id="initiative-table">
+                    <thead>
+                        <tr>
+                            <th class="col-init">Init</th>
+                            <th class="col-name">Name</th>
+                            <th class="col-hp">HP</th>
+                            <th class="col-ac">AC</th>
+                            <th class="col-condition">Condition</th>
+                            <th class="col-notes">Notes</th>
+                            <th class="col-del"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="initiative-body">
+                    </tbody>
+                </table>
+            </div>
+            <div class="initiative-footer">
+                <button class="btn btn-clear-init" onclick="clearInitiative()">Clear All</button>
+            </div>
+        </aside>
     </main>
 
     <!-- Floating cross-reference popup -->
@@ -102,6 +138,49 @@
         </div>
     </div>
     <div id="json-modal-overlay" class="modal-overlay hidden" onclick="closeJsonModal()"></div>
+
+    <!-- Add character modal -->
+    <div id="char-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>New Character</h2>
+                <button class="modal-close" onclick="closeCharacterModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <label for="char-name">Name:</label>
+                <input type="text" id="char-name" placeholder="Character name...">
+                <label for="char-hp">Hit Points:</label>
+                <input type="number" id="char-hp" placeholder="e.g. 45" min="0">
+                <label for="char-ac">Armor Class:</label>
+                <input type="number" id="char-ac" placeholder="e.g. 16" min="0">
+                <div id="char-error" class="error-msg hidden"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-cancel" onclick="closeCharacterModal()">Cancel</button>
+                <button class="btn btn-save" onclick="saveCharacter()">Create Character</button>
+            </div>
+        </div>
+    </div>
+    <div id="char-modal-overlay" class="modal-overlay hidden" onclick="closeCharacterModal()"></div>
+
+    <!-- HP damage modal -->
+    <div id="hp-modal" class="modal hidden">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h2 id="hp-modal-title">Apply Damage / Healing</h2>
+                <button class="modal-close" onclick="closeHpModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <label for="hp-value">Damage (positive) or Healing (negative):</label>
+                <input type="number" id="hp-value" placeholder="e.g. 15">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-cancel" onclick="closeHpModal()">Cancel</button>
+                <button class="btn btn-save" onclick="applyHpChange()">Apply</button>
+            </div>
+        </div>
+    </div>
+    <div id="hp-modal-overlay" class="modal-overlay hidden" onclick="closeHpModal()"></div>
 
     <script src="/static/js/app.js"></script>
 </body>
