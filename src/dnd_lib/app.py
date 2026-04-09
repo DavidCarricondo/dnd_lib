@@ -2,7 +2,6 @@
 """D&D 5e SRD Library - Local offline application."""
 
 import json
-import os
 import re
 from pathlib import Path
 
@@ -71,6 +70,18 @@ CATEGORY_DISPLAY = {
     "weapon-properties": "Weapon Properties",
     "characters": "Characters",
 }
+
+
+def _sanitize_index_name(name):
+    """Normalize user-provided names for item indexes."""
+    safe_index = re.sub(r"[^a-z0-9-]", "-", name.lower().strip())
+    return re.sub(r"-+", "-", safe_index).strip("-")
+
+
+def _is_custom_item(item):
+    """Return True when an item is user-created/customized."""
+    idx = str(item.get("index", ""))
+    return bool(item.get("_custom")) or idx.endswith("_custom")
 
 
 def _load_category(slug):
@@ -232,9 +243,7 @@ def add_custom_item(slug):
         return jsonify({"error": "Valid item JSON object is required"}), 400
 
     # Sanitize name for index
-    safe_index = re.sub(r"[^a-z0-9-]", "-", name.lower().strip())
-    safe_index = re.sub(r"-+", "-", safe_index).strip("-")
-
+    safe_index = _sanitize_index_name(name)
     custom_index = f"{safe_index}_custom"
 
     # Check for duplicates
@@ -253,6 +262,87 @@ def add_custom_item(slug):
 
     _invalidate_index()
     return jsonify({"success": True, "index": custom_index, "item": item_json})
+
+
+@app.route("/api/custom/<slug>/<item_index>", methods=["PUT"])
+def update_custom_item(slug, item_index):
+    """Update an existing custom item in a category."""
+    items = _load_category(slug)
+    if items is None:
+        return jsonify({"error": "Category not found"}), 404
+
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "Invalid JSON"}), 400
+
+    name = data.get("name", "").strip()
+    item_json = data.get("item")
+
+    if not name:
+        return jsonify({"error": "Name is required"}), 400
+    if not item_json or not isinstance(item_json, dict):
+        return jsonify({"error": "Valid item JSON object is required"}), 400
+
+    item_pos = None
+    for i, existing in enumerate(items):
+        if existing.get("index") == item_index:
+            item_pos = i
+            break
+
+    if item_pos is None:
+        return jsonify({"error": "Item not found"}), 404
+    if not _is_custom_item(items[item_pos]):
+        return jsonify({"error": "Only custom items can be edited"}), 403
+
+    safe_index = _sanitize_index_name(name)
+    custom_index = f"{safe_index}_custom"
+
+    # Check for duplicates, excluding the current item.
+    for i, existing in enumerate(items):
+        if i != item_pos and existing.get("index") == custom_index:
+            return jsonify({"error": f"Custom item '{custom_index}' already exists"}), 409
+
+    item_json["index"] = custom_index
+    item_json["name"] = name
+    item_json["_custom"] = True
+
+    items[item_pos] = item_json
+    if not _save_category(slug, items):
+        return jsonify({"error": "Failed to save"}), 500
+
+    _invalidate_index()
+    return jsonify({
+        "success": True,
+        "index": custom_index,
+        "old_index": item_index,
+        "item": item_json,
+    })
+
+
+@app.route("/api/custom/<slug>/<item_index>", methods=["DELETE"])
+def delete_custom_item(slug, item_index):
+    """Delete an existing custom item from a category."""
+    items = _load_category(slug)
+    if items is None:
+        return jsonify({"error": "Category not found"}), 404
+
+    item_pos = None
+    for i, existing in enumerate(items):
+        if existing.get("index") == item_index:
+            item_pos = i
+            break
+
+    if item_pos is None:
+        return jsonify({"error": "Item not found"}), 404
+    if not _is_custom_item(items[item_pos]):
+        return jsonify({"error": "Only custom items can be deleted"}), 403
+
+    items.pop(item_pos)
+    if not _save_category(slug, items):
+        return jsonify({"error": "Failed to save"}), 500
+
+    _invalidate_index()
+    return jsonify({"success": True, "index": item_index})
 
 
 @app.route("/api/character", methods=["POST"])
@@ -280,8 +370,7 @@ def add_character():
     if items is None:
         items = []
 
-    safe_index = re.sub(r"[^a-z0-9-]", "-", name.lower())
-    safe_index = re.sub(r"-+", "-", safe_index).strip("-")
+    safe_index = _sanitize_index_name(name)
     custom_index = f"{safe_index}_custom"
 
     for existing in items:
