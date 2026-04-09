@@ -39,6 +39,7 @@ CATEGORY_MAP = {
     "subraces": "Subraces",
     "traits": "Traits",
     "weapon-properties": "Weapon-Properties",
+    "characters": "Characters",
 }
 
 # Display names for categories
@@ -68,6 +69,7 @@ CATEGORY_DISPLAY = {
     "subraces": "Subraces",
     "traits": "Traits",
     "weapon-properties": "Weapon Properties",
+    "characters": "Characters",
 }
 
 
@@ -251,6 +253,92 @@ def add_custom_item(slug):
 
     _invalidate_index()
     return jsonify({"success": True, "index": custom_index, "item": item_json})
+
+
+@app.route("/api/character", methods=["POST"])
+def add_character():
+    """Add a character with name, HP, and AC (simplified form, no raw JSON)."""
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "Invalid JSON"}), 400
+
+    name = data.get("name", "").strip()
+    hp = data.get("hp")
+    ac = data.get("ac")
+
+    if not name:
+        return jsonify({"error": "Name is required"}), 400
+    if hp is None or not isinstance(hp, (int, float)) or hp < 0:
+        return jsonify({"error": "HP must be a non-negative number"}), 400
+    if ac is None or not isinstance(ac, (int, float)) or ac < 0:
+        return jsonify({"error": "AC must be a non-negative number"}), 400
+
+    hp = int(hp)
+    ac = int(ac)
+
+    items = _load_category("characters")
+    if items is None:
+        items = []
+
+    safe_index = re.sub(r"[^a-z0-9-]", "-", name.lower())
+    safe_index = re.sub(r"-+", "-", safe_index).strip("-")
+    custom_index = f"{safe_index}_custom"
+
+    for existing in items:
+        if existing.get("index") == custom_index:
+            return jsonify({"error": f"Character '{name}' already exists"}), 409
+
+    character = {
+        "index": custom_index,
+        "name": name,
+        "hit_points": hp,
+        "armor_class": ac,
+        "_custom": True,
+    }
+
+    items.append(character)
+    _save_category("characters", items)
+    _invalidate_index()
+    return jsonify({"success": True, "index": custom_index, "item": character})
+
+
+@app.route("/api/initiative-search")
+def initiative_search():
+    """Search characters and monsters for adding to initiative tracker."""
+    query = request.args.get("q", "").strip().lower()
+    if not query:
+        return jsonify([])
+
+    results = []
+    # Search characters
+    chars = _load_category("characters") or []
+    for c in chars:
+        if query in c.get("name", "").lower():
+            results.append({
+                "index": c["index"],
+                "name": c["name"],
+                "type": "character",
+                "hp": c.get("hit_points", 0),
+                "ac": c.get("armor_class", 0),
+            })
+
+    # Search monsters
+    monsters = _load_category("monsters") or []
+    for m in monsters:
+        if query in m.get("name", "").lower() or query in m.get("index", "").lower():
+            ac_val = 0
+            if m.get("armor_class"):
+                ac_val = m["armor_class"][0].get("value", 0) if isinstance(m["armor_class"], list) else m["armor_class"]
+            results.append({
+                "index": m["index"],
+                "name": m["name"],
+                "type": "monster",
+                "hp": m.get("hit_points", 0),
+                "ac": ac_val,
+            })
+
+    results.sort(key=lambda r: r["name"].lower())
+    return jsonify(results[:50])
 
 
 @app.route("/api/global-index")
