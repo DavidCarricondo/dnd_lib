@@ -1,0 +1,2 @@
+# Project dependencies for D&D SRD Library
+Flask>=2.0
