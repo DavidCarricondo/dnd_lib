@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D 5e SRD Library</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-content">
+            <h1 class="app-title">⚔️ D&D 5e SRD Library</h1>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search spells, monsters, items..." autocomplete="off">
+                <select id="search-category-filter">
+                    <option value="">All Categories</option>
+                </select>
+                <button id="search-btn" class="btn btn-search">Search</button>
+                <button id="dark-mode-btn" class="dark-mode-toggle" title="Toggle dark mode" onclick="toggleDarkMode()">🌙</button>
+            </div>
+            <div id="search-results" class="search-results hidden"></div>
+        </div>
+    </header>
+
+    <nav class="category-tabs" id="category-tabs">
+        <!-- Tabs injected by JS -->
+    </nav>
+
+    <main class="main-content">
+        <!-- Category list panel -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2 id="sidebar-title">Select a Category</h2>
+                <button id="add-custom-btn" class="btn btn-add hidden" title="Add custom item">+ Add Custom</button>
+            </div>
+            <div class="sidebar-list" id="sidebar-list">
+                <!-- Items listed here -->
+            </div>
+        </aside>
+
+        <!-- Cards area -->
+        <section class="cards-area" id="cards-area">
+            <div class="cards-placeholder" id="cards-placeholder">
+                <div class="placeholder-content">
+                    <div class="placeholder-icon">📜</div>
+                    <h2>Welcome, Adventurer!</h2>
+                    <p>Search for items or browse categories using the tabs above.</p>
+                    <p>Click on any item to open its detail card.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating cross-reference popup -->
+    <div id="ref-popup" class="ref-popup hidden">
+        <div class="ref-popup-header">
+            <span id="ref-popup-title"></span>
+            <button class="ref-popup-close" onclick="closeRefPopup()">&times;</button>
+        </div>
+        <div id="ref-popup-body" class="ref-popup-body"></div>
+        <button class="btn btn-open-card" onclick="openRefAsCard()">Open as Card</button>
+    </div>
+    <div id="ref-popup-overlay" class="ref-popup-overlay hidden" onclick="closeRefPopup()"></div>
+
+    <!-- Add custom item modal -->
+    <div id="custom-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Custom Item</h2>
+                <button class="modal-close" onclick="closeCustomModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <label for="custom-name">Item Name:</label>
+                <input type="text" id="custom-name" placeholder="Enter item name...">
+                <label for="custom-json">Item JSON:</label>
+                <textarea id="custom-json" rows="15" placeholder='{"desc": ["Description here"], "level": 1, ...}'></textarea>
+                <div id="custom-error" class="error-msg hidden"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-cancel" onclick="closeCustomModal()">Cancel</button>
+                <button class="btn btn-save" onclick="saveCustomItem()">Save Item</button>
+            </div>
+        </div>
+    </div>
+    <div id="custom-modal-overlay" class="modal-overlay hidden" onclick="closeCustomModal()"></div>
+
+    <!-- JSON viewer modal -->
+    <div id="json-modal" class="modal hidden">
+        <div class="modal-content modal-json">
+            <div class="modal-header">
+                <h2 id="json-modal-title">JSON Data</h2>
+                <button class="modal-close" onclick="closeJsonModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <pre id="json-modal-body" class="json-display"></pre>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-cancel" onclick="closeJsonModal()">Close</button>
+                <button class="btn btn-save" onclick="copyJson()">Copy JSON</button>
+            </div>
+        </div>
+    </div>
+    <div id="json-modal-overlay" class="modal-overlay hidden" onclick="closeJsonModal()"></div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
