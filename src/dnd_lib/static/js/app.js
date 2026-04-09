@@ -4,6 +4,7 @@ let globalIndex = {};
 let currentCategory = null;
 let currentRefItem = null; // For the floating popup "Open as Card"
 let openCards = [];
+let customModalState = { mode: "create", slug: null, originalIndex: null };
 
 // ===== INITIALIZATION =====
 document.addEventListener("DOMContentLoaded", async () => {
@@ -200,6 +201,8 @@ function copyJson() {
 
 // ===== CARD RENDERING =====
 function renderCard(item, category, cardId) {
+    const index = item.index || "";
+    const isCustom = Boolean(item._custom) || index.endsWith("_custom");
     let html = `<div class="card-top-bar"></div>`;
     html += `<div class="card-header">`;
     html += `<div>`;
@@ -207,6 +210,12 @@ function renderCard(item, category, cardId) {
     html += renderSubtitle(item, category);
     html += `</div>`;
     html += `<div class="card-actions">`;
+    if (isCustom) {
+        html += `<button class="card-btn" title="Edit custom item" onclick="editCustomItem('${escapeAttr(category)}', '${escapeAttr(index)}')">✎</button>`;
+        html += `<button class="card-btn" title="Delete custom item" onclick="deleteCustomItem('${escapeAttr(category)}', '${escapeAttr(index)}', '${escapeAttr(cardId)}')">🗑</button>`;
+    } else {
+        html += `<button class="card-btn" title="Copy to custom" onclick="copyItemToCustom('${escapeAttr(category)}', '${escapeAttr(index)}')">⧉</button>`;
+    }
     html += `<button class="card-btn" title="Show JSON" onclick="showCardJson('${cardId}')">{ }</button>`;
     html += `<button class="card-btn close-btn" title="Close" onclick="closeCard('${cardId}')">&times;</button>`;
     html += `</div></div>`;
@@ -363,7 +372,7 @@ function renderMonster(m) {
     if (m.damage_resistances && m.damage_resistances.length) h += propLine("Resistances", m.damage_resistances.join(", "));
     if (m.damage_immunities && m.damage_immunities.length) h += propLine("Immunities", m.damage_immunities.join(", "));
     if (m.condition_immunities && m.condition_immunities.length) {
-        h += propLine("Condition Immunities", m.condition_immunities.map(c => refLink(c)).join(", "));
+        h += propLine("Condition Immunities", m.condition_immunities.map(c => conditionRefLink(c)).join(", "));
     }
 
     if (m.senses) {
@@ -379,8 +388,10 @@ function renderMonster(m) {
     // Special Abilities
     if (m.special_abilities && m.special_abilities.length) {
         m.special_abilities.forEach(a => {
-            if (a.spellcasting) {
+            if (a.spellcasting && a.spellcasting.spells && a.spellcasting.spells.length) {
                 h += renderSpellcasting(a);
+            } else if (isTextSpellcastingAbility(a)) {
+                h += renderSpellcastingFromDesc(a);
             } else {
                 h += `<div class="feature-block"><span class="feature-name">${escapeHtml(a.name)}.</span> ${processDesc(a.desc)}</div>`;
             }
@@ -465,6 +476,93 @@ function renderSpellcasting(ability) {
     });
     h += `</div></div>`;
     return h;
+}
+
+function isTextSpellcastingAbility(ability) {
+    if (!ability || !ability.desc) return false;
+    const name = String(ability.name || "").toLowerCase();
+    const desc = String(ability.desc || "");
+    return name.includes("spellcasting") && /(^|\n)\s*[-*]\s+.+?:/im.test(desc);
+}
+
+function renderSpellcastingFromDesc(ability) {
+    const descText = String(ability.desc || "");
+    const lines = descText.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+    const introLines = [];
+    const listLines = [];
+
+    lines.forEach(line => {
+        if (/^[-*]\s+/.test(line)) {
+            listLines.push(line.replace(/^[-*]\s+/, ""));
+        } else {
+            introLines.push(line);
+        }
+    });
+
+    let h = `<div class="feature-block spellcasting-block">`;
+    const introPart = introLines.join(" ");
+    h += `<span class="feature-name">${escapeHtml(ability.name || "Spellcasting")}.</span> ${processDesc(introPart)}`;
+    h += `<div class="spell-list-block">`;
+
+    listLines.forEach(line => {
+        const colonIdx = line.indexOf(":");
+        if (colonIdx === -1) {
+            h += `<div class="spell-level-row">${processDesc(line)}</div>`;
+            return;
+        }
+
+        const label = line.slice(0, colonIdx).trim();
+        const spellPart = line.slice(colonIdx + 1).trim();
+        const spellLinks = spellPart
+            .split(",")
+            .map(token => token.trim())
+            .filter(Boolean)
+            .map(token => renderSpellToken(token))
+            .join(", ");
+
+        h += `<div class="spell-level-row"><span class="spell-level-label">${escapeHtml(label)}:</span> ${spellLinks}</div>`;
+    });
+
+    h += `</div></div>`;
+    return h;
+}
+
+function renderSpellToken(token) {
+    const match = token.match(/^(.+?)\s*\(([^)]+)\)\s*$/);
+    const spellName = match ? match[1].trim() : token;
+    const note = match ? ` (${match[2]})` : "";
+
+    const idx = spellName
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .trim()
+        .replace(/\s+/g, "-");
+
+    if (idx && globalIndex[idx]) {
+        return `<span class="ref-link" onclick="showRefPopup('${escapeAttr(idx)}')">${escapeHtml(spellName)}</span>${escapeHtml(note)}`;
+    }
+    return `${escapeHtml(spellName)}${escapeHtml(note)}`;
+}
+
+function conditionRefLink(condition) {
+    if (!condition) return "";
+    if (typeof condition === "object") return refLink(condition);
+
+    const raw = String(condition).trim();
+    if (!raw) return "";
+
+    const normalized = raw.toLowerCase();
+    const slug = normalized
+        .replace(/[^a-z0-9\s-]/g, "")
+        .trim()
+        .replace(/\s+/g, "-");
+    const candidates = [normalized, slug];
+    const resolvedIndex = candidates.find(idx => idx && globalIndex[idx]);
+
+    if (resolvedIndex) {
+        return `<span class="ref-link" onclick="showRefPopup('${escapeAttr(resolvedIndex)}')">${escapeHtml(raw)}</span>`;
+    }
+    return escapeHtml(raw);
 }
 
 // ---- Equipment ----
@@ -827,21 +925,112 @@ function openCustomModal(slug) {
         openCharacterModal();
         return;
     }
-    document.getElementById("custom-name").value = "";
-    document.getElementById("custom-json").value = "";
+    openCustomModalWithState({
+        mode: "create",
+        slug,
+        name: "",
+        itemJson: {},
+        originalIndex: null,
+    });
+}
+
+function openCustomModalWithState({ mode, slug, name, itemJson, originalIndex }) {
+    customModalState = { mode, slug, originalIndex };
+    document.getElementById("custom-modal").dataset.slug = slug;
+    document.getElementById("custom-name").value = name || "";
+    document.getElementById("custom-json").value = JSON.stringify(itemJson || {}, null, 2);
     document.getElementById("custom-error").classList.add("hidden");
+
+    const titleEl = document.getElementById("custom-modal-title");
+    const saveBtn = document.getElementById("custom-save-btn");
+    if (mode === "edit") {
+        titleEl.textContent = "Edit Custom Item";
+        saveBtn.textContent = "Save Changes";
+    } else if (mode === "copy") {
+        titleEl.textContent = "Copy as Custom Item";
+        saveBtn.textContent = "Save Copy";
+    } else {
+        titleEl.textContent = "Add Custom Item";
+        saveBtn.textContent = "Save Item";
+    }
+
     document.getElementById("custom-modal").classList.remove("hidden");
     document.getElementById("custom-modal-overlay").classList.remove("hidden");
-    document.getElementById("custom-modal").dataset.slug = slug;
+}
+
+function getEditableItemJson(item) {
+    const editable = JSON.parse(JSON.stringify(item || {}));
+    delete editable.index;
+    delete editable.name;
+    delete editable._custom;
+    return editable;
+}
+
+async function copyItemToCustom(slug, index) {
+    const res = await fetch(`/api/item/${slug}/${encodeURIComponent(index)}`);
+    if (!res.ok) return;
+
+    const data = await res.json();
+    const baseName = data.item.name || data.item.full_name || index;
+    openCustomModalWithState({
+        mode: "copy",
+        slug,
+        name: `${baseName} (Copy)`,
+        itemJson: getEditableItemJson(data.item),
+        originalIndex: null,
+    });
+}
+
+async function editCustomItem(slug, index) {
+    let item = null;
+    const card = openCards.find(c => c.category === slug && c.index === index);
+    if (card) {
+        item = card.data;
+    } else {
+        const res = await fetch(`/api/item/${slug}/${encodeURIComponent(index)}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        item = data.item;
+    }
+
+    openCustomModalWithState({
+        mode: "edit",
+        slug,
+        name: item.name || "",
+        itemJson: getEditableItemJson(item),
+        originalIndex: index,
+    });
+}
+
+async function deleteCustomItem(slug, index, cardId) {
+    const ok = window.confirm("Delete this custom item? This cannot be undone.");
+    if (!ok) return;
+
+    const res = await fetch(`/api/custom/${slug}/${encodeURIComponent(index)}`, {
+        method: "DELETE",
+    });
+    const data = await res.json();
+    if (!res.ok) {
+        window.alert(data.error || "Failed to delete custom item.");
+        return;
+    }
+
+    closeCard(cardId);
+    await loadGlobalIndex();
+    if (currentCategory === slug) {
+        const catName = document.querySelector(`.tab-btn[data-slug="${slug}"]`)?.textContent || slug;
+        await selectCategory(slug, catName);
+    }
 }
 
 function closeCustomModal() {
     document.getElementById("custom-modal").classList.add("hidden");
     document.getElementById("custom-modal-overlay").classList.add("hidden");
+    customModalState = { mode: "create", slug: null, originalIndex: null };
 }
 
 async function saveCustomItem() {
-    const slug = document.getElementById("custom-modal").dataset.slug;
+    const slug = customModalState.slug || document.getElementById("custom-modal").dataset.slug;
     const name = document.getElementById("custom-name").value.trim();
     const jsonStr = document.getElementById("custom-json").value.trim();
     const errorEl = document.getElementById("custom-error");
@@ -862,8 +1051,14 @@ async function saveCustomItem() {
         return;
     }
 
-    const res = await fetch(`/api/custom/${slug}`, {
-        method: "POST",
+    const isEdit = customModalState.mode === "edit";
+    const endpoint = isEdit
+        ? `/api/custom/${slug}/${encodeURIComponent(customModalState.originalIndex)}`
+        : `/api/custom/${slug}`;
+    const method = isEdit ? "PUT" : "POST";
+
+    const res = await fetch(endpoint, {
+        method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, item: itemJson }),
     });
@@ -875,11 +1070,16 @@ async function saveCustomItem() {
         return;
     }
 
+    const previousIndex = customModalState.originalIndex;
     closeCustomModal();
+
+    const staleCards = openCards.filter(c => c.category === slug && (c.index === previousIndex || c.index === data.index));
+    staleCards.forEach(c => closeCard(c.id));
+
     // Refresh the global index and category list
     await loadGlobalIndex();
     if (currentCategory === slug) {
-        const catName = document.querySelector(`.tab-btn[data-slug="${slug}"]`).textContent;
+        const catName = document.querySelector(`.tab-btn[data-slug="${slug}"]`)?.textContent || slug;
         await selectCategory(slug, catName);
     }
     // Open the new item
