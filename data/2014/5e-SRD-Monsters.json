@@ -45649,5 +45649,355 @@
     ],
     "image": "/api/images/monsters/zombie.png",
     "url": "/api/2014/monsters/zombie"
+  },
+  {
+    "index": "aliento-amargo_custom",
+    "name": "Aliento Amargo",
+    "size": "Large",
+    "type": "fiend",
+    "subtype": "devil",
+    "alignment": "lawful evil",
+    "armor_class": [
+      {
+        "type": "natural",
+        "value": 18
+      }
+    ],
+    "hit_points": 148,
+    "hit_dice": "17d10",
+    "hit_points_roll": "17d10+51",
+    "speed": {
+      "walk": "20 ft.",
+      "fly": "60 ft."
+    },
+    "strength": 22,
+    "dexterity": 17,
+    "constitution": 21,
+    "intelligence": 12,
+    "wisdom": 16,
+    "charisma": 17,
+    "damage_vulnerabilities": [],
+    "damage_resistances": [
+      "cold"
+    ],
+    "damage_immunities": [
+      "fire",
+      "poison"
+    ],
+    "condition_immunities": [
+      "poisoned"
+    ],
+    "proficiencies": [
+      {
+        "proficiency": {
+          "index": "saving-throw-str",
+          "name": "Saving Throw: STR",
+          "url": "/api/2014/proficiencies/saving-throw-str"
+        },
+        "value": 10
+      },
+      {
+        "proficiency": {
+          "index": "saving-throw-dex",
+          "name": "Saving Throw: DEX",
+          "url": "/api/2014/proficiencies/saving-throw-dex"
+        },
+        "value": 7
+      },
+      {
+        "proficiency": {
+          "index": "saving-throw-wis",
+          "name": "Saving Throw: WIS",
+          "url": "/api/2014/proficiencies/saving-throw-wis"
+        },
+        "value": 7
+      },
+      {
+        "proficiency": {
+          "index": "saving-throw-cha",
+          "name": "Saving Throw: CHA",
+          "url": "/api/2014/proficiencies/saving-throw-cha"
+        },
+        "value": 7
+      },
+      {
+        "proficiency": {
+          "index": "skill-perception",
+          "name": "Skill: Perception",
+          "url": "/api/2014/proficiencies/skill-perception"
+        },
+        "value": 7
+      }
+    ],
+    "senses": {
+      "darkvision": "120 ft.",
+      "passive_perception": 17
+    },
+    "languages": "Infernal, telepathy 120 ft.",
+    "challenge_rating": 11,
+    "xp": 7200,
+    "special_abilities": [
+      {
+        "name": "Devil's Sight",
+        "desc": "Magical darkness doesn't impede Bitter Breath's darkvision."
+      },
+      {
+        "name": "Magic Resistance",
+        "desc": "Bitter Breath has advantage on saving throws against spells and other magical effects."
+      }
+    ],
+    "actions": [
+      {
+        "name": "Multiattack",
+        "desc": "Bitter Breath makes three attacks: two with its fork and one with its tail."
+      },
+      {
+        "name": "Fork",
+        "desc": "Melee Weapon Attack: +10 to hit, reach 10 ft., one target. Hit: 15 (2d8 + 6) piercing damage."
+      },
+      {
+        "name": "Tail",
+        "desc": "Melee Weapon Attack: +10 to hit, reach 10 ft., one target. Hit: 10 (1d8 + 6) piercing damage. If the target is a creature other than an undead or a construct, it must succeed on a DC 17 Constitution saving throw or lose 10 (3d6) hit points at the start of each of its turns due to an infernal wound. Each time Bitter Breath hits the wounded target with this attack, the damage dealt by the wound increases by 10 (3d6). Any creature can take an action to stanch the wound with a successful DC 12 Wisdom (Medicine) check. The wound also closes if the target receives magical healing."
+      },
+      {
+        "name": "Hurl Flame",
+        "desc": "Ranged Spell Attack: +7 to hit, range 150 ft., one target. Hit: 14 (4d6) fire damage. If the target is a flammable object that isn't being worn or carried, it also catches fire."
+      }
+    ],
+    "url": "/api/2014/monsters/bitter-breath",
+    "_custom": true
+  },
+  {
+    "index": "aliento-amargo-1-vs-ranged_custom",
+    "name": "Aliento Amargo 1 vs ranged",
+    "size": "Large",
+    "type": "fiend",
+    "subtype": "devil",
+    "alignment": "lawful evil",
+    "armor_class": [
+      {
+        "type": "natural",
+        "value": 16
+      }
+    ],
+    "hit_points": 120,
+    "hit_dice": "",
+    "hit_points_roll": "solo tuned",
+    "speed": {
+      "walk": "40 ft.",
+      "fly": "40 ft."
+    },
+    "strength": 20,
+    "dexterity": 16,
+    "constitution": 18,
+    "intelligence": 12,
+    "wisdom": 14,
+    "charisma": 16,
+    "damage_vulnerabilities": [],
+    "damage_resistances": [
+      "cold"
+    ],
+    "damage_immunities": [
+      "fire",
+      "poison"
+    ],
+    "condition_immunities": [
+      "poisoned"
+    ],
+    "proficiencies": [
+      {
+        "proficiency": {
+          "index": "saving-throw-dex",
+          "name": "Saving Throw: DEX",
+          "url": "/api/2014/proficiencies/saving-throw-dex"
+        },
+        "value": 7
+      },
+      {
+        "proficiency": {
+          "index": "saving-throw-wis",
+          "name": "Saving Throw: WIS",
+          "url": "/api/2014/proficiencies/saving-throw-wis"
+        },
+        "value": 6
+      },
+      {
+        "proficiency": {
+          "index": "skill-perception",
+          "name": "Skill: Perception",
+          "url": "/api/2014/proficiencies/skill-perception"
+        },
+        "value": 6
+      }
+    ],
+    "senses": {
+      "darkvision": "120 ft.",
+      "passive_perception": 16
+    },
+    "languages": "Infernal, telepathy 120 ft.",
+    "challenge_rating": 9,
+    "xp": 5000,
+    "special_abilities": [
+      {
+        "name": "Relentless Pursuer",
+        "desc": "If Bitter Breath starts its turn more than 20 feet away from a creature that damaged it with a ranged attack since its last turn, it can move up to 20 feet toward that creature as a bonus action."
+      },
+      {
+        "name": "Hellish Momentum",
+        "desc": "If Bitter Breath moves at least 20 feet straight toward a target, its next melee attack deals an extra 7 (2d6) damage."
+      }
+    ],
+    "actions": [
+      {
+        "name": "Multiattack",
+        "desc": "Bitter Breath makes two attacks."
+      },
+      {
+        "name": "Fork",
+        "desc": "Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 13 (2d6 + 6) piercing damage."
+      },
+      {
+        "name": "Tail",
+        "desc": "Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 10 (1d8 + 6) piercing damage."
+      },
+      {
+        "name": "Hurl Flame",
+        "desc": "Ranged Spell Attack: +7 to hit, range 120 ft., one target. Hit: 14 (4d6) fire damage."
+      },
+      {
+        "name": "Ashen Rush (Recharge 5-6)",
+        "desc": "Bitter Breath flies up to its speed in a straight line without provoking opportunity attacks. Each creature it passes within 5 feet of must succeed on a DC 15 Dexterity saving throw or take 10 (3d6) fire damage. If it ends this movement within melee range of a creature, it can make one Fork attack as a bonus action."
+      }
+    ],
+    "reactions": [
+      {
+        "name": "Smothering Smoke (3/Day)",
+        "desc": "When Bitter Breath is hit by a ranged attack, it creates a 10-foot-radius cloud of ash centered on itself until the start of its next turn. The area is lightly obscured."
+      }
+    ],
+    "desc": "A relentless infernal hunter that punishes distance and forces prey into motion.",
+    "url": "/api/2014/monsters/bitter-breath-solo",
+    "_custom": true
+  },
+  {
+    "index": "thalamra-vanthampur-cazadora-de-se-ores-de-la-guerra_custom",
+    "name": "Thalamra Vanthampur: Cazadora de Señores de la Guerra",
+    "size": "Medium",
+    "type": "undead",
+    "subtype": "deathlock mastermind",
+    "alignment": "lawful evil",
+    "armor_class": [
+      {
+        "type": "natural",
+        "value": 13
+      },
+      {
+        "type": "spell",
+        "value": 16,
+        "spell": {
+          "index": "mage-armor",
+          "name": "Mage Armor",
+          "url": "/api/2014/spells/mage-armor"
+        }
+      }
+    ],
+    "hit_points": 155,
+    "hit_dice": "20d8",
+    "hit_points_roll": "20d8+65",
+    "speed": {
+      "walk": "30 ft."
+    },
+    "strength": 10,
+    "dexterity": 16,
+    "constitution": 16,
+    "intelligence": 15,
+    "wisdom": 12,
+    "charisma": 20,
+    "damage_vulnerabilities": [],
+    "damage_resistances": [
+      "necrotic",
+      "bludgeoning, piercing, and slashing from nonmagical attacks"
+    ],
+    "damage_immunities": [
+      "poison"
+    ],
+    "condition_immunities": [],
+    "proficiencies": [
+      {
+        "proficiency": {
+          "index": "saving-throw-con",
+          "name": "Saving Throw: CON",
+          "url": "/api/2014/proficiencies/saving-throw-con"
+        },
+        "value": 7
+      },
+      {
+        "proficiency": {
+          "index": "saving-throw-int",
+          "name": "Saving Throw: INT",
+          "url": "/api/2014/proficiencies/saving-throw-int"
+        },
+        "value": 6
+      },
+      {
+        "proficiency": {
+          "index": "saving-throw-cha",
+          "name": "Saving Throw: CHA",
+          "url": "/api/2014/proficiencies/saving-throw-cha"
+        },
+        "value": 9
+      }
+    ],
+    "senses": {
+      "darkvision": "120 ft.",
+      "passive_perception": 11
+    },
+    "languages": "",
+    "challenge_rating": 10,
+    "xp": 5900,
+    "special_abilities": [
+      {
+        "name": "Magic Resistance",
+        "desc": "Thalamra has advantage on saving throws against spells and other magical effects."
+      },
+      {
+        "name": "The Chained Children",
+        "desc": "Thalamra carries her three sons (Amrik, Thurstwell, and Mortlock) transformed into lemures chained to her belt. As a bonus action, she can sacrifice one to recover a spell slot of 3rd level or lower. (3 uses, one per child)"
+      },
+      {
+        "name": "Demon Grinder Link",
+        "desc": "While aboard her war machine, Thalamra can use her Charisma instead of the vehicle's Dexterity for saving throws."
+      },
+      {
+        "name": "Spellcasting",
+        "desc": "Thalamra is a 10th-level spellcaster. Her spellcasting ability is Charisma (spell save DC 17, +9 to hit with spell attacks). She has the following spells prepared:\n\n- At will: detect magic, disguise self, mage armor\n- 2/day each: fireball (necrotic damage), dispel magic, blight, dimension door\n- 1/day: hold monster"
+      }
+    ],
+    "actions": [
+      {
+        "name": "Multiattack",
+        "desc": "Thalamra makes three Grave Ray attacks."
+      },
+      {
+        "name": "Grave Ray",
+        "desc": "Ranged Spell Attack: +9 to hit, range 120 ft., one target. Hit: 19 (4d6 + 5) necrotic damage."
+      }
+    ],
+    "legendary_actions": [
+      {
+        "name": "Necrotic Ray",
+        "desc": "Thalamra makes one Grave Ray attack."
+      },
+      {
+        "name": "Archduchess's Command (Costs 2 Actions)",
+        "desc": "Thalamra targets one ally (devil or undead) she can see within 60 feet. That ally can use its reaction to make a melee attack."
+      },
+      {
+        "name": "Shadow Step",
+        "desc": "Thalamra teleports up to 30 feet to an unoccupied space she can see."
+      }
+    ],
+    "url": "/api/2014/monsters/thalamra-deathlock-mastermind",
+    "_custom": true
   }
 ]
