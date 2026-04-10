@@ -1363,6 +1363,16 @@ body.dark-mode .init-search-item:hover {
     font-weight: 600;
 }
 
+.init-name.init-name-link {
+    cursor: pointer;
+    text-decoration: underline dotted;
+    text-underline-offset: 2px;
+}
+
+.init-name.init-name-link:hover {
+    opacity: 0.8;
+}
+
 .init-name.is-monster {
     color: var(--accent-gold-light);
 }
