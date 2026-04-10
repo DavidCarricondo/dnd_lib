@@ -1286,7 +1286,7 @@ async function searchInitiativeItems() {
                 <span class="init-type-badge ${r.type}">${r.type}</span>
             `;
             div.addEventListener("click", () => {
-                addToInitiative(r.name, r.hp, r.ac, r.type);
+                addToInitiative(r.name, r.hp, r.ac, r.type, r.index);
                 resultsEl.classList.add("hidden");
                 document.getElementById("init-search").value = "";
             });
@@ -1296,7 +1296,7 @@ async function searchInitiativeItems() {
     resultsEl.classList.remove("hidden");
 }
 
-function addToInitiative(name, hp, ac, type) {
+function addToInitiative(name, hp, ac, type, itemIndex) {
     initIdCounter++;
     const row = {
         id: initIdCounter,
@@ -1308,6 +1308,7 @@ function addToInitiative(name, hp, ac, type) {
         condition: "",
         notes: "",
         type: type,
+        itemIndex: itemIndex || null,
     };
     initiativeRows.push(row);
     renderInitiativeTable();
@@ -1340,6 +1341,12 @@ function renderInitiativeTable() {
         const nameSpan = document.createElement("span");
         nameSpan.className = `init-name is-${row.type}`;
         nameSpan.textContent = row.name;
+        if (row.itemIndex) {
+            const category = row.type === "character" ? "characters" : "monsters";
+            nameSpan.classList.add("init-name-link");
+            nameSpan.title = "Open item card";
+            nameSpan.addEventListener("click", () => openItemCard(category, row.itemIndex));
+        }
         tdName.appendChild(nameSpan);
 
         // HP
@@ -1506,7 +1513,7 @@ async function saveCharacter() {
 
     closeCharacterModal();
     // Add directly to initiative
-    addToInitiative(name, hp, ac, "character");
+    addToInitiative(name, hp, ac, "character", data.index);
     // Refresh global index
     await loadGlobalIndex();
 }

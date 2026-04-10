@@ -1,20 +1,20 @@
 /* ===== D&D 5e SRD Library - Parchment Theme ===== */
 
 :root {
-    --bg-dark: #1a1a2e;
-    --bg-medium: #16213e;
-    --bg-light: #0f3460;
-    --parchment: #f4e4c1;
-    --parchment-dark: #e8d5a3;
-    --parchment-darker: #d4c089;
+    --bg-dark: #e8dcc8;
+    --bg-medium: #f0e8d8;
+    --bg-light: #f5f0e6;
+    --parchment: #fdf9f0;
+    --parchment-dark: #f5eee3;
+    --parchment-darker: #ede4d5;
     --ink: #3b2312;
     --ink-light: #5a3a22;
     --accent-red: #8b1a1a;
     --accent-gold: #c9a84c;
     --accent-gold-light: #e6c76e;
     --border-ornate: #8b6914;
-    --text-light: #e0d6c8;
-    --text-muted: #a89e8c;
+    --text-light: #4a3a2a;
+    --text-muted: #8a7a6a;
     --shadow: rgba(0, 0, 0, 0.4);
     --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     --font-title: 'Cinzel', 'Georgia', serif;
@@ -183,7 +183,7 @@ body {
     overflow-x: auto;
     border-bottom: 2px solid var(--accent-gold);
     scrollbar-width: thin;
-    scrollbar-color: var(--accent-gold) var(--bg-medium);
+    scrollbar-color: #8a7a6a var(--bg-medium);
 }
 
 .category-tabs::-webkit-scrollbar {
@@ -191,14 +191,14 @@ body {
 }
 
 .category-tabs::-webkit-scrollbar-thumb {
-    background: var(--accent-gold);
+    background: #8a7a6a;
     border-radius: 2px;
 }
 
 .tab-btn {
     padding: 10px 16px;
     background: transparent;
-    color: var(--text-muted);
+    color: #5a4a3a;
     border: none;
     border-bottom: 3px solid transparent;
     font-family: var(--font-title);
@@ -212,20 +212,20 @@ body {
 }
 
 .tab-btn:hover {
-    color: var(--accent-gold-light);
-    background: rgba(201, 168, 76, 0.1);
+    color: #8b1a1a;
+    background: rgba(139, 26, 26, 0.08);
 }
 
 .tab-btn.active {
-    color: var(--accent-gold-light);
-    border-bottom-color: var(--accent-gold-light);
-    background: rgba(201, 168, 76, 0.15);
+    color: #8b1a1a;
+    border-bottom-color: #8b1a1a;
+    background: rgba(139, 26, 26, 0.1);
 }
 
 .sidebar-toggle-btn {
     font-size: 1rem;
     padding: 10px 14px;
-    border-right: 1px solid rgba(201, 168, 76, 0.3);
+    border-right: 1px solid rgba(58, 35, 18, 0.2);
     letter-spacing: 0;
     position: sticky;
     left: 0;
@@ -250,8 +250,8 @@ body {
 .sidebar {
     width: var(--sidebar-width);
     min-width: var(--sidebar-width);
-    background: linear-gradient(180deg, var(--bg-medium) 0%, #111a30 100%);
-    border-right: 2px solid var(--accent-gold);
+    background: linear-gradient(180deg, var(--bg-medium) 0%, var(--bg-light) 100%);
+    border-right: 2px solid #8a7a6a;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -271,7 +271,7 @@ body {
 
 .sidebar-header {
     padding: 12px 16px;
-    border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+    border-bottom: 1px solid rgba(58, 35, 18, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -281,7 +281,7 @@ body {
 .sidebar-header h2 {
     font-family: var(--font-title);
     font-size: 0.95rem;
-    color: var(--accent-gold-light);
+    color: #5a3a22;
     letter-spacing: 1px;
 }
 
@@ -305,7 +305,7 @@ body {
     flex: 1;
     overflow-y: auto;
     scrollbar-width: thin;
-    scrollbar-color: var(--accent-gold) var(--bg-medium);
+    scrollbar-color: #8a7a6a var(--bg-medium);
 }
 
 .sidebar-list::-webkit-scrollbar {
@@ -313,25 +313,26 @@ body {
 }
 
 .sidebar-list::-webkit-scrollbar-thumb {
-    background: var(--accent-gold);
+    background: #8a7a6a;
     border-radius: 3px;
 }
 
 .sidebar-item {
     padding: 10px 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(58, 35, 18, 0.1);
     cursor: pointer;
     transition: all 0.15s ease;
     font-size: 0.95rem;
+    color: #3b2312;
 }
 
 .sidebar-item:hover {
-    background: rgba(201, 168, 76, 0.15);
-    color: var(--accent-gold-light);
+    background: rgba(139, 26, 26, 0.08);
+    color: #8b1a1a;
 }
 
 .sidebar-item.custom-item {
-    border-left: 3px solid var(--accent-gold);
+    border-left: 3px solid #8b1a1a;
 }
 
 .sidebar-item .custom-badge {
@@ -1095,7 +1096,7 @@ body.dark-mode .rarity-artifact { color: #e05050; }
 .initiative-panel {
     width: 480px;
     min-width: 380px;
-    background: linear-gradient(180deg, var(--bg-medium) 0%, #111a30 100%);
+    background: linear-gradient(180deg, var(--bg-medium) 0%, var(--bg-light) 100%);
     border-left: 2px solid var(--accent-gold);
     display: flex;
     flex-direction: row;
@@ -1361,6 +1362,16 @@ body.dark-mode .init-search-item:hover {
 /* Name cell */
 .init-name {
     font-weight: 600;
+}
+
+.init-name.init-name-link {
+    cursor: pointer;
+    text-decoration: underline dotted;
+    text-underline-offset: 2px;
+}
+
+.init-name.init-name-link:hover {
+    opacity: 0.8;
 }
 
 .init-name.is-monster {

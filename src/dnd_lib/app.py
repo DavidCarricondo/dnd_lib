@@ -158,9 +158,17 @@ def get_category_items(slug):
     # Return lightweight list (index + name only)
     result = []
     for item in items:
+        # Special handling for levels: use "ClassName - Level X"
+        if slug == "levels":
+            class_name = item.get("class", {}).get("name", "Unknown")
+            level = item.get("level", "?")
+            display_name = f"{class_name} - Level {level}"
+        else:
+            display_name = item.get("name", item.get("full_name", "Unknown"))
+        
         result.append({
             "index": item.get("index", ""),
-            "name": item.get("name", item.get("full_name", "Unknown")),
+            "name": display_name,
             "category": slug,
         })
     return jsonify(result)
