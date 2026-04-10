@@ -10,6 +10,7 @@ from flask import Flask, jsonify, request, send_from_directory
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "2014"
+CUSTOM_ITEMS_FILE = Path(__file__).resolve().parent.parent.parent / "data" / "custom_items.json"
 
 # Category mapping: URL slug -> filename (without 5e-SRD- prefix and .json suffix)
 CATEGORY_MAP = {
@@ -84,16 +85,70 @@ def _is_custom_item(item):
     return bool(item.get("_custom")) or idx.endswith("_custom")
 
 
+def _load_custom_items():
+    """Load the custom items store. Returns dict keyed by category slug."""
+    if CUSTOM_ITEMS_FILE.exists():
+        with open(CUSTOM_ITEMS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+
+def _save_custom_items(custom_data):
+    """Persist the custom items store to the gitignored custom_items.json file."""
+    CUSTOM_ITEMS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(CUSTOM_ITEMS_FILE, "w", encoding="utf-8") as f:
+        json.dump(custom_data, f, indent=2, ensure_ascii=False)
+
+
+def _migrate_legacy_customs():
+    """One-time silent migration: move _custom items from SRD files into
+    custom_items.json.  Safe to call on every startup — no-ops when there is
+    nothing to migrate."""
+    custom_data = _load_custom_items()
+    migrated = False
+    for slug, filename in CATEGORY_MAP.items():
+        filepath = DATA_DIR / f"5e-SRD-{filename}.json"
+        if not filepath.exists():
+            continue
+        with open(filepath, "r", encoding="utf-8") as f:
+            items = json.load(f)
+        found = [i for i in items if _is_custom_item(i)]
+        if not found:
+            continue
+        # Merge into custom store (skip duplicates)
+        existing_indices = {i.get("index") for i in custom_data.get(slug, [])}
+        new_items = [i for i in found if i.get("index") not in existing_indices]
+        if new_items:
+            custom_data.setdefault(slug, []).extend(new_items)
+            migrated = True
+        # Rewrite SRD file without the custom entries
+        clean = [i for i in items if not _is_custom_item(i)]
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(clean, f, indent=2, ensure_ascii=False)
+    if migrated:
+        _save_custom_items(custom_data)
+
+
+# Run once at import time so any legacy custom items are transparently moved.
+_migrate_legacy_customs()
+
+
 def _load_category(slug):
-    """Load all items from a category JSON file."""
+    """Load all items from a category JSON file, merged with custom items."""
     filename = CATEGORY_MAP.get(slug)
     if not filename:
         return None
+    # Load SRD items, stripping any legacy _custom entries saved there previously
     filepath = DATA_DIR / f"5e-SRD-{filename}.json"
-    if not filepath.exists():
-        return None
-    with open(filepath, "r", encoding="utf-8") as f:
-        return json.load(f)
+    srd_items = []
+    if filepath.exists():
+        with open(filepath, "r", encoding="utf-8") as f:
+            raw = json.load(f)
+        srd_items = [item for item in raw if not _is_custom_item(item)]
+    # Append custom items from the gitignored custom store
+    custom_data = _load_custom_items()
+    custom_items = custom_data.get(slug, [])
+    return srd_items + custom_items
 
 
 def _save_category(slug, data):
@@ -234,8 +289,7 @@ def search_items():
 @app.route("/api/custom/<slug>", methods=["POST"])
 def add_custom_item(slug):
     """Add a custom item to a category."""
-    items = _load_category(slug)
-    if items is None:
+    if slug not in CATEGORY_MAP:
         return jsonify({"error": "Category not found"}), 404
 
     data = request.get_json()
@@ -250,23 +304,24 @@ def add_custom_item(slug):
     if not item_json or not isinstance(item_json, dict):
         return jsonify({"error": "Valid item JSON object is required"}), 400
 
-    # Sanitize name for index
     safe_index = _sanitize_index_name(name)
     custom_index = f"{safe_index}_custom"
 
+    custom_data = _load_custom_items()
+    slug_customs = custom_data.get(slug, [])
+
     # Check for duplicates
-    for existing in items:
+    for existing in slug_customs:
         if existing.get("index") == custom_index:
             return jsonify({"error": f"Custom item '{custom_index}' already exists"}), 409
 
-    # Set the index and name
     item_json["index"] = custom_index
     item_json["name"] = name
     item_json["_custom"] = True
 
-    items.append(item_json)
-    if not _save_category(slug, items):
-        return jsonify({"error": "Failed to save"}), 500
+    slug_customs.append(item_json)
+    custom_data[slug] = slug_customs
+    _save_custom_items(custom_data)
 
     _invalidate_index()
     return jsonify({"success": True, "index": custom_index, "item": item_json})
@@ -275,8 +330,7 @@ def add_custom_item(slug):
 @app.route("/api/custom/<slug>/<item_index>", methods=["PUT"])
 def update_custom_item(slug, item_index):
     """Update an existing custom item in a category."""
-    items = _load_category(slug)
-    if items is None:
+    if slug not in CATEGORY_MAP:
         return jsonify({"error": "Category not found"}), 404
 
     data = request.get_json()
@@ -291,22 +345,23 @@ def update_custom_item(slug, item_index):
     if not item_json or not isinstance(item_json, dict):
         return jsonify({"error": "Valid item JSON object is required"}), 400
 
+    custom_data = _load_custom_items()
+    slug_customs = custom_data.get(slug, [])
+
     item_pos = None
-    for i, existing in enumerate(items):
+    for i, existing in enumerate(slug_customs):
         if existing.get("index") == item_index:
             item_pos = i
             break
 
     if item_pos is None:
         return jsonify({"error": "Item not found"}), 404
-    if not _is_custom_item(items[item_pos]):
-        return jsonify({"error": "Only custom items can be edited"}), 403
 
     safe_index = _sanitize_index_name(name)
     custom_index = f"{safe_index}_custom"
 
     # Check for duplicates, excluding the current item.
-    for i, existing in enumerate(items):
+    for i, existing in enumerate(slug_customs):
         if i != item_pos and existing.get("index") == custom_index:
             return jsonify({"error": f"Custom item '{custom_index}' already exists"}), 409
 
@@ -314,9 +369,9 @@ def update_custom_item(slug, item_index):
     item_json["name"] = name
     item_json["_custom"] = True
 
-    items[item_pos] = item_json
-    if not _save_category(slug, items):
-        return jsonify({"error": "Failed to save"}), 500
+    slug_customs[item_pos] = item_json
+    custom_data[slug] = slug_customs
+    _save_custom_items(custom_data)
 
     _invalidate_index()
     return jsonify({
@@ -330,24 +385,24 @@ def update_custom_item(slug, item_index):
 @app.route("/api/custom/<slug>/<item_index>", methods=["DELETE"])
 def delete_custom_item(slug, item_index):
     """Delete an existing custom item from a category."""
-    items = _load_category(slug)
-    if items is None:
+    if slug not in CATEGORY_MAP:
         return jsonify({"error": "Category not found"}), 404
 
+    custom_data = _load_custom_items()
+    slug_customs = custom_data.get(slug, [])
+
     item_pos = None
-    for i, existing in enumerate(items):
+    for i, existing in enumerate(slug_customs):
         if existing.get("index") == item_index:
             item_pos = i
             break
 
     if item_pos is None:
         return jsonify({"error": "Item not found"}), 404
-    if not _is_custom_item(items[item_pos]):
-        return jsonify({"error": "Only custom items can be deleted"}), 403
 
-    items.pop(item_pos)
-    if not _save_category(slug, items):
-        return jsonify({"error": "Failed to save"}), 500
+    slug_customs.pop(item_pos)
+    custom_data[slug] = slug_customs
+    _save_custom_items(custom_data)
 
     _invalidate_index()
     return jsonify({"success": True, "index": item_index})
@@ -374,14 +429,13 @@ def add_character():
     hp = int(hp)
     ac = int(ac)
 
-    items = _load_category("characters")
-    if items is None:
-        items = []
+    custom_data = _load_custom_items()
+    chars = custom_data.get("characters", [])
 
     safe_index = _sanitize_index_name(name)
     custom_index = f"{safe_index}_custom"
 
-    for existing in items:
+    for existing in chars:
         if existing.get("index") == custom_index:
             return jsonify({"error": f"Character '{name}' already exists"}), 409
 
@@ -393,8 +447,9 @@ def add_character():
         "_custom": True,
     }
 
-    items.append(character)
-    _save_category("characters", items)
+    chars.append(character)
+    custom_data["characters"] = chars
+    _save_custom_items(custom_data)
     _invalidate_index()
     return jsonify({"success": True, "index": custom_index, "item": character})
 
