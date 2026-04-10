@@ -1,0 +1,20 @@
+# Local custom items — intentionally not tracked by git
+data/custom_items.json
+
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Editor / OS
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/

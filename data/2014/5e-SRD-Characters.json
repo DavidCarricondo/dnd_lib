@@ -1,9 +1,1 @@
-[
-  {
-    "index": "test-character_custom",
-    "name": "Test Character",
-    "hit_points": 54,
-    "armor_class": 18,
-    "_custom": true
-  }
-]
+[]
