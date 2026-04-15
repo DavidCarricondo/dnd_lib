@@ -204,12 +204,106 @@ def get_categories():
     return jsonify(cats)
 
 
+@app.route("/api/category/<slug>/filters")
+def get_category_filters(slug):
+    """Return available filter options for a category."""
+    items = _load_category(slug)
+    if items is None:
+        return jsonify({"error": "Category not found"}), 404
+
+    filters = {}
+
+    if slug == "spells":
+        levels = sorted({item.get("level", 0) for item in items})
+        filters["level"] = [
+            {"value": lv, "label": "Cantrip" if lv == 0 else f"Level {lv}"}
+            for lv in levels
+        ]
+        classes = set()
+        for item in items:
+            for cls in item.get("classes", []):
+                classes.add(cls.get("name", ""))
+        filters["class"] = [
+            {"value": c, "label": c} for c in sorted(classes) if c
+        ]
+
+    elif slug == "monsters":
+        crs = sorted({item.get("challenge_rating", 0) for item in items})
+        filters["challenge_rating"] = [
+            {"value": cr, "label": str(cr)} for cr in crs
+        ]
+        types = sorted({item.get("type", "").capitalize() for item in items if item.get("type")})
+        filters["type"] = [
+            {"value": t, "label": t} for t in types if t
+        ]
+        sizes = sorted({item.get("size", "") for item in items if item.get("size")})
+        filters["size"] = [
+            {"value": s, "label": s} for s in sizes if s
+        ]
+
+    return jsonify(filters)
+
+
 @app.route("/api/category/<slug>")
 def get_category_items(slug):
     """Return all items in a category."""
     items = _load_category(slug)
     if items is None:
         return jsonify({"error": "Category not found"}), 404
+
+    # Apply filters based on query parameters
+    if slug == "spells":
+        level_filter = request.args.get("level")
+        level_cmp = request.args.get("level_cmp", "eq")
+        class_filter = request.args.get("class")
+        if level_filter is not None and level_filter != "":
+            try:
+                level_val = int(level_filter)
+                if level_cmp == "gt":
+                    items = [i for i in items if i.get("level", 0) > level_val]
+                elif level_cmp == "lt":
+                    items = [i for i in items if i.get("level", 0) < level_val]
+                else:
+                    items = [i for i in items if i.get("level") == level_val]
+            except ValueError:
+                pass
+        if class_filter:
+            items = [
+                i for i in items
+                if any(c.get("name", "").lower() == class_filter.lower() for c in i.get("classes", []))
+            ]
+    elif slug == "monsters":
+        cr_filter = request.args.get("challenge_rating")
+        cr_cmp = request.args.get("cr_cmp", "eq")
+        type_filter = request.args.get("type")
+        size_filter = request.args.get("size")
+        size_cmp = request.args.get("size_cmp", "eq")
+        size_order = ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"]
+        if cr_filter is not None and cr_filter != "":
+            try:
+                cr_val = float(cr_filter)
+                if cr_cmp == "gt":
+                    items = [i for i in items if i.get("challenge_rating", 0) > cr_val]
+                elif cr_cmp == "lt":
+                    items = [i for i in items if i.get("challenge_rating", 0) < cr_val]
+                else:
+                    items = [i for i in items if i.get("challenge_rating") == cr_val]
+            except ValueError:
+                pass
+        if type_filter:
+            items = [i for i in items if i.get("type", "").lower() == type_filter.lower()]
+        if size_filter:
+            try:
+                sf_idx = size_order.index(size_filter)
+            except ValueError:
+                sf_idx = -1
+            if sf_idx >= 0 and size_cmp == "gt":
+                items = [i for i in items if i.get("size", "") in size_order[sf_idx + 1:]]
+            elif sf_idx >= 0 and size_cmp == "lt":
+                items = [i for i in items if i.get("size", "") in size_order[:sf_idx]]
+            else:
+                items = [i for i in items if i.get("size", "").lower() == size_filter.lower()]
+
     # Return lightweight list (index + name only)
     result = []
     for item in items:

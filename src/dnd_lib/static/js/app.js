@@ -134,6 +134,12 @@ async function selectCategory(slug, name) {
     const res = await fetch(`/api/category/${slug}`);
     const items = await res.json();
 
+    renderSidebarItems(items, slug);
+    await loadFilters(slug);
+}
+
+function renderSidebarItems(items, slug) {
+    const listEl = document.getElementById("sidebar-list");
     listEl.innerHTML = "";
     items.forEach(item => {
         const div = document.createElement("div");
@@ -1516,4 +1522,136 @@ async function saveCharacter() {
     addToInitiative(name, hp, ac, "character", data.index);
     // Refresh global index
     await loadGlobalIndex();
+}
+
+// ===== FILTER SYSTEM =====
+let _currentFilters = {};
+let _currentFilterMeta = null;
+
+async function loadFilters(slug) {
+    const bar = document.getElementById('filter-bar');
+    bar.innerHTML = '';
+    bar.classList.remove('active');
+    _currentFilters = {};
+    _currentFilterMeta = null;
+
+    if (slug !== 'spells' && slug !== 'monsters') return;
+
+    try {
+        const resp = await fetch(`/api/category/${slug}/filters`);
+        if (!resp.ok) return;
+        const meta = await resp.json();
+        if (!meta || Object.keys(meta).length === 0) return;
+        _currentFilterMeta = meta;
+        renderFilterBar(slug, meta);
+    } catch (e) {
+        console.error('Failed to load filters', e);
+    }
+}
+
+function renderFilterBar(slug, meta) {
+    const bar = document.getElementById('filter-bar');
+    bar.innerHTML = '';
+
+    const filterLabels = {
+        level: 'Spell Level',
+        'class': 'Class',
+        challenge_rating: 'Challenge Rating',
+        type: 'Type',
+        size: 'Size',
+    };
+
+    // Keys that support comparison operators
+    const comparableKeys = { level: 'level_cmp', challenge_rating: 'cr_cmp', size: 'size_cmp' };
+
+    for (const [key, options] of Object.entries(meta)) {
+        const row = document.createElement('div');
+        row.className = 'filter-row';
+
+        const label = document.createElement('label');
+        label.textContent = filterLabels[key] || key;
+        label.setAttribute('for', `filter-${key}`);
+        row.appendChild(label);
+
+        const isComparable = key in comparableKeys;
+
+        const select = document.createElement('select');
+        select.id = `filter-${key}`;
+        select.dataset.filterKey = key;
+
+        const defaultOpt = document.createElement('option');
+        defaultOpt.value = '';
+        defaultOpt.textContent = 'All';
+        select.appendChild(defaultOpt);
+
+        for (const opt of options) {
+            const o = document.createElement('option');
+            o.value = opt.value;
+            o.textContent = opt.label;
+            select.appendChild(o);
+        }
+
+        select.addEventListener('change', () => {
+            _currentFilters[key] = select.value;
+            applyFilters(slug);
+        });
+
+        if (isComparable) {
+            const cmpKey = comparableKeys[key];
+            const wrapper = document.createElement('div');
+            wrapper.className = 'filter-selects';
+
+            const cmpSelect = document.createElement('select');
+            cmpSelect.id = `filter-${cmpKey}`;
+            cmpSelect.className = 'filter-cmp';
+            cmpSelect.dataset.filterKey = cmpKey;
+            [{v:'eq',l:'='},{v:'lt',l:'<'},{v:'gt',l:'>'}].forEach(op => {
+                const o = document.createElement('option');
+                o.value = op.v;
+                o.textContent = op.l;
+                cmpSelect.appendChild(o);
+            });
+            cmpSelect.addEventListener('change', () => {
+                _currentFilters[cmpKey] = cmpSelect.value;
+                applyFilters(slug);
+            });
+
+            select.className = 'filter-value';
+            wrapper.appendChild(cmpSelect);
+            wrapper.appendChild(select);
+            row.appendChild(wrapper);
+        } else {
+            row.appendChild(select);
+        }
+
+        bar.appendChild(row);
+    }
+
+    const resetBtn = document.createElement('button');
+    resetBtn.className = 'filter-reset';
+    resetBtn.textContent = 'Reset filters';
+    resetBtn.addEventListener('click', () => {
+        _currentFilters = {};
+        bar.querySelectorAll('select').forEach(s => s.value = '');
+        applyFilters(slug);
+    });
+    bar.appendChild(resetBtn);
+
+    bar.classList.add('active');
+}
+
+async function applyFilters(slug) {
+    const params = new URLSearchParams();
+    for (const [k, v] of Object.entries(_currentFilters)) {
+        if (v !== '' && v !== undefined) params.set(k, v);
+    }
+    const url = `/api/category/${slug}?${params.toString()}`;
+    try {
+        const resp = await fetch(url);
+        if (!resp.ok) return;
+        const items = await resp.json();
+        renderSidebarItems(items, slug);
+    } catch (e) {
+        console.error('Filter apply failed', e);
+    }
 }

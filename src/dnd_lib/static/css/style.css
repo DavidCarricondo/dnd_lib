@@ -301,6 +301,86 @@ body {
     display: none;
 }
 
+/* ===== FILTER BAR ===== */
+.filter-bar {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 16px 10px;
+    border-bottom: 1px solid rgba(58, 35, 18, 0.2);
+    background: var(--parchment-dark);
+}
+
+.filter-bar.active {
+    display: flex;
+}
+
+.filter-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.filter-row label {
+    font-family: var(--font-title);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.filter-selects {
+    display: flex;
+    gap: 4px;
+}
+
+.filter-selects select.filter-cmp {
+    width: 58px;
+    min-width: 58px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.filter-selects select.filter-value {
+    flex: 1;
+    min-width: 0;
+}
+
+.filter-row select {
+    width: 100%;
+    padding: 5px 8px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    background: var(--parchment);
+    color: var(--ink);
+    border: 1px solid var(--parchment-darker);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filter-row select:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 4px rgba(201, 168, 76, 0.3);
+}
+
+.filter-reset {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: var(--accent-red);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    padding: 2px 0;
+    text-decoration: underline;
+}
+
+.filter-reset:hover {
+    color: var(--accent-gold);
+}
+
 .sidebar-list {
     flex: 1;
     overflow-y: auto;
@@ -996,6 +1076,21 @@ body.dark-mode {
 
 body.dark-mode .sidebar {
     background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+}
+
+body.dark-mode .filter-bar {
+    background: #111;
+    border-bottom-color: #333;
+}
+
+body.dark-mode .filter-row select {
+    background: #222;
+    color: #ddd;
+    border-color: #444;
+}
+
+body.dark-mode .filter-row select:focus {
+    border-color: var(--accent-gold);
 }
 
 body.dark-mode .item-card {
