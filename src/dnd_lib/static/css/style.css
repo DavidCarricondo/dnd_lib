@@ -305,14 +305,52 @@ body {
 .filter-bar {
     display: none;
     flex-direction: column;
-    gap: 6px;
-    padding: 8px 16px 10px;
     border-bottom: 1px solid rgba(58, 35, 18, 0.2);
     background: var(--parchment-dark);
 }
 
 .filter-bar.active {
     display: flex;
+}
+
+.filter-bar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 16px;
+    cursor: pointer;
+    user-select: none;
+    font-family: var(--font-title);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-bar-toggle:hover {
+    color: var(--accent-gold);
+}
+
+.filter-bar-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.filter-bar.collapsed .filter-bar-arrow {
+    transform: rotate(-90deg);
+}
+
+.filter-bar-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0 16px 10px;
+}
+
+.filter-bar.collapsed .filter-bar-body {
+    display: none;
 }
 
 .filter-row {
@@ -814,6 +852,13 @@ body {
     display: none;
 }
 
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+}
+
 .modal-header {
     padding: 14px 20px;
     background: var(--bg-light);
@@ -916,6 +961,155 @@ body {
 
 .error-msg.hidden {
     display: none;
+}
+
+/* ===== CUSTOM FORM TOGGLE & FIELDS ===== */
+.custom-mode-toggle {
+    display: flex;
+    gap: 0;
+    margin: 14px 0 10px;
+    border: 2px solid var(--border-ornate);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.btn-mode {
+    flex: 1;
+    padding: 7px 16px;
+    border: none;
+    background: var(--parchment-dark);
+    color: var(--ink);
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    letter-spacing: 1px;
+}
+
+.btn-mode:hover {
+    background: var(--parchment-darker);
+}
+
+.btn-mode.active {
+    background: var(--accent-red);
+    color: var(--parchment);
+}
+
+#custom-form-fields {
+    margin-top: 4px;
+}
+
+#custom-form-fields.hidden,
+#custom-json-fields.hidden {
+    display: none;
+}
+
+.form-field {
+    margin-bottom: 6px;
+}
+
+.form-field label {
+    display: block;
+    font-weight: 700;
+    margin: 8px 0 3px;
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+}
+
+.form-field input[type="text"],
+.form-field input[type="number"],
+.form-field textarea,
+.form-field select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 2px solid var(--parchment-darker);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    background: #fff;
+    color: var(--ink);
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+}
+
+.form-checkbox-label {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    margin: 8px 0 3px;
+    cursor: pointer;
+}
+
+.form-checkbox-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent-red);
+}
+
+.form-inline-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 2px;
+}
+
+.form-field-inline {
+    flex: 1;
+    min-width: 70px;
+    margin-bottom: 2px;
+}
+
+.form-field-inline label {
+    margin: 4px 0 2px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.form-field-inline input {
+    text-align: center;
+}
+
+.form-no-fields {
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 12px 0;
+}
+
+/* Dark mode overrides for form fields */
+body.dark-mode .form-field input[type="text"],
+body.dark-mode .form-field input[type="number"],
+body.dark-mode .form-field textarea,
+body.dark-mode .form-field select {
+    background: #333;
+    color: #ddd;
+    border-color: #444;
+}
+
+body.dark-mode .btn-mode {
+    background: #222;
+    color: #999;
+}
+
+body.dark-mode .btn-mode.active {
+    background: var(--accent-red);
+    color: var(--parchment);
+}
+
+body.dark-mode .btn-mode:hover:not(.active) {
+    background: #333;
 }
 
 /* JSON display */
@@ -1072,16 +1266,28 @@ body.dark-mode {
     --ink: #ddd;
     --ink-light: #aaa;
     --accent-red: #c44040;
+    --text-light: #d4c8b8;
+    --text-muted: #9a8a7a;
 }
 
 body.dark-mode .sidebar {
     background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
 }
 
-body.dark-mode .filter-bar {
-    background: #111;
-    border-bottom-color: #333;
+body.dark-mode .sidebar-header h2 {
+    color: #d4c8b8;
 }
+
+body.dark-mode .sidebar-item {
+    color: #d4c8b8;
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+body.dark-mode .sidebar-item:hover {
+    color: var(--accent-gold-light);
+}
+
+body.dark-mode .filter-bar {\n    background: #111;\n    border-bottom-color: #333;\n}\n\nbody.dark-mode .filter-bar-toggle {\n    color: #9a8a7a;\n}\n\nbody.dark-mode .filter-bar-toggle:hover {\n    color: var(--accent-gold);\n}
 
 body.dark-mode .filter-row select {
     background: #222;
