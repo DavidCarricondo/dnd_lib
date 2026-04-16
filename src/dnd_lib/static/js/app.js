@@ -924,13 +924,162 @@ function openRefAsCard() {
     closeRefPopup();
 }
 
+// ===== CATEGORY FORM SCHEMAS =====
+const CATEGORY_SCHEMAS = {
+    "ability-scores": [
+        { key: "full_name", label: "Full Name", type: "text", placeholder: "e.g. Strength" },
+        { key: "desc", label: "Description", type: "textarea", placeholder: "Description of this ability score..." },
+    ],
+    "alignments": [
+        { key: "abbreviation", label: "Abbreviation", type: "text", placeholder: "e.g. CG" },
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+    "backgrounds": [
+        { key: "feature_name", label: "Feature Name", type: "text", placeholder: "e.g. Shelter of the Faithful" },
+        { key: "feature_desc", label: "Feature Description", type: "textarea" },
+    ],
+    "characters": [
+        { key: "hit_points", label: "Hit Points", type: "number", min: 0, placeholder: "e.g. 45" },
+        { key: "armor_class", label: "Armor Class", type: "number", min: 0, placeholder: "e.g. 16" },
+    ],
+    "classes": [
+        { key: "hit_die", label: "Hit Die", type: "number", min: 4, max: 12, placeholder: "e.g. 8" },
+    ],
+    "conditions": [
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+    "damage-types": [
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+    "equipment-categories": [],
+    "equipment": [
+        { key: "equipment_category_name", label: "Category", type: "select", options: ["Weapon", "Armor", "Adventuring Gear", "Tools", "Mounts and Vehicles"] },
+        { key: "weapon_category", label: "Weapon Category", type: "select", options: ["", "Simple", "Martial"] },
+        { key: "armor_category", label: "Armor Category", type: "select", options: ["", "Light", "Medium", "Heavy", "Shield"] },
+        { key: "cost_quantity", label: "Cost Amount", type: "number", min: 0 },
+        { key: "cost_unit", label: "Cost Unit", type: "select", options: ["gp", "sp", "cp", "ep", "pp"] },
+        { key: "weight", label: "Weight (lb.)", type: "number", min: 0, step: "0.01" },
+        { key: "damage_dice", label: "Damage Dice", type: "text", placeholder: "e.g. 1d8" },
+        { key: "damage_type_name", label: "Damage Type", type: "text", placeholder: "e.g. Slashing" },
+        { key: "ac_base", label: "AC Base", type: "number" },
+        { key: "ac_dex_bonus", label: "AC Dex Bonus", type: "checkbox" },
+        { key: "str_minimum", label: "Str Minimum", type: "number" },
+        { key: "stealth_disadvantage", label: "Stealth Disadvantage", type: "checkbox" },
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+    "feats": [
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+    "features": [
+        { key: "class_name", label: "Class", type: "text", placeholder: "e.g. Fighter" },
+        { key: "subclass_name", label: "Subclass", type: "text", placeholder: "e.g. Champion" },
+        { key: "level", label: "Level", type: "number", min: 1, max: 20 },
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+    "languages": [
+        { key: "type", label: "Type", type: "select", options: ["Standard", "Exotic"] },
+        { key: "typical_speakers_text", label: "Typical Speakers", type: "text", placeholder: "Comma-separated, e.g. Humans, Halflings" },
+        { key: "script", label: "Script", type: "text", placeholder: "e.g. Common" },
+    ],
+    "levels": [
+        { key: "level", label: "Level", type: "number", min: 1, max: 20 },
+        { key: "ability_score_bonuses", label: "Ability Score Bonuses", type: "number", min: 0 },
+        { key: "prof_bonus", label: "Proficiency Bonus", type: "number", min: 2 },
+        { key: "class_name", label: "Class", type: "text", placeholder: "e.g. Fighter" },
+    ],
+    "magic-items": [
+        { key: "rarity_name", label: "Rarity", type: "select", options: ["Common", "Uncommon", "Rare", "Very Rare", "Legendary", "Artifact"] },
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+    "magic-schools": [
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+    "monsters": [
+        { key: "size", label: "Size", type: "select", options: ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"] },
+        { key: "type", label: "Type", type: "text", placeholder: "e.g. dragon, undead, fiend" },
+        { key: "alignment", label: "Alignment", type: "text", placeholder: "e.g. chaotic evil" },
+        { key: "hit_points", label: "Hit Points", type: "number", min: 1 },
+        { key: "hit_dice", label: "Hit Dice", type: "text", placeholder: "e.g. 17d10+85" },
+        { key: "ac_value", label: "Armor Class", type: "number", min: 0 },
+        { key: "ac_type", label: "AC Type", type: "text", placeholder: "e.g. natural armor" },
+        { key: "speed_walk", label: "Walk Speed", type: "text", placeholder: "e.g. 30 ft." },
+        { key: "speed_fly", label: "Fly Speed", type: "text", placeholder: "e.g. 60 ft." },
+        { key: "speed_swim", label: "Swim Speed", type: "text", placeholder: "e.g. 30 ft." },
+        { key: "speed_burrow", label: "Burrow Speed", type: "text", placeholder: "e.g. 30 ft." },
+        { key: "strength", label: "STR", type: "number", min: 1, max: 30, inline: "abilities" },
+        { key: "dexterity", label: "DEX", type: "number", min: 1, max: 30, inline: "abilities" },
+        { key: "constitution", label: "CON", type: "number", min: 1, max: 30, inline: "abilities" },
+        { key: "intelligence", label: "INT", type: "number", min: 1, max: 30, inline: "abilities" },
+        { key: "wisdom", label: "WIS", type: "number", min: 1, max: 30, inline: "abilities" },
+        { key: "charisma", label: "CHA", type: "number", min: 1, max: 30, inline: "abilities" },
+        { key: "challenge_rating", label: "Challenge Rating", type: "text", placeholder: "e.g. 5 or 1/4" },
+        { key: "xp", label: "XP", type: "number", min: 0 },
+        { key: "languages", label: "Languages", type: "text", placeholder: "e.g. Common, Draconic" },
+        { key: "senses_passive_perception", label: "Passive Perception", type: "number" },
+        { key: "senses_darkvision", label: "Darkvision", type: "text", placeholder: "e.g. 60 ft." },
+        { key: "damage_vulnerabilities_text", label: "Damage Vulnerabilities", type: "text", placeholder: "Comma-separated" },
+        { key: "damage_resistances_text", label: "Damage Resistances", type: "text", placeholder: "Comma-separated" },
+        { key: "damage_immunities_text", label: "Damage Immunities", type: "text", placeholder: "Comma-separated" },
+        { key: "special_abilities_text", label: "Special Abilities", type: "textarea", placeholder: "One per line: Name. Description" },
+        { key: "actions_text", label: "Actions", type: "textarea", placeholder: "One per line: Name. Description" },
+        { key: "legendary_actions_text", label: "Legendary Actions", type: "textarea", placeholder: "One per line: Name. Description" },
+        { key: "reactions_text", label: "Reactions", type: "textarea", placeholder: "One per line: Name. Description" },
+    ],
+    "proficiencies": [
+        { key: "type", label: "Type", type: "text", placeholder: "e.g. Armor, Weapons, Skills" },
+    ],
+    "races": [
+        { key: "speed", label: "Speed (ft.)", type: "number", min: 0, placeholder: "e.g. 30" },
+        { key: "size", label: "Size", type: "select", options: ["Small", "Medium"] },
+        { key: "alignment", label: "Alignment", type: "textarea", placeholder: "Alignment tendencies..." },
+        { key: "age", label: "Age", type: "textarea", placeholder: "Age description..." },
+        { key: "size_description", label: "Size Description", type: "textarea" },
+        { key: "language_desc", label: "Language Description", type: "textarea" },
+    ],
+    "rule-sections": [
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+    "rules": [
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+    "skills": [
+        { key: "ability_score_name", label: "Ability Score", type: "select", options: ["STR", "DEX", "CON", "INT", "WIS", "CHA"] },
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+    "spells": [
+        { key: "level", label: "Level", type: "number", min: 0, max: 9, placeholder: "0 for cantrip" },
+        { key: "school_name", label: "School", type: "select", options: ["Abjuration", "Conjuration", "Divination", "Enchantment", "Evocation", "Illusion", "Necromancy", "Transmutation"] },
+        { key: "casting_time", label: "Casting Time", type: "text", placeholder: "e.g. 1 action" },
+        { key: "range", label: "Range", type: "text", placeholder: "e.g. 120 feet" },
+        { key: "components_text", label: "Components", type: "text", placeholder: "e.g. V, S, M" },
+        { key: "material", label: "Material", type: "text", placeholder: "e.g. a tiny strip of white cloth" },
+        { key: "duration", label: "Duration", type: "text", placeholder: "e.g. Instantaneous" },
+        { key: "concentration", label: "Concentration", type: "checkbox" },
+        { key: "ritual", label: "Ritual", type: "checkbox" },
+        { key: "desc", label: "Description", type: "textarea" },
+        { key: "higher_level", label: "At Higher Levels", type: "textarea" },
+    ],
+    "subclasses": [
+        { key: "class_name", label: "Class", type: "text", placeholder: "e.g. Fighter" },
+        { key: "subclass_flavor", label: "Flavor", type: "text", placeholder: "e.g. Martial Archetype" },
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+    "subraces": [
+        { key: "race_name", label: "Race", type: "text", placeholder: "e.g. Elf" },
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+    "traits": [
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+    "weapon-properties": [
+        { key: "desc", label: "Description", type: "textarea" },
+    ],
+};
+
 // ===== CUSTOM ITEM MODAL =====
+let customTabMode = "form"; // "form" or "json"
+
 function openCustomModal(slug) {
-    // For characters, use the character modal instead
-    if (slug === "characters") {
-        openCharacterModal();
-        return;
-    }
     openCustomModalWithState({
         mode: "create",
         slug,
@@ -944,7 +1093,6 @@ function openCustomModalWithState({ mode, slug, name, itemJson, originalIndex })
     customModalState = { mode, slug, originalIndex };
     document.getElementById("custom-modal").dataset.slug = slug;
     document.getElementById("custom-name").value = name || "";
-    document.getElementById("custom-json").value = JSON.stringify(itemJson || {}, null, 2);
     document.getElementById("custom-error").classList.add("hidden");
 
     const titleEl = document.getElementById("custom-modal-title");
@@ -959,6 +1107,19 @@ function openCustomModalWithState({ mode, slug, name, itemJson, originalIndex })
         titleEl.textContent = "Add Custom Item";
         saveBtn.textContent = "Save Item";
     }
+
+    // Build dynamic form fields
+    buildFormFields(slug);
+    // Populate form from JSON if editing/copying
+    if (itemJson && Object.keys(itemJson).length > 0) {
+        itemJsonToForm(slug, itemJson);
+    }
+
+    // Also populate the JSON textarea
+    document.getElementById("custom-json").value = JSON.stringify(itemJson || {}, null, 2);
+
+    // Show form tab by default
+    switchCustomTab("form");
 
     document.getElementById("custom-modal").classList.remove("hidden");
     document.getElementById("custom-modal-overlay").classList.remove("hidden");
@@ -1035,10 +1196,355 @@ function closeCustomModal() {
     customModalState = { mode: "create", slug: null, originalIndex: null };
 }
 
+function switchCustomTab(tab) {
+    customTabMode = tab;
+    const formFields = document.getElementById("custom-form-fields");
+    const jsonFields = document.getElementById("custom-json-fields");
+    const formTab = document.getElementById("custom-form-tab");
+    const jsonTab = document.getElementById("custom-json-tab");
+
+    if (tab === "form") {
+        formFields.classList.remove("hidden");
+        jsonFields.classList.add("hidden");
+        formTab.classList.add("active");
+        jsonTab.classList.remove("active");
+        // Sync JSON -> form when switching to form
+        try {
+            const json = JSON.parse(document.getElementById("custom-json").value || "{}");
+            const slug = customModalState.slug || document.getElementById("custom-modal").dataset.slug;
+            itemJsonToForm(slug, json);
+        } catch { /* ignore parse errors */ }
+    } else {
+        formFields.classList.add("hidden");
+        jsonFields.classList.remove("hidden");
+        formTab.classList.remove("active");
+        jsonTab.classList.add("active");
+        // Sync form -> JSON when switching to JSON
+        const slug = customModalState.slug || document.getElementById("custom-modal").dataset.slug;
+        const json = formToItemJson(slug);
+        document.getElementById("custom-json").value = JSON.stringify(json, null, 2);
+    }
+}
+
+function buildFormFields(slug) {
+    const container = document.getElementById("custom-form-fields");
+    container.innerHTML = "";
+    const schema = CATEGORY_SCHEMAS[slug];
+    if (!schema || schema.length === 0) {
+        container.innerHTML = '<p class="form-no-fields">No form fields for this category. Use the JSON tab.</p>';
+        return;
+    }
+
+    let currentInlineGroup = null;
+    let inlineContainer = null;
+
+    schema.forEach(field => {
+        // Handle inline groups (e.g. ability scores side by side)
+        if (field.inline) {
+            if (currentInlineGroup !== field.inline) {
+                currentInlineGroup = field.inline;
+                inlineContainer = document.createElement("div");
+                inlineContainer.className = "form-inline-group";
+                container.appendChild(inlineContainer);
+            }
+            inlineContainer.appendChild(buildFieldElement(field));
+        } else {
+            currentInlineGroup = null;
+            inlineContainer = null;
+            container.appendChild(buildFieldElement(field));
+        }
+    });
+}
+
+function buildFieldElement(field) {
+    const wrapper = document.createElement("div");
+    wrapper.className = field.inline ? "form-field form-field-inline" : "form-field";
+
+    if (field.type === "checkbox") {
+        const label = document.createElement("label");
+        label.className = "form-checkbox-label";
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.id = `form-${field.key}`;
+        input.dataset.fieldKey = field.key;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(` ${field.label}`));
+        wrapper.appendChild(label);
+    } else {
+        const label = document.createElement("label");
+        label.setAttribute("for", `form-${field.key}`);
+        label.textContent = field.label + ":";
+        wrapper.appendChild(label);
+
+        let input;
+        if (field.type === "textarea") {
+            input = document.createElement("textarea");
+            input.rows = 4;
+        } else if (field.type === "select") {
+            input = document.createElement("select");
+            // Add empty option
+            const emptyOpt = document.createElement("option");
+            emptyOpt.value = "";
+            emptyOpt.textContent = "— Select —";
+            input.appendChild(emptyOpt);
+            (field.options || []).forEach(opt => {
+                const optEl = document.createElement("option");
+                optEl.value = opt;
+                optEl.textContent = opt || "— None —";
+                input.appendChild(optEl);
+            });
+        } else {
+            input = document.createElement("input");
+            input.type = field.type || "text";
+            if (field.min !== undefined) input.min = field.min;
+            if (field.max !== undefined) input.max = field.max;
+            if (field.step) input.step = field.step;
+        }
+
+        input.id = `form-${field.key}`;
+        input.dataset.fieldKey = field.key;
+        if (field.placeholder) input.placeholder = field.placeholder;
+        wrapper.appendChild(input);
+    }
+
+    return wrapper;
+}
+
+function getFormValues(slug) {
+    const schema = CATEGORY_SCHEMAS[slug] || [];
+    const values = {};
+    schema.forEach(field => {
+        const el = document.getElementById(`form-${field.key}`);
+        if (!el) return;
+        if (field.type === "checkbox") {
+            values[field.key] = el.checked;
+        } else if (field.type === "number") {
+            values[field.key] = el.value !== "" ? el.value : "";
+        } else {
+            values[field.key] = el.value;
+        }
+    });
+    return values;
+}
+
+function _makeRef(name) {
+    if (!name) return null;
+    return { name, index: name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "") };
+}
+
+function _parseAbilityNameBlock(text) {
+    // Parse "Name. Description text here" into { name, desc }
+    if (!text) return [];
+    return text.split("\n").filter(l => l.trim()).map(line => {
+        const dotIdx = line.indexOf(".");
+        if (dotIdx > 0 && dotIdx < 60) {
+            return { name: line.substring(0, dotIdx).trim(), desc: line.substring(dotIdx + 1).trim() };
+        }
+        return { name: line.trim(), desc: "" };
+    });
+}
+
+function _csvToArray(text) {
+    if (!text) return [];
+    return text.split(",").map(s => s.trim()).filter(Boolean);
+}
+
+function formToItemJson(slug) {
+    const v = getFormValues(slug);
+    const item = {};
+
+    const schema = CATEGORY_SCHEMAS[slug] || [];
+    schema.forEach(field => {
+        const val = v[field.key];
+        // Skip empty values
+        if (val === "" || val === undefined || val === null) return;
+        if (field.type === "checkbox" && !val) return;
+
+        const k = field.key;
+
+        // Special composite/ref field handling
+        if (k === "desc" || k === "higher_level") {
+            item[k] = val.split("\n").filter(l => l.trim());
+        } else if (k === "feature_desc") {
+            // handled with feature_name below
+        } else if (k === "feature_name") {
+            if (val || v.feature_desc) {
+                item.feature = { name: val, desc: (v.feature_desc || "").split("\n").filter(l => l.trim()) };
+            }
+        } else if (k === "school_name") {
+            item.school = _makeRef(val);
+        } else if (k === "rarity_name") {
+            item.rarity = { name: val };
+        } else if (k === "equipment_category_name") {
+            item.equipment_category = _makeRef(val);
+        } else if (k === "class_name") {
+            item.class = _makeRef(val);
+        } else if (k === "subclass_name") {
+            item.subclass = _makeRef(val);
+        } else if (k === "race_name") {
+            item.race = _makeRef(val);
+        } else if (k === "ability_score_name") {
+            const fullNames = { STR: "Strength", DEX: "Dexterity", CON: "Constitution", INT: "Intelligence", WIS: "Wisdom", CHA: "Charisma" };
+            item.ability_score = { name: fullNames[val] || val, index: (fullNames[val] || val).toLowerCase() };
+        } else if (k === "components_text") {
+            item.components = _csvToArray(val);
+        } else if (k === "typical_speakers_text") {
+            item.typical_speakers = _csvToArray(val);
+        } else if (k === "cost_quantity" || k === "cost_unit") {
+            // handled together
+            if (!item.cost) {
+                const qty = v.cost_quantity !== "" ? Number(v.cost_quantity) : 0;
+                const unit = v.cost_unit || "gp";
+                item.cost = { quantity: qty, unit };
+            }
+        } else if (k === "damage_dice" || k === "damage_type_name") {
+            if (!item.damage) {
+                const dice = v.damage_dice || "";
+                const dtype = v.damage_type_name || "";
+                if (dice) {
+                    item.damage = { damage_dice: dice };
+                    if (dtype) item.damage.damage_type = _makeRef(dtype);
+                }
+            }
+        } else if (k === "ac_base" || k === "ac_dex_bonus") {
+            if (!item.armor_class && v.ac_base !== "") {
+                item.armor_class = { base: Number(v.ac_base) };
+                if (v.ac_dex_bonus) item.armor_class.dex_bonus = true;
+            }
+        } else if (k === "ac_value" || k === "ac_type") {
+            // Monster AC
+            if (!item.armor_class && v.ac_value !== "") {
+                const acObj = { value: Number(v.ac_value), type: "dex" };
+                if (v.ac_type) acObj.type = v.ac_type;
+                item.armor_class = [acObj];
+            }
+        } else if (k.startsWith("speed_")) {
+            if (!item.speed) item.speed = {};
+            const speedKey = k.replace("speed_", "");
+            item.speed[speedKey] = val;
+        } else if (k.startsWith("senses_")) {
+            if (!item.senses) item.senses = {};
+            const senseKey = k.replace("senses_", "");
+            item.senses[senseKey] = field.type === "number" ? Number(val) : val;
+        } else if (k === "damage_vulnerabilities_text") {
+            item.damage_vulnerabilities = _csvToArray(val);
+        } else if (k === "damage_resistances_text") {
+            item.damage_resistances = _csvToArray(val);
+        } else if (k === "damage_immunities_text") {
+            item.damage_immunities = _csvToArray(val);
+        } else if (k === "special_abilities_text") {
+            item.special_abilities = _parseAbilityNameBlock(val);
+        } else if (k === "actions_text") {
+            item.actions = _parseAbilityNameBlock(val);
+        } else if (k === "legendary_actions_text") {
+            item.legendary_actions = _parseAbilityNameBlock(val);
+        } else if (k === "reactions_text") {
+            item.reactions = _parseAbilityNameBlock(val);
+        } else if (field.type === "number") {
+            item[k] = Number(val);
+        } else if (field.type === "checkbox") {
+            item[k] = true;
+        } else {
+            item[k] = val;
+        }
+    });
+
+    return item;
+}
+
+function itemJsonToForm(slug, json) {
+    const schema = CATEGORY_SCHEMAS[slug] || [];
+
+    schema.forEach(field => {
+        const el = document.getElementById(`form-${field.key}`);
+        if (!el) return;
+        const k = field.key;
+
+        let val = "";
+
+        if (k === "desc" || k === "higher_level") {
+            const arr = json[k];
+            val = Array.isArray(arr) ? arr.join("\n") : (arr || "");
+        } else if (k === "feature_name") {
+            val = json.feature ? json.feature.name || "" : "";
+        } else if (k === "feature_desc") {
+            const fd = json.feature ? json.feature.desc : null;
+            val = Array.isArray(fd) ? fd.join("\n") : (fd || "");
+        } else if (k === "school_name") {
+            val = json.school ? json.school.name || "" : "";
+        } else if (k === "rarity_name") {
+            val = json.rarity ? json.rarity.name || "" : "";
+        } else if (k === "equipment_category_name") {
+            val = json.equipment_category ? json.equipment_category.name || "" : "";
+        } else if (k === "class_name") {
+            val = json.class ? json.class.name || "" : (json.class_name || "");
+        } else if (k === "subclass_name") {
+            val = json.subclass ? json.subclass.name || "" : "";
+        } else if (k === "race_name") {
+            val = json.race ? json.race.name || "" : "";
+        } else if (k === "ability_score_name") {
+            if (json.ability_score) {
+                const n = json.ability_score.name || "";
+                const abbr = { Strength: "STR", Dexterity: "DEX", Constitution: "CON", Intelligence: "INT", Wisdom: "WIS", Charisma: "CHA" };
+                val = abbr[n] || n;
+            }
+        } else if (k === "components_text") {
+            val = Array.isArray(json.components) ? json.components.join(", ") : (json.components || "");
+        } else if (k === "typical_speakers_text") {
+            val = Array.isArray(json.typical_speakers) ? json.typical_speakers.join(", ") : "";
+        } else if (k === "cost_quantity") {
+            val = json.cost ? json.cost.quantity : "";
+        } else if (k === "cost_unit") {
+            val = json.cost ? json.cost.unit || "gp" : "";
+        } else if (k === "damage_dice") {
+            val = json.damage ? json.damage.damage_dice || "" : "";
+        } else if (k === "damage_type_name") {
+            val = json.damage && json.damage.damage_type ? json.damage.damage_type.name || "" : "";
+        } else if (k === "ac_base") {
+            val = json.armor_class ? (json.armor_class.base !== undefined ? json.armor_class.base : "") : "";
+        } else if (k === "ac_dex_bonus") {
+            val = json.armor_class ? !!json.armor_class.dex_bonus : false;
+        } else if (k === "ac_value") {
+            // Monster AC (array format)
+            if (Array.isArray(json.armor_class) && json.armor_class.length) val = json.armor_class[0].value || "";
+            else if (typeof json.armor_class === "number") val = json.armor_class;
+        } else if (k === "ac_type") {
+            if (Array.isArray(json.armor_class) && json.armor_class.length) val = json.armor_class[0].type || "";
+        } else if (k.startsWith("speed_")) {
+            const speedKey = k.replace("speed_", "");
+            val = json.speed ? json.speed[speedKey] || "" : "";
+        } else if (k.startsWith("senses_")) {
+            const senseKey = k.replace("senses_", "");
+            val = json.senses ? json.senses[senseKey] || "" : "";
+        } else if (k === "damage_vulnerabilities_text") {
+            val = Array.isArray(json.damage_vulnerabilities) ? json.damage_vulnerabilities.join(", ") : "";
+        } else if (k === "damage_resistances_text") {
+            val = Array.isArray(json.damage_resistances) ? json.damage_resistances.join(", ") : "";
+        } else if (k === "damage_immunities_text") {
+            val = Array.isArray(json.damage_immunities) ? json.damage_immunities.join(", ") : "";
+        } else if (k === "special_abilities_text") {
+            val = (json.special_abilities || []).map(a => `${a.name}. ${a.desc}`).join("\n");
+        } else if (k === "actions_text") {
+            val = (json.actions || []).map(a => `${a.name}. ${a.desc}`).join("\n");
+        } else if (k === "legendary_actions_text") {
+            val = (json.legendary_actions || []).map(a => `${a.name}. ${a.desc}`).join("\n");
+        } else if (k === "reactions_text") {
+            val = (json.reactions || []).map(a => `${a.name}. ${a.desc}`).join("\n");
+        } else {
+            val = json[k] !== undefined ? json[k] : "";
+        }
+
+        if (field.type === "checkbox") {
+            el.checked = !!val;
+        } else {
+            el.value = val !== undefined && val !== null ? val : "";
+        }
+    });
+}
+
 async function saveCustomItem() {
     const slug = customModalState.slug || document.getElementById("custom-modal").dataset.slug;
     const name = document.getElementById("custom-name").value.trim();
-    const jsonStr = document.getElementById("custom-json").value.trim();
     const errorEl = document.getElementById("custom-error");
 
     if (!name) {
@@ -1048,13 +1554,18 @@ async function saveCustomItem() {
     }
 
     let itemJson;
-    try {
-        itemJson = JSON.parse(jsonStr);
-        if (typeof itemJson !== "object" || Array.isArray(itemJson)) throw new Error();
-    } catch {
-        errorEl.textContent = "Invalid JSON. Please enter a valid JSON object.";
-        errorEl.classList.remove("hidden");
-        return;
+    if (customTabMode === "form") {
+        itemJson = formToItemJson(slug);
+    } else {
+        const jsonStr = document.getElementById("custom-json").value.trim();
+        try {
+            itemJson = JSON.parse(jsonStr);
+            if (typeof itemJson !== "object" || Array.isArray(itemJson)) throw new Error();
+        } catch {
+            errorEl.textContent = "Invalid JSON. Please enter a valid JSON object.";
+            errorEl.classList.remove("hidden");
+            return;
+        }
     }
 
     const isEdit = customModalState.mode === "edit";
@@ -1553,6 +2064,19 @@ function renderFilterBar(slug, meta) {
     const bar = document.getElementById('filter-bar');
     bar.innerHTML = '';
 
+    // Toggle header
+    const toggleHeader = document.createElement('div');
+    toggleHeader.className = 'filter-bar-toggle';
+    toggleHeader.innerHTML = '<span>Filters</span><span class="filter-bar-arrow">▾</span>';
+    toggleHeader.addEventListener('click', () => {
+        bar.classList.toggle('collapsed');
+    });
+    bar.appendChild(toggleHeader);
+
+    // Collapsible body
+    const body = document.createElement('div');
+    body.className = 'filter-bar-body';
+
     const filterLabels = {
         level: 'Spell Level',
         'class': 'Class',
@@ -1624,7 +2148,7 @@ function renderFilterBar(slug, meta) {
             row.appendChild(select);
         }
 
-        bar.appendChild(row);
+        body.appendChild(row);
     }
 
     const resetBtn = document.createElement('button');
@@ -1632,11 +2156,12 @@ function renderFilterBar(slug, meta) {
     resetBtn.textContent = 'Reset filters';
     resetBtn.addEventListener('click', () => {
         _currentFilters = {};
-        bar.querySelectorAll('select').forEach(s => s.value = '');
+        body.querySelectorAll('select').forEach(s => s.value = '');
         applyFilters(slug);
     });
-    bar.appendChild(resetBtn);
+    body.appendChild(resetBtn);
 
+    bar.appendChild(body);
     bar.classList.add('active');
 }
 
