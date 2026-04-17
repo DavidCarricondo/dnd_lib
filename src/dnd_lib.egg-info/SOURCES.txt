@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+src/dnd_lib/__init__.py
+src/dnd_lib/app.py
+src/dnd_lib/tray.py
+src/dnd_lib.egg-info/PKG-INFO
+src/dnd_lib.egg-info/SOURCES.txt
+src/dnd_lib.egg-info/dependency_links.txt
+src/dnd_lib.egg-info/entry_points.txt
+src/dnd_lib.egg-info/requires.txt
+src/dnd_lib.egg-info/top_level.txt
+src/dnd_lib/static/icon.ico
+src/dnd_lib/static/icon.png
+src/dnd_lib/static/css/style.css
+src/dnd_lib/static/js/app.js
+src/dnd_lib/templates/index.html

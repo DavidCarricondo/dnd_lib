@@ -1,0 +1,225 @@
+Metadata-Version: 2.4
+Name: dnd-lib
+Version: 0.1.0
+Summary: D&D 5e SRD Library — offline desktop reference app
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: Flask>=2.0
+Requires-Dist: waitress>=3.0
+Requires-Dist: pystray>=0.19
+Requires-Dist: Pillow>=10.0
+Requires-Dist: platformdirs>=4.0
+Provides-Extra: build
+Requires-Dist: pyinstaller>=6.0; extra == "build"
+
+# D&D 5e SRD Library
+
+A local offline D&D 5e SRD reference app. Available as a **standalone desktop application** (no Python required) for Windows, macOS, and Linux, or runnable directly from source.
+
+---
+
+## Download & Run (desktop app — no Python required)
+
+Pre-built executables are attached to every [GitHub Release](../../releases). Download the file for your platform, then follow the steps below.
+
+### Windows
+
+1. Download `dnd_lib-windows.exe` from the [latest release](../../releases/latest).
+2. Double-click to run.
+   > Windows Defender / SmartScreen may warn about an unsigned app. Click **"More info" → "Run anyway"** to proceed.
+3. A system tray icon (bottom-right) appears. Your browser opens automatically at http://127.0.0.1:5000.
+4. To quit, right-click the tray icon → **Quit**.
+
+### macOS
+
+1. Download `dnd_lib-macos` from the [latest release](../../releases/latest).
+2. Open a terminal and make it executable:
+   ```bash
+   chmod +x ~/Downloads/dnd_lib-macos
+   ```
+3. macOS Gatekeeper blocks unsigned binaries by default. Run it with:
+   ```bash
+   xattr -d com.apple.quarantine ~/Downloads/dnd_lib-macos
+   ~/Downloads/dnd_lib-macos
+   ```
+   Or go to **System Settings → Privacy & Security** and click **"Open Anyway"** after the first blocked attempt.
+4. A tray icon appears in the menu bar. Your browser opens automatically at http://127.0.0.1:5000.
+5. To quit, click the tray icon → **Quit**.
+
+### Linux
+
+1. Download `dnd_lib-linux` from the [latest release](../../releases/latest).
+2. Make it executable and run:
+   ```bash
+   chmod +x ~/Downloads/dnd_lib-linux
+   ~/Downloads/dnd_lib-linux
+   ```
+3. A system tray icon appears. Your browser opens automatically at http://127.0.0.1:5000.
+4. To quit, right-click the tray icon → **Quit**.
+
+> **Note:** The tray icon requires a desktop environment with a system tray (e.g. GNOME with AppIndicator extension, KDE, XFCE). Headless / Wayland-only setups may need an indicator extension installed.
+
+### Where is my data saved?
+
+Custom items and characters are stored in a writable user-data directory — they persist across updates and are never inside the executable itself:
+
+| Platform | Path |
+|---|---|
+| Windows | `%APPDATA%\dnd_lib\custom_items.json` |
+| macOS | `~/Library/Application Support/dnd_lib/custom_items.json` |
+| Linux | `~/.local/share/dnd_lib/custom_items.json` |
+
+---
+
+## Features
+
+- **Offline SRD Browser** — All SRD 2014 category data bundled inside the app
+- **D&D-styled cards** — Stat blocks for monsters, spells, equipment, classes, races, and more
+- **Search** — Global search bar with optional category filter
+- **Category tabs** — Browse items by category with a collapsible sidebar (toggle with ☰)
+- **Cross-references** — Clickable links between items open floating popups
+- **Multiple cards** — Open several item cards side by side in the main panel
+- **Monster spellcasting** — Spells grouped by level with clickable spell links
+- **Custom items** — Add custom items to any category via JSON editor; characters use a simplified name/HP/AC form
+- **Initiative Tracker** — Right-side panel for combat tracking:
+  - Search and add monsters or characters to the initiative table
+  - Columns: Initiative, Name, HP, AC, Condition, Notes
+  - Click HP to apply damage (subtracted from current HP)
+  - Initiative auto-sorts highest first
+  - Conditions dropdown with all SRD conditions
+  - Panel is resizable by dragging the left edge
+- **Dark mode** — Toggle with the 🌙 button; preference saved in the browser
+- **JSON viewer** — View raw JSON for any item card
+- **System tray** — Runs headlessly; tray icon provides "Open in Browser" and "Quit"
+
+---
+
+## Run from source
+
+### Requirements
+
+- Python 3.10+
+
+### Setup
+
+```bash
+git clone <repo-url>
+cd dnd_lib
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### Development mode (Flask dev server, auto-reload)
+
+```bash
+python src/dnd_lib/app.py --dev
+```
+
+Open http://127.0.0.1:5000. The `--dev` flag enables Flask debug mode with auto-reload.
+
+### Production mode from source (Waitress + auto-open browser)
+
+```bash
+python src/dnd_lib/app.py
+```
+
+### Tray runner from source
+
+```bash
+PYTHONPATH=src python -m dnd_lib.tray
+```
+
+Optional flags for `app.py`:
+
+| Flag | Default | Description |
+|---|---|---|
+| `--dev` | off | Use Flask dev server instead of Waitress |
+| `--host` | `127.0.0.1` | Host to bind to |
+| `--port` | `5000` | Port to listen on |
+
+---
+
+## Build the desktop app locally
+
+PyInstaller **cannot cross-compile** — you must build on the target OS.
+
+```bash
+# Install build dependencies
+pip install -e ".[build]"
+
+# Generate icons (requires Pillow — already in requirements.txt)
+python scripts/create_icons.py
+
+# Build single-file executable -> dist/dnd_lib (or dist/dnd_lib.exe on Windows)
+python scripts/build.py
+```
+
+---
+
+## CI/CD — Automated cross-platform builds
+
+The included [`.github/workflows/build.yml`](.github/workflows/build.yml) builds executables for all three platforms automatically:
+
+- **Trigger:** push a version tag (`v1.0.0`, `v1.2.3`, etc.) or run manually via workflow_dispatch.
+- **Matrix:** `windows-latest`, `macos-latest`, `ubuntu-latest` — each builds its own native executable.
+- **Artifacts:** uploaded per-run under the Actions tab.
+- **Release:** when triggered by a tag, a GitHub Release is created automatically with all three executables attached.
+
+To cut a release:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+---
+
+## API Reference
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/categories` | List all categories |
+| `GET` | `/api/category/<slug>` | List items in a category (supports filter params) |
+| `GET` | `/api/category/<slug>/filters` | Available filter options for a category |
+| `GET` | `/api/item/<slug>/<item_index>` | Full item data |
+| `GET` | `/api/resolve/<item_index>` | Resolve item index to its category |
+| `GET` | `/api/search?q=<query>&category=<slug>` | Search across all SRD data |
+| `GET` | `/api/initiative-search?q=<query>` | Search monsters and characters |
+| `GET` | `/api/global-index` | Full global index for cross-reference resolution |
+| `POST` | `/api/custom/<slug>` | Add a custom item (`{name, item}`) |
+| `PUT` | `/api/custom/<slug>/<index>` | Update a custom item |
+| `DELETE` | `/api/custom/<slug>/<index>` | Delete a custom item |
+| `POST` | `/api/character` | Create a character (`{name, hp, ac}`) |
+
+---
+
+## Project structure
+
+```
+dnd_lib/
+├── .github/workflows/
+│   └── build.yml              # CI/CD: cross-platform PyInstaller builds + GitHub Releases
+├── data/
+│   └── 2014/                  # SRD JSON files (read-only reference data)
+├── src/dnd_lib/
+│   ├── app.py                 # Flask app, API routes, path resolution
+│   ├── tray.py                # Desktop tray runner (pystray + Waitress)
+│   ├── static/                # CSS, JS, icons (icon.png, icon.ico)
+│   └── templates/             # index.html
+├── scripts/
+│   ├── build.py               # PyInstaller build helper
+│   ├── create_icons.py        # Generates icon.png + icon.ico via Pillow
+│   └── migrate_customs.py     # One-time data migration utility
+├── dnd_lib.spec               # PyInstaller spec file
+├── pyproject.toml             # Project metadata and dependencies
+└── requirements.txt           # Runtime dependencies
+```
+
+---
+
+## License
+
+Project files are under the repository owner's license.
+D&D 5e SRD data is provided under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/) by Wizards of the Coast.
