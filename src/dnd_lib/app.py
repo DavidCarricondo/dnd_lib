@@ -3,14 +3,46 @@
 
 import json
 import re
+import sys
+import threading
+import webbrowser
 from pathlib import Path
 
 from flask import Flask, jsonify, request, send_from_directory
 
-app = Flask(__name__, static_folder="static", template_folder="templates")
 
-DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "2014"
-CUSTOM_ITEMS_FILE = Path(__file__).resolve().parent.parent.parent / "data" / "custom_items.json"
+def get_base_path() -> Path:
+    """Return project root in dev mode, or PyInstaller extraction dir when frozen."""
+    if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
+        return Path(sys._MEIPASS)
+    # dev: src/dnd_lib/app.py -> three levels up = project root
+    return Path(__file__).resolve().parent.parent.parent
+
+
+def get_asset_path(*parts: str) -> Path:
+    """Return path to a bundled asset (static/, templates/) relative to this file."""
+    if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
+        return Path(sys._MEIPASS).joinpath(*parts)
+    return Path(__file__).resolve().parent.joinpath(*parts)
+
+_asset_root = get_asset_path()
+app = Flask(
+    __name__,
+    static_folder=str(_asset_root / "static"),
+    template_folder=str(_asset_root / "templates"),
+)
+
+DATA_DIR = get_base_path() / "data" / "2014"
+
+# Custom items must live in a writable user-data directory, not inside the
+# (potentially read-only) bundle.
+try:
+    from platformdirs import user_data_dir
+    _user_data = Path(user_data_dir("dnd_lib", "dnd_lib"))
+except ImportError:
+    _user_data = Path.home() / ".dnd_lib"
+
+CUSTOM_ITEMS_FILE = _user_data / "custom_items.json"
 
 # Category mapping: URL slug -> filename (without 5e-SRD- prefix and .json suffix)
 CATEGORY_MAP = {
@@ -130,7 +162,10 @@ def _migrate_legacy_customs():
 
 
 # Run once at import time so any legacy custom items are transparently moved.
-_migrate_legacy_customs()
+# Skip when frozen: SRD files in the bundle are reset on every run so there is
+# nothing to migrate and the write would be lost anyway.
+if not (getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS")):
+    _migrate_legacy_customs()
 
 
 def _load_category(slug):
@@ -192,7 +227,9 @@ def _invalidate_index():
 
 @app.route("/")
 def index_page():
-    return send_from_directory("templates", "index.html")
+    # Use the absolute template_folder set at init time so this works both in
+    # dev and when running from a PyInstaller bundle.
+    return send_from_directory(app.template_folder, "index.html")
 
 
 @app.route("/api/categories")
@@ -593,8 +630,35 @@ def get_global_index():
     return jsonify(_get_global_index())
 
 
+def run_dev(host: str = "127.0.0.1", port: int = 5000) -> None:
+    """Start the Flask development server (debug mode)."""
+    app.run(host=host, port=port, debug=True)
+
+
+def run_production(host: str = "127.0.0.1", port: int = 5000, threads: int = 4) -> None:
+    """Start the Waitress production WSGI server."""
+    from waitress import serve
+
+    url = f"http://{host}:{port}"
+    threading.Timer(1.5, webbrowser.open, args=[url]).start()
+    serve(app, host=host, port=port, threads=threads)
+
+
 if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="D&D 5e SRD Library")
+    parser.add_argument("--dev", action="store_true", help="Run Flask dev server (debug mode)")
+    parser.add_argument("--host", default="127.0.0.1", help="Host to bind to")
+    parser.add_argument("--port", type=int, default=5000, help="Port to listen on")
+    args = parser.parse_args()
+
     print("D&D 5e SRD Library")
     print(f"Data directory: {DATA_DIR}")
-    print("Starting server at http://localhost:5000")
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    print(f"Custom items: {CUSTOM_ITEMS_FILE}")
+    print(f"Starting server at http://{args.host}:{args.port}")
+
+    if args.dev:
+        run_dev(host=args.host, port=args.port)
+    else:
+        run_production(host=args.host, port=args.port)

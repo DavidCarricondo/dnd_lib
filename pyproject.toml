@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "dnd-lib"
+version = "0.1.0"
+description = "D&D 5e SRD Library — offline desktop reference app"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "Flask>=2.0",
+    "waitress>=3.0",
+    "pystray>=0.19",
+    "Pillow>=10.0",
+    "platformdirs>=4.0",
+]
+
+[project.optional-dependencies]
+build = [
+    "pyinstaller>=6.0",
+]
+
+[project.scripts]
+dnd-lib = "dnd_lib.tray:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"dnd_lib" = [
+    "static/**/*",
+    "templates/**/*",
+]
