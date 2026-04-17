@@ -1,2 +1,9 @@
 # Project dependencies for D&D SRD Library
 Flask>=2.0
+waitress>=3.0
+pystray>=0.19
+Pillow>=10.0
+platformdirs>=4.0
+
+# Build / packaging (not needed at runtime)
+# pyinstaller>=6.0
