@@ -1,0 +1,65 @@
+[
+    {
+        "index": "lawful-good", 
+        "name": "Legal bueno",
+        "abbreviation": "LB",
+        "desc": "Se puede contar con que estas criaturas hagan lo correcto tal y como espera la sociedad. Los dragones de oro, los paladines y la mayoría de enanos son legales buenos.",
+        "url": "/api/alignments/lawful-good"
+    },
+    {
+        "index": "neutral-good",
+        "name": "Neutral bueno", 
+        "abbreviation": "NB",
+        "desc": "Son gente que da lo mejor de sí misma para ayudar a los demás de acuerdo a sus necesidades. Muchos celestiales, algunos gigantes de las nubes y la mayorías de los gnomos son neutrales buenos.",
+        "url": "/api/alignments/neutral-good"
+    },
+    {
+        "index": "chaotic-good",
+        "name": "Caótico bueno",
+        "abbreviation": "CB", 
+        "desc": "Estas criaturas actúan como les dicta su conciencia, con pocos miramientos a lo que esperan los demás. Los dragones de cobre, muchos elfos y los unicornios son caóticos buenos.",
+        "url": "/api/alignments/chaotic-good"
+    },
+    {
+        "index": "lawful-neutral",
+        "name": "Legal neutral", 
+        "abbreviation": "LN",
+        "desc": "Estos individuos actúan de acuerdo a la ley, la tradición o los códigos personales. Muchos monjes y algunos magos son legales neutrales.",
+        "url": "/api/alignments/lawful-neutral"
+    },
+    {
+        "index": "neutral",
+        "name": "Neutral",
+        "abbreviation": "N", 
+        "desc": "Este alineamiento es el de los que prefieren evitar las cuestiones morales y no se ponen de ningún lado, sino que hacen lo que les parece mejor en cada momento. Los hombres lagarto, la mayoría de los druidas y muchos humanos son neutrales.",
+        "url": "/api/alignments/neutral"
+    },
+    {
+        "index": "chaotic-neutral",
+        "name": "Caótico neutral",
+        "abbreviation": "CN",
+        "desc": "Estas criaturas siguen sus caprichos, poniendo su libertad personal por encima de todo lo demás. Muchos bárbaros y pícaros, y algunos bardos, son caóticos neutrales.",
+        "url": "/api/alignments/chaotic-neutral"
+    },
+    {
+        "index": "lawful-evil",
+        "name": "Legal maligno",
+        "abbreviation": "LM",
+        "desc": "Son criaturas que cogen lo que quieren metódicamente, dentro de un código de tradición, lealtad y orden. Los demonios, los dragones azules y los grandes trasgos son legales malignos.",
+        "url": "/api/alignments/lawful-evil"
+    },
+    {
+        "index": "neutral-evil",
+        "name": "Neutral maligno",
+        "abbreviation": "NM",
+        "desc": "Este alineamiento es el de los que hacen lo que sea para salirse con la suya, sin compasión ni escrúpulos. Muchos drows, algunos gigantes de las nubes y trasgos son neutrales malignos.",
+        "url": "/api/alignments/neutral-evil"
+    },
+    {
+        "index": "chaotic-evil",
+        "name": "Caótico maligno",
+        "abbreviation": "CM",
+        "desc": "Estas criaturas actúan con una violencia arbitraria, estimulada por su avaricia, su odio o su sed de sangre. Los demonios, los dragones rojos y los orcos son caóticos malignos.", 
+        "url": "/api/alignments/chaotic-evil"
+    }
+]
