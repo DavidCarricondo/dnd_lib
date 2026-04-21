@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     setupSearchHandlers();
     loadDarkMode();
     setupInitiativeResize();
+    initDiceRoller();
 });
 
 async function loadCategories() {
@@ -2179,4 +2180,155 @@ async function applyFilters(slug) {
     } catch (e) {
         console.error('Filter apply failed', e);
     }
+}
+
+// ===== DICE ROLLER =====
+const diceRollerState = {
+    dieType: 6,
+    count: 1,
+    modifier: 0,
+    rolls: [],   // Array of roll groups: [{ die, results: [val, ...], modifier }]
+    total: 0,
+};
+
+// SVG shape strings for each die type (small chip versions)
+const DIE_SVG = {
+    4:   '<svg viewBox="0 0 20 20" width="14" height="14"><polygon points="10,2 18,18 2,18" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+    6:   '<svg viewBox="0 0 20 20" width="14" height="14"><rect x="3" y="3" width="14" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+    8:   '<svg viewBox="0 0 20 20" width="14" height="14"><polygon points="10,1 19,10 10,19 1,10" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+    10:  '<svg viewBox="0 0 20 20" width="14" height="14"><polygon points="10,1 17,7 15,19 5,19 3,7" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+    12:  '<svg viewBox="0 0 20 20" width="14" height="14"><polygon points="10,1 17,5 19,13 13,19 7,19 1,13 3,5" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+    20:  '<svg viewBox="0 0 20 20" width="14" height="14"><polygon points="10,1 19,6 17,17 3,17 1,6" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+    100: '<svg viewBox="0 0 20 20" width="14" height="14"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+};
+
+function initDiceRoller() {
+    // Die type buttons
+    document.querySelectorAll('.die-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            selectDieType(parseInt(btn.dataset.die));
+        });
+    });
+
+    // Count and modifier inputs update formula display
+    const countInput = document.getElementById('dice-count');
+    const modInput = document.getElementById('dice-modifier');
+
+    countInput.addEventListener('input', () => {
+        diceRollerState.count = Math.max(1, Math.min(99, parseInt(countInput.value) || 1));
+        updateDiceFormula();
+    });
+
+    modInput.addEventListener('input', () => {
+        diceRollerState.modifier = parseInt(modInput.value) || 0;
+        updateDiceFormula();
+    });
+
+    // Keyboard shortcut: Enter in dice panel rolls
+    countInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') rollDice(); });
+    modInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') rollDice(); });
+
+    updateDiceFormula();
+}
+
+function toggleDiceRoller() {
+    const panel = document.getElementById('dice-roller-panel');
+    const fab = document.getElementById('dice-roller-fab');
+    const isOpen = panel.classList.toggle('open');
+    fab.classList.toggle('active', isOpen);
+}
+
+function selectDieType(type) {
+    diceRollerState.dieType = type;
+    document.querySelectorAll('.die-btn').forEach(btn => {
+        btn.classList.toggle('active', parseInt(btn.dataset.die) === type);
+    });
+    updateDiceFormula();
+}
+
+function updateDiceFormula() {
+    const { dieType, count, modifier } = diceRollerState;
+    const modStr = modifier > 0 ? `+${modifier}` : modifier < 0 ? `${modifier}` : '';
+    document.getElementById('dice-formula').textContent = `${count}d${dieType}${modStr}`;
+}
+
+function rollDice() {
+    const { dieType, count, modifier } = diceRollerState;
+    const results = [];
+    for (let i = 0; i < count; i++) {
+        // Use crypto.getRandomValues for better randomness
+        const array = new Uint32Array(1);
+        crypto.getRandomValues(array);
+        results.push((array[0] % dieType) + 1);
+    }
+
+    const rollGroup = {
+        die: dieType,
+        results: results,
+        modifier: modifier,
+        subtotal: results.reduce((a, b) => a + b, 0) + modifier,
+    };
+
+    diceRollerState.rolls.push(rollGroup);
+    diceRollerState.total += rollGroup.subtotal;
+
+    renderDiceResults();
+}
+
+function resetDiceRoller() {
+    diceRollerState.rolls = [];
+    diceRollerState.total = 0;
+    renderDiceResults();
+}
+
+function renderDiceResults() {
+    const resultsEl = document.getElementById('dice-results');
+    const totalBar = document.getElementById('dice-total-bar');
+    const totalEl = document.getElementById('dice-total');
+    const { rolls, total } = diceRollerState;
+
+    if (rolls.length === 0) {
+        resultsEl.innerHTML = '<div class="dice-results-placeholder">Roll some dice!</div>';
+        totalBar.classList.remove('visible');
+        return;
+    }
+
+    resultsEl.innerHTML = '';
+
+    rolls.forEach((group, groupIdx) => {
+        // Add separator between roll groups
+        if (groupIdx > 0) {
+            const sep = document.createElement('hr');
+            sep.className = 'dice-roll-separator';
+            resultsEl.appendChild(sep);
+        }
+
+        // Individual dice chips
+        group.results.forEach(val => {
+            const chip = document.createElement('span');
+            chip.className = 'dice-result-chip';
+
+            // Highlight nat 20 and nat 1 for d20 rolls
+            if (group.die === 20 && val === 20) chip.classList.add('is-nat20');
+            if (group.die === 20 && val === 1) chip.classList.add('is-nat1');
+
+            chip.innerHTML = `${DIE_SVG[group.die] || ''} ${val}`;
+            resultsEl.appendChild(chip);
+        });
+
+        // Show modifier chip if nonzero
+        if (group.modifier !== 0) {
+            const modChip = document.createElement('span');
+            modChip.className = 'dice-modifier-chip';
+            modChip.textContent = group.modifier > 0 ? `+${group.modifier}` : `${group.modifier}`;
+            resultsEl.appendChild(modChip);
+        }
+    });
+
+    // Scroll to bottom
+    resultsEl.scrollTop = resultsEl.scrollHeight;
+
+    // Update total
+    totalEl.textContent = total;
+    totalBar.classList.add('visible');
 }
