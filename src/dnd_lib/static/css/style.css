@@ -2275,3 +2275,30 @@ body.dark-mode .btn-reset-dice:hover {
 body.dark-mode .dice-results-placeholder {
     color: #666;
 }
+
+/* ===== DICE NOTATION LINKS ===== */
+.dice-link {
+    color: var(--accent-red);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease;
+    border-radius: 2px;
+    padding: 0 1px;
+}
+
+.dice-link:hover {
+    color: var(--ink);
+    background: var(--accent-gold-light);
+    text-decoration: none;
+}
+
+body.dark-mode .dice-link {
+    color: #d47070;
+}
+
+body.dark-mode .dice-link:hover {
+    color: #1a1a1a;
+    background: var(--accent-gold-light);
+}

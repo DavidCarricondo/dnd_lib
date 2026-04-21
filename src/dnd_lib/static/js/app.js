@@ -1614,7 +1614,7 @@ function escapeHtml(str) {
 
 function propLine(label, value) {
     if (!value && value !== 0) return "";
-    return `<div class="property-line"><span class="label">${escapeHtml(label)}: </span><span class="value">${value}</span></div>`;
+    return `<div class="property-line"><span class="label">${escapeHtml(label)}: </span><span class="value">${linkifyDice(String(value))}</span></div>`;
 }
 
 function renderDesc(desc) {
@@ -1634,6 +1634,8 @@ function processDesc(text) {
     safe = safe.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
     // Italic: *text*
     safe = safe.replace(/\*(.+?)\*/g, "<em>$1</em>");
+    // Linkify dice notation
+    safe = linkifyDice(safe);
     return safe;
 }
 
@@ -1669,7 +1671,7 @@ function formatKey(key) {
 function renderKeyValueTable(keyLabel, valLabel, obj) {
     let h = `<table class="card-table"><tr><th>${escapeHtml(keyLabel)}</th><th>${escapeHtml(valLabel)}</th></tr>`;
     for (const [k, v] of Object.entries(obj)) {
-        h += `<tr><td>${escapeHtml(k)}</td><td>${escapeHtml(String(v))}</td></tr>`;
+        h += `<tr><td>${escapeHtml(k)}</td><td>${linkifyDice(escapeHtml(String(v)))}</td></tr>`;
     }
     h += `</table>`;
     return h;
@@ -2200,6 +2202,7 @@ const DIE_SVG = {
     12:  '<svg viewBox="0 0 20 20" width="14" height="14"><polygon points="10,1 17,5 19,13 13,19 7,19 1,13 3,5" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
     20:  '<svg viewBox="0 0 20 20" width="14" height="14"><polygon points="10,1 19,6 17,17 3,17 1,6" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
     100: '<svg viewBox="0 0 20 20" width="14" height="14"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+    default: '<svg viewBox="0 0 20 20" width="14" height="14"><rect x="3" y="3" width="14" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
 };
 
 function initDiceRoller() {
@@ -2312,7 +2315,7 @@ function renderDiceResults() {
             if (group.die === 20 && val === 20) chip.classList.add('is-nat20');
             if (group.die === 20 && val === 1) chip.classList.add('is-nat1');
 
-            chip.innerHTML = `${DIE_SVG[group.die] || ''} ${val}`;
+            chip.innerHTML = `${DIE_SVG[group.die] || DIE_SVG.default} ${val}`;
             resultsEl.appendChild(chip);
         });
 
@@ -2331,4 +2334,61 @@ function renderDiceResults() {
     // Update total
     totalEl.textContent = total;
     totalBar.classList.add('visible');
+}
+
+// ===== DICE NOTATION LINKIFIER =====
+function linkifyDice(html) {
+    if (!html) return html;
+    // Pass 1: Match dice expressions like 2d6, 1d8+4, 3d6 - 2
+    // Use a marker to avoid re-matching in pass 2
+    html = html.replace(/\b(\d+d\d+(?:\s*[+-]\s*\d+)?)\b/gi, (match) => {
+        const stripped = match.replace(/\s+/g, '');
+        return `<span class="dice-link" title="Roll ${match.trim()}" onclick="openDiceRollerWithRoll('${stripped}')">${match}</span>`;
+    });
+    // Pass 2: Match standalone modifiers like +9, -2 (not inside tags, not part of a dice expr)
+    // Negative lookbehind: not preceded by 'd', digit, word char, '>' (inside a tag), or single-quote
+    // Negative lookahead: not followed by 'd' (would be part of dice expr) or word char
+    html = html.replace(/(?<![d\d\w>'"])([+-]\d+)(?![d\w<])/g, (match, mod) => {
+        const notation = `1d20${mod}`;
+        return `<span class="dice-link" title="Roll 1d20${mod}" onclick="openDiceRollerWithRoll('${notation}')">${match}</span>`;
+    });
+    return html;
+}
+
+function openDiceRollerWithRoll(notation) {
+    // Parse notation: NdN, NdN+M, NdN-M, or 1d20+M / 1d20-M
+    const diceMatch = notation.match(/^(\d+)d(\d+)([+-]\d+)?$/i);
+    if (!diceMatch) return;
+
+    const count = parseInt(diceMatch[1]) || 1;
+    const dieType = parseInt(diceMatch[2]) || 20;
+    const modifier = parseInt(diceMatch[3]) || 0;
+
+    // Update state
+    diceRollerState.count = count;
+    diceRollerState.dieType = dieType;
+    diceRollerState.modifier = modifier;
+
+    // Sync UI inputs
+    document.getElementById('dice-count').value = count;
+    document.getElementById('dice-modifier').value = modifier;
+
+    // Update die selector (highlight matching button, clear others)
+    document.querySelectorAll('.die-btn').forEach(btn => {
+        btn.classList.toggle('active', parseInt(btn.dataset.die) === dieType);
+    });
+
+    // Update formula display
+    updateDiceFormula();
+
+    // Open the panel if not already open
+    const panel = document.getElementById('dice-roller-panel');
+    const fab = document.getElementById('dice-roller-fab');
+    if (!panel.classList.contains('open')) {
+        panel.classList.add('open');
+        fab.classList.add('active');
+    }
+
+    // Roll immediately
+    rollDice();
 }
