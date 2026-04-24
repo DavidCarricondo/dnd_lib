@@ -161,11 +161,51 @@ def _migrate_legacy_customs():
         _save_custom_items(custom_data)
 
 
+def _migrate_repo_custom_file():
+    """Migrate items from the repo-level data/custom_items.json (written by
+    scripts/migrate_customs.py) into the user-data custom store.  Clears the
+    repo file after a successful merge so items are not duplicated."""
+    repo_custom = get_base_path() / "data" / "custom_items.json"
+    if not repo_custom.exists():
+        return
+    try:
+        with open(repo_custom, "r", encoding="utf-8") as f:
+            incoming = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return
+    if not isinstance(incoming, dict) or not incoming:
+        return
+
+    custom_data = _load_custom_items()
+    merged = False
+    for category, items in incoming.items():
+        if not isinstance(items, list) or not items:
+            continue
+        existing = custom_data.get(category, [])
+        existing_indices = {i.get("index") for i in existing}
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            if item.get("index") not in existing_indices:
+                existing.append(item)
+                existing_indices.add(item.get("index"))
+                merged = True
+        if existing:
+            custom_data[category] = existing
+
+    if merged:
+        _save_custom_items(custom_data)
+    # Clear the repo file so we don't re-migrate next startup
+    with open(repo_custom, "w", encoding="utf-8") as f:
+        json.dump({}, f)
+
+
 # Run once at import time so any legacy custom items are transparently moved.
 # Skip when frozen: SRD files in the bundle are reset on every run so there is
 # nothing to migrate and the write would be lost anyway.
 if not (getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS")):
     _migrate_legacy_customs()
+    _migrate_repo_custom_file()
 
 
 def _load_category(slug):
@@ -628,6 +668,51 @@ def initiative_search():
 def get_global_index():
     """Return the full global index for client-side cross-reference resolution."""
     return jsonify(_get_global_index())
+
+
+@app.route("/api/custom-items-file", methods=["GET", "POST"])
+def custom_items_file():
+    """GET: download custom_items.json. POST: merge uploaded items."""
+    if request.method == "GET":
+        custom_data = _load_custom_items()
+        response = app.response_class(
+            response=json.dumps(custom_data, indent=2, ensure_ascii=False),
+            status=200,
+            mimetype="application/json",
+        )
+        response.headers["Content-Disposition"] = "attachment; filename=custom_items.json"
+        return response
+
+    # POST: merge
+    incoming = request.get_json()
+    if not isinstance(incoming, dict):
+        return jsonify({"error": "Invalid format: expected a JSON object"}), 400
+
+    custom_data = _load_custom_items()
+    added = 0
+    skipped = 0
+
+    for category, items in incoming.items():
+        if not isinstance(items, list):
+            continue
+        existing = custom_data.get(category, [])
+        existing_indices = {item.get("index") for item in existing}
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            idx = item.get("index", "")
+            if idx in existing_indices:
+                skipped += 1
+            else:
+                existing.append(item)
+                existing_indices.add(idx)
+                added += 1
+        if existing:
+            custom_data[category] = existing
+
+    _save_custom_items(custom_data)
+    _invalidate_index()
+    return jsonify({"success": True, "added": added, "skipped": skipped})
 
 
 def run_dev(host: str = "127.0.0.1", port: int = 5000) -> None:
