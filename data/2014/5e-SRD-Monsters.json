@@ -204,7 +204,8 @@
       }
     ],
     "image": "/api/images/monsters/aboleth.png",
-    "url": "/api/2014/monsters/aboleth"
+    "url": "/api/2014/monsters/aboleth",
+    "source": "SRC"
   },
   {
     "index": "acolyte",
@@ -336,7 +337,8 @@
       }
     ],
     "image": "/api/images/monsters/acolyte.png",
-    "url": "/api/2014/monsters/acolyte"
+    "url": "/api/2014/monsters/acolyte",
+    "source": "SRC"
   },
   {
     "index": "adult-black-dragon",
@@ -595,7 +597,8 @@
       }
     ],
     "image": "/api/images/monsters/adult-black-dragon.png",
-    "url": "/api/2014/monsters/adult-black-dragon"
+    "url": "/api/2014/monsters/adult-black-dragon",
+    "source": "SRC"
   },
   {
     "index": "adult-blue-dragon",
@@ -850,7 +853,8 @@
       }
     ],
     "image": "/api/images/monsters/adult-blue-dragon.png",
-    "url": "/api/2014/monsters/adult-blue-dragon"
+    "url": "/api/2014/monsters/adult-blue-dragon",
+    "source": "SRC"
   },
   {
     "index": "adult-brass-dragon",
@@ -1139,7 +1143,8 @@
       }
     ],
     "image": "/api/images/monsters/adult-brass-dragon.png",
-    "url": "/api/2014/monsters/adult-brass-dragon"
+    "url": "/api/2014/monsters/adult-brass-dragon",
+    "source": "SRC"
   },
   {
     "index": "adult-bronze-dragon",
@@ -1424,7 +1429,8 @@
       }
     ],
     "image": "/api/images/monsters/adult-bronze-dragon.png",
-    "url": "/api/2014/monsters/adult-bronze-dragon"
+    "url": "/api/2014/monsters/adult-bronze-dragon",
+    "source": "SRC"
   },
   {
     "index": "adult-copper-dragon",
@@ -1705,7 +1711,8 @@
       }
     ],
     "image": "/api/images/monsters/adult-copper-dragon.png",
-    "url": "/api/2014/monsters/adult-copper-dragon"
+    "url": "/api/2014/monsters/adult-copper-dragon",
+    "source": "SRC"
   },
   {
     "index": "adult-gold-dragon",
@@ -1998,7 +2005,8 @@
       }
     ],
     "image": "/api/images/monsters/adult-gold-dragon.png",
-    "url": "/api/2014/monsters/adult-gold-dragon"
+    "url": "/api/2014/monsters/adult-gold-dragon",
+    "source": "SRC"
   },
   {
     "index": "adult-green-dragon",
@@ -2287,7 +2295,8 @@
       }
     ],
     "image": "/api/images/monsters/adult-green-dragon.png",
-    "url": "/api/2014/monsters/adult-green-dragon"
+    "url": "/api/2014/monsters/adult-green-dragon",
+    "source": "SRC"
   },
   {
     "index": "adult-red-dragon",
@@ -2542,7 +2551,8 @@
       }
     ],
     "image": "/api/images/monsters/adult-red-dragon.png",
-    "url": "/api/2014/monsters/adult-red-dragon"
+    "url": "/api/2014/monsters/adult-red-dragon",
+    "source": "SRC"
   },
   {
     "index": "adult-silver-dragon",
@@ -2830,7 +2840,8 @@
       }
     ],
     "image": "/api/images/monsters/adult-silver-dragon.png",
-    "url": "/api/2014/monsters/adult-silver-dragon"
+    "url": "/api/2014/monsters/adult-silver-dragon",
+    "source": "SRC"
   },
   {
     "index": "adult-white-dragon",
@@ -3090,7 +3101,8 @@
       }
     ],
     "image": "/api/images/monsters/adult-white-dragon.png",
-    "url": "/api/2014/monsters/adult-white-dragon"
+    "url": "/api/2014/monsters/adult-white-dragon",
+    "source": "SRC"
   },
   {
     "index": "air-elemental",
@@ -3222,7 +3234,8 @@
       }
     ],
     "image": "/api/images/monsters/air-elemental.png",
-    "url": "/api/2014/monsters/air-elemental"
+    "url": "/api/2014/monsters/air-elemental",
+    "source": "SRC"
   },
   {
     "index": "ancient-black-dragon",
@@ -3481,7 +3494,8 @@
       }
     ],
     "image": "/api/images/monsters/ancient-black-dragon.png",
-    "url": "/api/2014/monsters/ancient-black-dragon"
+    "url": "/api/2014/monsters/ancient-black-dragon",
+    "source": "SRC"
   },
   {
     "index": "ancient-blue-dragon",
@@ -3736,7 +3750,8 @@
       }
     ],
     "image": "/api/images/monsters/ancient-blue-dragon.png",
-    "url": "/api/2014/monsters/ancient-blue-dragon"
+    "url": "/api/2014/monsters/ancient-blue-dragon",
+    "source": "SRC"
   },
   {
     "index": "ancient-brass-dragon",
@@ -4029,7 +4044,8 @@
       }
     ],
     "image": "/api/images/monsters/ancient-brass-dragon.png",
-    "url": "/api/2014/monsters/ancient-brass-dragon"
+    "url": "/api/2014/monsters/ancient-brass-dragon",
+    "source": "SRC"
   },
   {
     "index": "ancient-bronze-dragon",
@@ -4318,7 +4334,8 @@
       }
     ],
     "image": "/api/images/monsters/ancient-bronze-dragon.png",
-    "url": "/api/2014/monsters/ancient-bronze-dragon"
+    "url": "/api/2014/monsters/ancient-bronze-dragon",
+    "source": "SRC"
   },
   {
     "index": "ancient-copper-dragon",
@@ -4603,7 +4620,8 @@
       }
     ],
     "image": "/api/images/monsters/ancient-copper-dragon.png",
-    "url": "/api/2014/monsters/ancient-copper-dragon"
+    "url": "/api/2014/monsters/ancient-copper-dragon",
+    "source": "SRC"
   },
   {
     "index": "ancient-gold-dragon",
@@ -4900,7 +4918,8 @@
       }
     ],
     "image": "/api/images/monsters/ancient-gold-dragon.png",
-    "url": "/api/2014/monsters/ancient-gold-dragon"
+    "url": "/api/2014/monsters/ancient-gold-dragon",
+    "source": "SRC"
   },
   {
     "index": "ancient-green-dragon",
@@ -5189,7 +5208,8 @@
       }
     ],
     "image": "/api/images/monsters/ancient-green-dragon.png",
-    "url": "/api/2014/monsters/ancient-green-dragon"
+    "url": "/api/2014/monsters/ancient-green-dragon",
+    "source": "SRC"
   },
   {
     "index": "ancient-red-dragon",
@@ -5444,7 +5464,8 @@
       }
     ],
     "image": "/api/images/monsters/ancient-red-dragon.png",
-    "url": "/api/2014/monsters/ancient-red-dragon"
+    "url": "/api/2014/monsters/ancient-red-dragon",
+    "source": "SRC"
   },
   {
     "index": "ancient-silver-dragon",
@@ -5736,7 +5757,8 @@
       }
     ],
     "image": "/api/images/monsters/ancient-silver-dragon.png",
-    "url": "/api/2014/monsters/ancient-silver-dragon"
+    "url": "/api/2014/monsters/ancient-silver-dragon",
+    "source": "SRC"
   },
   {
     "index": "ancient-white-dragon",
@@ -5996,7 +6018,8 @@
       }
     ],
     "image": "/api/images/monsters/ancient-white-dragon.png",
-    "url": "/api/2014/monsters/ancient-white-dragon"
+    "url": "/api/2014/monsters/ancient-white-dragon",
+    "source": "SRC"
   },
   {
     "index": "androsphinx",
@@ -6321,7 +6344,8 @@
       }
     ],
     "image": "/api/images/monsters/androsphinx.png",
-    "url": "/api/2014/monsters/androsphinx"
+    "url": "/api/2014/monsters/androsphinx",
+    "source": "SRC"
   },
   {
     "index": "animated-armor",
@@ -6444,7 +6468,8 @@
       }
     ],
     "image": "/api/images/monsters/animated-armor.png",
-    "url": "/api/2014/monsters/animated-armor"
+    "url": "/api/2014/monsters/animated-armor",
+    "source": "SRC"
   },
   {
     "index": "ankheg",
@@ -6548,7 +6573,8 @@
       }
     ],
     "image": "/api/images/monsters/ankheg.png",
-    "url": "/api/2014/monsters/ankheg"
+    "url": "/api/2014/monsters/ankheg",
+    "source": "SRC"
   },
   {
     "index": "ape",
@@ -6649,12 +6675,13 @@
       }
     ],
     "image": "/api/images/monsters/ape.png",
-    "url": "/api/2014/monsters/ape"
+    "url": "/api/2014/monsters/ape",
+    "source": "SRC"
   },
   {
     "index": "archmage",
     "name": "Archmage",
-    "desc": "Archmages are powerful (and usually quite old) spellcasters dedicated to the study of the arcane arts. Benevolent ones counsel kings and queens, while evil ones rule as tyrants and pursue lichdom. Those who are neither good nor evil sequester themselves in remote towers to practice their magic without interruption. \n\nAn archmage typically has one or more apprentice mages, and an archmage’s abode has numerous magical wards and guardians to discourage interlopers.",
+    "desc": "Archmages are powerful (and usually quite old) spellcasters dedicated to the study of the arcane arts. Benevolent ones counsel kings and queens, while evil ones rule as tyrants and pursue lichdom. Those who are neither good nor evil sequester themselves in remote towers to practice their magic without interruption. \n\nAn archmage typically has one or more apprentice mages, and an archmage\u2019s abode has numerous magical wards and guardians to discourage interlopers.",
     "size": "Medium",
     "type": "humanoid",
     "subtype": "any race",
@@ -6935,7 +6962,8 @@
       }
     ],
     "image": "/api/images/monsters/archmage.png",
-    "url": "/api/2014/monsters/archmage"
+    "url": "/api/2014/monsters/archmage",
+    "source": "SRC"
   },
   {
     "index": "assassin",
@@ -7126,7 +7154,8 @@
       }
     ],
     "image": "/api/images/monsters/assassin.png",
-    "url": "/api/2014/monsters/assassin"
+    "url": "/api/2014/monsters/assassin",
+    "source": "SRC"
   },
   {
     "index": "awakened-shrub",
@@ -7193,7 +7222,8 @@
       }
     ],
     "image": "/api/images/monsters/awakened-shrub.png",
-    "url": "/api/2014/monsters/awakened-shrub"
+    "url": "/api/2014/monsters/awakened-shrub",
+    "source": "SRC"
   },
   {
     "index": "awakened-tree",
@@ -7261,7 +7291,8 @@
       }
     ],
     "image": "/api/images/monsters/awakened-tree.png",
-    "url": "/api/2014/monsters/awakened-tree"
+    "url": "/api/2014/monsters/awakened-tree",
+    "source": "SRC"
   },
   {
     "index": "axe-beak",
@@ -7318,7 +7349,8 @@
       }
     ],
     "image": "/api/images/monsters/axe-beak.png",
-    "url": "/api/2014/monsters/axe-beak"
+    "url": "/api/2014/monsters/axe-beak",
+    "source": "SRC"
   },
   {
     "index": "azer",
@@ -7445,7 +7477,8 @@
       }
     ],
     "image": "/api/images/monsters/azer.png",
-    "url": "/api/2014/monsters/azer"
+    "url": "/api/2014/monsters/azer",
+    "source": "SRC"
   },
   {
     "index": "baboon",
@@ -7508,7 +7541,8 @@
       }
     ],
     "image": "/api/images/monsters/baboon.png",
-    "url": "/api/2014/monsters/baboon"
+    "url": "/api/2014/monsters/baboon",
+    "source": "SRC"
   },
   {
     "index": "badger",
@@ -7572,7 +7606,8 @@
       }
     ],
     "image": "/api/images/monsters/badger.png",
-    "url": "/api/2014/monsters/badger"
+    "url": "/api/2014/monsters/badger",
+    "source": "SRC"
   },
   {
     "index": "balor",
@@ -7776,12 +7811,13 @@
       }
     ],
     "image": "/api/images/monsters/balor.png",
-    "url": "/api/2014/monsters/balor"
+    "url": "/api/2014/monsters/balor",
+    "source": "SRC"
   },
   {
     "index": "bandit",
     "name": "Bandit",
-    "desc": "**Bandits** rove in gangs and are sometimes led by thugs, veterans, or spellcasters. Not all bandits are evil. Oppression, drought, disease, or famine can often drive otherwise honest folk to a life of banditry.\n\n**Pirates** are bandits of the high seas. They might be freebooters interested only in treasure and murder, or they might be privateers sanctioned by the crown to attack and plunder an enemy nation’s vessels.",
+    "desc": "**Bandits** rove in gangs and are sometimes led by thugs, veterans, or spellcasters. Not all bandits are evil. Oppression, drought, disease, or famine can often drive otherwise honest folk to a life of banditry.\n\n**Pirates** are bandits of the high seas. They might be freebooters interested only in treasure and murder, or they might be privateers sanctioned by the crown to attack and plunder an enemy nation\u2019s vessels.",
     "size": "Medium",
     "type": "humanoid",
     "subtype": "any race",
@@ -7856,12 +7892,13 @@
       }
     ],
     "image": "/api/images/monsters/bandit.png",
-    "url": "/api/2014/monsters/bandit"
+    "url": "/api/2014/monsters/bandit",
+    "source": "SRC"
   },
   {
     "index": "bandit-captain",
     "name": "Bandit Captain",
-    "desc": "It takes a strong personality, ruthless cunning, and a silver tongue to keep a gang of bandits in line. The **bandit captain** has these qualities in spades.\n\nIn addition to managing a crew of selfish malcontents, the **pirate captain** is a variation of the bandit captain, with a ship to protect and command. To keep the crew in line, the captain must mete out rewards and punishment on a regular basis.\n\nMore than treasure, a bandit captain or pirate captain craves infamy. A prisoner who appeals to the captain’s vanity or ego is more likely to be treated fairly than a prisoner who does not or claims not to know anything of the captain’s colorful reputation.",
+    "desc": "It takes a strong personality, ruthless cunning, and a silver tongue to keep a gang of bandits in line. The **bandit captain** has these qualities in spades.\n\nIn addition to managing a crew of selfish malcontents, the **pirate captain** is a variation of the bandit captain, with a ship to protect and command. To keep the crew in line, the captain must mete out rewards and punishment on a regular basis.\n\nMore than treasure, a bandit captain or pirate captain craves infamy. A prisoner who appeals to the captain\u2019s vanity or ego is more likely to be treated fairly than a prisoner who does not or claims not to know anything of the captain\u2019s colorful reputation.",
     "size": "Medium",
     "type": "humanoid",
     "subtype": "any race",
@@ -8020,7 +8057,8 @@
       }
     ],
     "image": "/api/images/monsters/bandit-captain.png",
-    "url": "/api/2014/monsters/bandit-captain"
+    "url": "/api/2014/monsters/bandit-captain",
+    "source": "SRC"
   },
   {
     "index": "barbed-devil",
@@ -8238,7 +8276,8 @@
       }
     ],
     "image": "/api/images/monsters/barbed-devil.png",
-    "url": "/api/2014/monsters/barbed-devil"
+    "url": "/api/2014/monsters/barbed-devil",
+    "source": "SRC"
   },
   {
     "index": "basilisk",
@@ -8318,7 +8357,8 @@
       }
     ],
     "image": "/api/images/monsters/basilisk.png",
-    "url": "/api/2014/monsters/basilisk"
+    "url": "/api/2014/monsters/basilisk",
+    "source": "SRC"
   },
   {
     "index": "bat",
@@ -8386,7 +8426,8 @@
       }
     ],
     "image": "/api/images/monsters/bat.png",
-    "url": "/api/2014/monsters/bat"
+    "url": "/api/2014/monsters/bat",
+    "source": "SRC"
   },
   {
     "index": "bearded-devil",
@@ -8527,7 +8568,8 @@
       }
     ],
     "image": "/api/images/monsters/bearded-devil.png",
-    "url": "/api/2014/monsters/bearded-devil"
+    "url": "/api/2014/monsters/bearded-devil",
+    "source": "SRC"
   },
   {
     "index": "behir",
@@ -8686,7 +8728,8 @@
       }
     ],
     "image": "/api/images/monsters/behir.png",
-    "url": "/api/2014/monsters/behir"
+    "url": "/api/2014/monsters/behir",
+    "source": "SRC"
   },
   {
     "index": "berserker",
@@ -8756,7 +8799,8 @@
       }
     ],
     "image": "/api/images/monsters/berserker.png",
-    "url": "/api/2014/monsters/berserker"
+    "url": "/api/2014/monsters/berserker",
+    "source": "SRC"
   },
   {
     "index": "black-bear",
@@ -8851,7 +8895,8 @@
       }
     ],
     "image": "/api/images/monsters/black-bear.png",
-    "url": "/api/2014/monsters/black-bear"
+    "url": "/api/2014/monsters/black-bear",
+    "source": "SRC"
   },
   {
     "index": "black-dragon-wyrmling",
@@ -9004,7 +9049,8 @@
       }
     ],
     "image": "/api/images/monsters/black-dragon-wyrmling.png",
-    "url": "/api/2014/monsters/black-dragon-wyrmling"
+    "url": "/api/2014/monsters/black-dragon-wyrmling",
+    "source": "SRC"
   },
   {
     "index": "black-pudding",
@@ -9131,7 +9177,8 @@
       }
     ],
     "image": "/api/images/monsters/black-pudding.png",
-    "url": "/api/2014/monsters/black-pudding"
+    "url": "/api/2014/monsters/black-pudding",
+    "source": "SRC"
   },
   {
     "index": "blink-dog",
@@ -9220,7 +9267,8 @@
       }
     ],
     "image": "/api/images/monsters/blink-dog.png",
-    "url": "/api/2014/monsters/blink-dog"
+    "url": "/api/2014/monsters/blink-dog",
+    "source": "SRC"
   },
   {
     "index": "blood-hawk",
@@ -9297,7 +9345,8 @@
       }
     ],
     "image": "/api/images/monsters/blood-hawk.png",
-    "url": "/api/2014/monsters/blood-hawk"
+    "url": "/api/2014/monsters/blood-hawk",
+    "source": "SRC"
   },
   {
     "index": "blue-dragon-wyrmling",
@@ -9444,7 +9493,8 @@
       }
     ],
     "image": "/api/images/monsters/blue-dragon-wyrmling.png",
-    "url": "/api/2014/monsters/blue-dragon-wyrmling"
+    "url": "/api/2014/monsters/blue-dragon-wyrmling",
+    "source": "SRC"
   },
   {
     "index": "boar",
@@ -9527,7 +9577,8 @@
       }
     ],
     "image": "/api/images/monsters/boar.png",
-    "url": "/api/2014/monsters/boar"
+    "url": "/api/2014/monsters/boar",
+    "source": "SRC"
   },
   {
     "index": "bone-devil",
@@ -9689,7 +9740,8 @@
       }
     ],
     "image": "/api/images/monsters/bone-devil.png",
-    "url": "/api/2014/monsters/bone-devil"
+    "url": "/api/2014/monsters/bone-devil",
+    "source": "SRC"
   },
   {
     "index": "brass-dragon-wyrmling",
@@ -9854,7 +9906,8 @@
       }
     ],
     "image": "/api/images/monsters/brass-dragon-wyrmling.png",
-    "url": "/api/2014/monsters/brass-dragon-wyrmling"
+    "url": "/api/2014/monsters/brass-dragon-wyrmling",
+    "source": "SRC"
   },
   {
     "index": "bronze-dragon-wyrmling",
@@ -10025,7 +10078,8 @@
       }
     ],
     "image": "/api/images/monsters/bronze-dragon-wyrmling.png",
-    "url": "/api/2014/monsters/bronze-dragon-wyrmling"
+    "url": "/api/2014/monsters/bronze-dragon-wyrmling",
+    "source": "SRC"
   },
   {
     "index": "brown-bear",
@@ -10129,7 +10183,8 @@
       }
     ],
     "image": "/api/images/monsters/brown-bear.png",
-    "url": "/api/2014/monsters/brown-bear"
+    "url": "/api/2014/monsters/brown-bear",
+    "source": "SRC"
   },
   {
     "index": "bugbear",
@@ -10241,7 +10296,8 @@
       }
     ],
     "image": "/api/images/monsters/bugbear.png",
-    "url": "/api/2014/monsters/bugbear"
+    "url": "/api/2014/monsters/bugbear",
+    "source": "SRC"
   },
   {
     "index": "bulette",
@@ -10319,7 +10375,8 @@
       }
     ],
     "image": "/api/images/monsters/bulette.png",
-    "url": "/api/2014/monsters/bulette"
+    "url": "/api/2014/monsters/bulette",
+    "source": "SRC"
   },
   {
     "index": "camel",
@@ -10375,7 +10432,8 @@
       }
     ],
     "image": "/api/images/monsters/camel.png",
-    "url": "/api/2014/monsters/camel"
+    "url": "/api/2014/monsters/camel",
+    "source": "SRC"
   },
   {
     "index": "cat",
@@ -10455,7 +10513,8 @@
       }
     ],
     "image": "/api/images/monsters/cat.png",
-    "url": "/api/2014/monsters/cat"
+    "url": "/api/2014/monsters/cat",
+    "source": "SRC"
   },
   {
     "index": "centaur",
@@ -10619,7 +10678,8 @@
       }
     ],
     "image": "/api/images/monsters/centaur.png",
-    "url": "/api/2014/monsters/centaur"
+    "url": "/api/2014/monsters/centaur",
+    "source": "SRC"
   },
   {
     "index": "chain-devil",
@@ -10762,7 +10822,8 @@
       }
     ],
     "image": "/api/images/monsters/chain-devil.png",
-    "url": "/api/2014/monsters/chain-devil"
+    "url": "/api/2014/monsters/chain-devil",
+    "source": "SRC"
   },
   {
     "index": "chimera",
@@ -10970,7 +11031,8 @@
       }
     ],
     "image": "/api/images/monsters/chimera.png",
-    "url": "/api/2014/monsters/chimera"
+    "url": "/api/2014/monsters/chimera",
+    "source": "SRC"
   },
   {
     "index": "chuul",
@@ -11105,7 +11167,8 @@
       }
     ],
     "image": "/api/images/monsters/chuul.png",
-    "url": "/api/2014/monsters/chuul"
+    "url": "/api/2014/monsters/chuul",
+    "source": "SRC"
   },
   {
     "index": "clay-golem",
@@ -11241,7 +11304,8 @@
       }
     ],
     "image": "/api/images/monsters/clay-golem.png",
-    "url": "/api/2014/monsters/clay-golem"
+    "url": "/api/2014/monsters/clay-golem",
+    "source": "SRC"
   },
   {
     "index": "cloaker",
@@ -11378,7 +11442,8 @@
       }
     ],
     "image": "/api/images/monsters/cloaker.png",
-    "url": "/api/2014/monsters/cloaker"
+    "url": "/api/2014/monsters/cloaker",
+    "source": "SRC"
   },
   {
     "index": "cloud-giant",
@@ -11603,7 +11668,8 @@
       }
     ],
     "image": "/api/images/monsters/cloud-giant.png",
-    "url": "/api/2014/monsters/cloud-giant"
+    "url": "/api/2014/monsters/cloud-giant",
+    "source": "SRC"
   },
   {
     "index": "cockatrice",
@@ -11661,7 +11727,8 @@
       }
     ],
     "image": "/api/images/monsters/cockatrice.png",
-    "url": "/api/2014/monsters/cockatrice"
+    "url": "/api/2014/monsters/cockatrice",
+    "source": "SRC"
   },
   {
     "index": "commoner",
@@ -11719,7 +11786,8 @@
       }
     ],
     "image": "/api/images/monsters/commoner.png",
-    "url": "/api/2014/monsters/commoner"
+    "url": "/api/2014/monsters/commoner",
+    "source": "SRC"
   },
   {
     "index": "constrictor-snake",
@@ -11792,7 +11860,8 @@
       }
     ],
     "image": "/api/images/monsters/constrictor-snake.png",
-    "url": "/api/2014/monsters/constrictor-snake"
+    "url": "/api/2014/monsters/constrictor-snake",
+    "source": "SRC"
   },
   {
     "index": "copper-dragon-wyrmling",
@@ -11957,7 +12026,8 @@
       }
     ],
     "image": "/api/images/monsters/copper-dragon-wyrmling.png",
-    "url": "/api/2014/monsters/copper-dragon-wyrmling"
+    "url": "/api/2014/monsters/copper-dragon-wyrmling",
+    "source": "SRC"
   },
   {
     "index": "couatl",
@@ -12205,7 +12275,8 @@
       }
     ],
     "image": "/api/images/monsters/couatl.png",
-    "url": "/api/2014/monsters/couatl"
+    "url": "/api/2014/monsters/couatl",
+    "source": "SRC"
   },
   {
     "index": "crab",
@@ -12278,7 +12349,8 @@
       }
     ],
     "image": "/api/images/monsters/crab.png",
-    "url": "/api/2014/monsters/crab"
+    "url": "/api/2014/monsters/crab",
+    "source": "SRC"
   },
   {
     "index": "crocodile",
@@ -12350,12 +12422,13 @@
       }
     ],
     "image": "/api/images/monsters/crocodile.png",
-    "url": "/api/2014/monsters/crocodile"
+    "url": "/api/2014/monsters/crocodile",
+    "source": "SRC"
   },
   {
     "index": "cult-fanatic",
     "name": "Cult Fanatic",
-    "desc": "Fanatics are often part of a cult’s leadership, using their charisma and dogma to influence and prey on those of weak will. Most are interested in personal power above all else.",
+    "desc": "Fanatics are often part of a cult\u2019s leadership, using their charisma and dogma to influence and prey on those of weak will. Most are interested in personal power above all else.",
     "size": "Medium",
     "type": "humanoid",
     "subtype": "any race",
@@ -12524,7 +12597,8 @@
       }
     ],
     "image": "/api/images/monsters/cult-fanatic.png",
-    "url": "/api/2014/monsters/cult-fanatic"
+    "url": "/api/2014/monsters/cult-fanatic",
+    "source": "SRC"
   },
   {
     "index": "cultist",
@@ -12612,7 +12686,8 @@
       }
     ],
     "image": "/api/images/monsters/cultist.png",
-    "url": "/api/2014/monsters/cultist"
+    "url": "/api/2014/monsters/cultist",
+    "source": "SRC"
   },
   {
     "index": "darkmantle",
@@ -12697,12 +12772,13 @@
       }
     ],
     "image": "/api/images/monsters/darkmantle.png",
-    "url": "/api/2014/monsters/darkmantle"
+    "url": "/api/2014/monsters/darkmantle",
+    "source": "SRC"
   },
   {
     "index": "death-dog",
     "name": "Death Dog",
-    "desc": "A death dog is an ugly two-headed hound that roams plains, and deserts. Hate burns in a death dog’s heart, and a taste for humanoid flesh drives it to attack travelers and explorers. Death dog saliva carries a foul disease that causes a victim’s flesh to slowly rot off the bone.",
+    "desc": "A death dog is an ugly two-headed hound that roams plains, and deserts. Hate burns in a death dog\u2019s heart, and a taste for humanoid flesh drives it to attack travelers and explorers. Death dog saliva carries a foul disease that causes a victim\u2019s flesh to slowly rot off the bone.",
     "size": "Medium",
     "type": "monstrosity",
     "alignment": "neutral evil",
@@ -12790,7 +12866,8 @@
       }
     ],
     "image": "/api/images/monsters/death-dog.png",
-    "url": "/api/2014/monsters/death-dog"
+    "url": "/api/2014/monsters/death-dog",
+    "source": "SRC"
   },
   {
     "index": "deep-gnome-svirfneblin",
@@ -12959,7 +13036,8 @@
       }
     ],
     "image": "/api/images/monsters/deep-gnome-svirfneblin.png",
-    "url": "/api/2014/monsters/deep-gnome-svirfneblin"
+    "url": "/api/2014/monsters/deep-gnome-svirfneblin",
+    "source": "SRC"
   },
   {
     "index": "deer",
@@ -13015,7 +13093,8 @@
       }
     ],
     "image": "/api/images/monsters/deer.png",
-    "url": "/api/2014/monsters/deer"
+    "url": "/api/2014/monsters/deer",
+    "source": "SRC"
   },
   {
     "index": "deva",
@@ -13210,7 +13289,8 @@
       }
     ],
     "image": "/api/images/monsters/deva.png",
-    "url": "/api/2014/monsters/deva"
+    "url": "/api/2014/monsters/deva",
+    "source": "SRC"
   },
   {
     "index": "dire-wolf",
@@ -13293,7 +13373,8 @@
       }
     ],
     "image": "/api/images/monsters/dire-wolf.png",
-    "url": "/api/2014/monsters/dire-wolf"
+    "url": "/api/2014/monsters/dire-wolf",
+    "source": "SRC"
   },
   {
     "index": "djinni",
@@ -13563,7 +13644,8 @@
       }
     ],
     "image": "/api/images/monsters/djinni.png",
-    "url": "/api/2014/monsters/djinni"
+    "url": "/api/2014/monsters/djinni",
+    "source": "SRC"
   },
   {
     "index": "doppelganger",
@@ -13674,7 +13756,8 @@
       }
     ],
     "image": "/api/images/monsters/doppelganger.png",
-    "url": "/api/2014/monsters/doppelganger"
+    "url": "/api/2014/monsters/doppelganger",
+    "source": "SRC"
   },
   {
     "index": "draft-horse",
@@ -13730,7 +13813,8 @@
       }
     ],
     "image": "/api/images/monsters/draft-horse.png",
-    "url": "/api/2014/monsters/draft-horse"
+    "url": "/api/2014/monsters/draft-horse",
+    "source": "SRC"
   },
   {
     "index": "dragon-turtle",
@@ -13927,7 +14011,8 @@
       }
     ],
     "image": "/api/images/monsters/dragon-turtle.png",
-    "url": "/api/2014/monsters/dragon-turtle"
+    "url": "/api/2014/monsters/dragon-turtle",
+    "source": "SRC"
   },
   {
     "index": "dretch",
@@ -14046,7 +14131,8 @@
       }
     ],
     "image": "/api/images/monsters/dretch.png",
-    "url": "/api/2014/monsters/dretch"
+    "url": "/api/2014/monsters/dretch",
+    "source": "SRC"
   },
   {
     "index": "drider",
@@ -14310,7 +14396,8 @@
       }
     ],
     "image": "/api/images/monsters/drider.png",
-    "url": "/api/2014/monsters/drider"
+    "url": "/api/2014/monsters/drider",
+    "source": "SRC"
   },
   {
     "index": "drow",
@@ -14462,7 +14549,8 @@
       }
     ],
     "image": "/api/images/monsters/drow.png",
-    "url": "/api/2014/monsters/drow"
+    "url": "/api/2014/monsters/drow",
+    "source": "SRC"
   },
   {
     "index": "druid",
@@ -14658,7 +14746,8 @@
       }
     ],
     "image": "/api/images/monsters/druid.png",
-    "url": "/api/2014/monsters/druid"
+    "url": "/api/2014/monsters/druid",
+    "source": "SRC"
   },
   {
     "index": "dryad",
@@ -14839,7 +14928,8 @@
       }
     ],
     "image": "/api/images/monsters/dryad.png",
-    "url": "/api/2014/monsters/dryad"
+    "url": "/api/2014/monsters/dryad",
+    "source": "SRC"
   },
   {
     "index": "duergar",
@@ -14958,7 +15048,8 @@
       }
     ],
     "image": "/api/images/monsters/duergar.png",
-    "url": "/api/2014/monsters/duergar"
+    "url": "/api/2014/monsters/duergar",
+    "source": "SRC"
   },
   {
     "index": "dust-mephit",
@@ -15103,7 +15194,8 @@
       }
     ],
     "image": "/api/images/monsters/dust-mephit.png",
-    "url": "/api/2014/monsters/dust-mephit"
+    "url": "/api/2014/monsters/dust-mephit",
+    "source": "SRC"
   },
   {
     "index": "eagle",
@@ -15175,7 +15267,8 @@
       }
     ],
     "image": "/api/images/monsters/eagle.png",
-    "url": "/api/2014/monsters/eagle"
+    "url": "/api/2014/monsters/eagle",
+    "source": "SRC"
   },
   {
     "index": "earth-elemental",
@@ -15288,7 +15381,8 @@
       }
     ],
     "image": "/api/images/monsters/earth-elemental.png",
-    "url": "/api/2014/monsters/earth-elemental"
+    "url": "/api/2014/monsters/earth-elemental",
+    "source": "SRC"
   },
   {
     "index": "efreeti",
@@ -15528,7 +15622,8 @@
       }
     ],
     "image": "/api/images/monsters/efreeti.png",
-    "url": "/api/2014/monsters/efreeti"
+    "url": "/api/2014/monsters/efreeti",
+    "source": "SRC"
   },
   {
     "index": "elephant",
@@ -15605,7 +15700,8 @@
       }
     ],
     "image": "/api/images/monsters/elephant.png",
-    "url": "/api/2014/monsters/elephant"
+    "url": "/api/2014/monsters/elephant",
+    "source": "SRC"
   },
   {
     "index": "elk",
@@ -15682,7 +15778,8 @@
       }
     ],
     "image": "/api/images/monsters/elk.png",
-    "url": "/api/2014/monsters/elk"
+    "url": "/api/2014/monsters/elk",
+    "source": "SRC"
   },
   {
     "index": "erinyes",
@@ -15921,7 +16018,8 @@
       }
     ],
     "image": "/api/images/monsters/erinyes.png",
-    "url": "/api/2014/monsters/erinyes"
+    "url": "/api/2014/monsters/erinyes",
+    "source": "SRC"
   },
   {
     "index": "ettercap",
@@ -16068,7 +16166,8 @@
       }
     ],
     "image": "/api/images/monsters/ettercap.png",
-    "url": "/api/2014/monsters/ettercap"
+    "url": "/api/2014/monsters/ettercap",
+    "source": "SRC"
   },
   {
     "index": "ettin",
@@ -16176,7 +16275,8 @@
       }
     ],
     "image": "/api/images/monsters/ettin.png",
-    "url": "/api/2014/monsters/ettin"
+    "url": "/api/2014/monsters/ettin",
+    "source": "SRC"
   },
   {
     "index": "fire-elemental",
@@ -16315,7 +16415,8 @@
       }
     ],
     "image": "/api/images/monsters/fire-elemental.png",
-    "url": "/api/2014/monsters/fire-elemental"
+    "url": "/api/2014/monsters/fire-elemental",
+    "source": "SRC"
   },
   {
     "index": "fire-giant",
@@ -16448,7 +16549,8 @@
       }
     ],
     "image": "/api/images/monsters/fire-giant.png",
-    "url": "/api/2014/monsters/fire-giant"
+    "url": "/api/2014/monsters/fire-giant",
+    "source": "SRC"
   },
   {
     "index": "flesh-golem",
@@ -16578,7 +16680,8 @@
       }
     ],
     "image": "/api/images/monsters/flesh-golem.png",
-    "url": "/api/2014/monsters/flesh-golem"
+    "url": "/api/2014/monsters/flesh-golem",
+    "source": "SRC"
   },
   {
     "index": "flying-snake",
@@ -16652,7 +16755,8 @@
       }
     ],
     "image": "/api/images/monsters/flying-snake.png",
-    "url": "/api/2014/monsters/flying-snake"
+    "url": "/api/2014/monsters/flying-snake",
+    "source": "SRC"
   },
   {
     "index": "flying-sword",
@@ -16769,12 +16873,13 @@
       }
     ],
     "image": "/api/images/monsters/flying-sword.png",
-    "url": "/api/2014/monsters/flying-sword"
+    "url": "/api/2014/monsters/flying-sword",
+    "source": "SRC"
   },
   {
     "index": "frog",
     "name": "Frog",
-    "desc": "A frog has no effective attacks. It feeds on small insects and typically dwells near water, in trees, or underground. The frog’s statistics can also be used to represent a toad.",
+    "desc": "A frog has no effective attacks. It feeds on small insects and typically dwells near water, in trees, or underground. The frog\u2019s statistics can also be used to represent a toad.",
     "size": "Tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -16838,7 +16943,8 @@
       }
     ],
     "image": "/api/images/monsters/frog.png",
-    "url": "/api/2014/monsters/frog"
+    "url": "/api/2014/monsters/frog",
+    "source": "SRC"
   },
   {
     "index": "frost-giant",
@@ -16965,7 +17071,8 @@
       }
     ],
     "image": "/api/images/monsters/frost-giant.png",
-    "url": "/api/2014/monsters/frost-giant"
+    "url": "/api/2014/monsters/frost-giant",
+    "source": "SRC"
   },
   {
     "index": "gargoyle",
@@ -17081,7 +17188,8 @@
       }
     ],
     "image": "/api/images/monsters/gargoyle.png",
-    "url": "/api/2014/monsters/gargoyle"
+    "url": "/api/2014/monsters/gargoyle",
+    "source": "SRC"
   },
   {
     "index": "gelatinous-cube",
@@ -17202,7 +17310,8 @@
       }
     ],
     "image": "/api/images/monsters/gelatinous-cube.png",
-    "url": "/api/2014/monsters/gelatinous-cube"
+    "url": "/api/2014/monsters/gelatinous-cube",
+    "source": "SRC"
   },
   {
     "index": "ghast",
@@ -17313,7 +17422,8 @@
       }
     ],
     "image": "/api/images/monsters/ghast.png",
-    "url": "/api/2014/monsters/ghast"
+    "url": "/api/2014/monsters/ghast",
+    "source": "SRC"
   },
   {
     "index": "ghost",
@@ -17442,7 +17552,7 @@
       },
       {
         "name": "Horrifying Visage",
-        "desc": "Each non-undead creature within 60 ft. of the ghost that can see it must succeed on a DC 13 Wisdom saving throw or be frightened for 1 minute. If the save fails by 5 or more, the target also ages 1d4 × 10 years. A frightened target can repeat the saving throw at the end of each of its turns, ending the frightened condition on itself on a success. If a target's saving throw is successful or the effect ends for it, the target is immune to this ghost's Horrifying Visage for the next 24 hours. The aging effect can be reversed with a greater restoration spell, but only within 24 hours of it occurring.",
+        "desc": "Each non-undead creature within 60 ft. of the ghost that can see it must succeed on a DC 13 Wisdom saving throw or be frightened for 1 minute. If the save fails by 5 or more, the target also ages 1d4 \u00d7 10 years. A frightened target can repeat the saving throw at the end of each of its turns, ending the frightened condition on itself on a success. If a target's saving throw is successful or the effect ends for it, the target is immune to this ghost's Horrifying Visage for the next 24 hours. The aging effect can be reversed with a greater restoration spell, but only within 24 hours of it occurring.",
         "dc": {
           "dc_type": {
             "index": "wis",
@@ -17473,7 +17583,8 @@
       }
     ],
     "image": "/api/images/monsters/ghost.png",
-    "url": "/api/2014/monsters/ghost"
+    "url": "/api/2014/monsters/ghost",
+    "source": "SRC"
   },
   {
     "index": "ghoul",
@@ -17563,7 +17674,8 @@
       }
     ],
     "image": "/api/images/monsters/ghoul.png",
-    "url": "/api/2014/monsters/ghoul"
+    "url": "/api/2014/monsters/ghoul",
+    "source": "SRC"
   },
   {
     "index": "giant-ape",
@@ -17664,7 +17776,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-ape.png",
-    "url": "/api/2014/monsters/giant-ape"
+    "url": "/api/2014/monsters/giant-ape",
+    "source": "SRC"
   },
   {
     "index": "giant-badger",
@@ -17760,7 +17873,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-badger.png",
-    "url": "/api/2014/monsters/giant-badger"
+    "url": "/api/2014/monsters/giant-badger",
+    "source": "SRC"
   },
   {
     "index": "giant-bat",
@@ -17828,7 +17942,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-bat.png",
-    "url": "/api/2014/monsters/giant-bat"
+    "url": "/api/2014/monsters/giant-bat",
+    "source": "SRC"
   },
   {
     "index": "giant-boar",
@@ -17901,7 +18016,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-boar.png",
-    "url": "/api/2014/monsters/giant-boar"
+    "url": "/api/2014/monsters/giant-boar",
+    "source": "SRC"
   },
   {
     "index": "giant-centipede",
@@ -17959,7 +18075,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-centipede.png",
-    "url": "/api/2014/monsters/giant-centipede"
+    "url": "/api/2014/monsters/giant-centipede",
+    "source": "SRC"
   },
   {
     "index": "giant-constrictor-snake",
@@ -18041,7 +18158,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-constrictor-snake.png",
-    "url": "/api/2014/monsters/giant-constrictor-snake"
+    "url": "/api/2014/monsters/giant-constrictor-snake",
+    "source": "SRC"
   },
   {
     "index": "giant-crab",
@@ -18114,7 +18232,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-crab.png",
-    "url": "/api/2014/monsters/giant-crab"
+    "url": "/api/2014/monsters/giant-crab",
+    "source": "SRC"
   },
   {
     "index": "giant-crocodile",
@@ -18218,7 +18337,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-crocodile.png",
-    "url": "/api/2014/monsters/giant-crocodile"
+    "url": "/api/2014/monsters/giant-crocodile",
+    "source": "SRC"
   },
   {
     "index": "giant-eagle",
@@ -18323,7 +18443,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-eagle.png",
-    "url": "/api/2014/monsters/giant-eagle"
+    "url": "/api/2014/monsters/giant-eagle",
+    "source": "SRC"
   },
   {
     "index": "giant-elk",
@@ -18410,12 +18531,13 @@
       }
     ],
     "image": "/api/images/monsters/giant-elk.png",
-    "url": "/api/2014/monsters/giant-elk"
+    "url": "/api/2014/monsters/giant-elk",
+    "source": "SRC"
   },
   {
     "index": "giant-fire-beetle",
     "name": "Giant Fire Beetle",
-    "desc": "A giant fire beetle is a nocturnal creature that takes its name from a pair of glowing glands that give off light. Miners and adventurers prize these creatures, for a giant fire beetle’s glands continue to shed light for 1d6 days after the beetle dies. Giant fire beetles are most commonly found underground and in dark forests.",
+    "desc": "A giant fire beetle is a nocturnal creature that takes its name from a pair of glowing glands that give off light. Miners and adventurers prize these creatures, for a giant fire beetle\u2019s glands continue to shed light for 1d6 days after the beetle dies. Giant fire beetles are most commonly found underground and in dark forests.",
     "size": "Small",
     "type": "beast",
     "alignment": "unaligned",
@@ -18474,7 +18596,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-fire-beetle.png",
-    "url": "/api/2014/monsters/giant-fire-beetle"
+    "url": "/api/2014/monsters/giant-fire-beetle",
+    "source": "SRC"
   },
   {
     "index": "giant-frog",
@@ -18563,7 +18686,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-frog.png",
-    "url": "/api/2014/monsters/giant-frog"
+    "url": "/api/2014/monsters/giant-frog",
+    "source": "SRC"
   },
   {
     "index": "giant-goat",
@@ -18629,7 +18753,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-goat.png",
-    "url": "/api/2014/monsters/giant-goat"
+    "url": "/api/2014/monsters/giant-goat",
+    "source": "SRC"
   },
   {
     "index": "giant-hyena",
@@ -18700,7 +18825,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-hyena.png",
-    "url": "/api/2014/monsters/giant-hyena"
+    "url": "/api/2014/monsters/giant-hyena",
+    "source": "SRC"
   },
   {
     "index": "giant-lizard",
@@ -18759,7 +18885,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-lizard.png",
-    "url": "/api/2014/monsters/giant-lizard"
+    "url": "/api/2014/monsters/giant-lizard",
+    "source": "SRC"
   },
   {
     "index": "giant-octopus",
@@ -18859,7 +18986,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-octopus.png",
-    "url": "/api/2014/monsters/giant-octopus"
+    "url": "/api/2014/monsters/giant-octopus",
+    "source": "SRC"
   },
   {
     "index": "giant-owl",
@@ -18944,7 +19072,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-owl.png",
-    "url": "/api/2014/monsters/giant-owl"
+    "url": "/api/2014/monsters/giant-owl",
+    "source": "SRC"
   },
   {
     "index": "giant-poisonous-snake",
@@ -19011,7 +19140,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-poisonous-snake.png",
-    "url": "/api/2014/monsters/giant-poisonous-snake"
+    "url": "/api/2014/monsters/giant-poisonous-snake",
+    "source": "SRC"
   },
   {
     "index": "giant-rat",
@@ -19078,7 +19208,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-rat.png",
-    "url": "/api/2014/monsters/giant-rat"
+    "url": "/api/2014/monsters/giant-rat",
+    "source": "SRC"
   },
   {
     "index": "giant-rat-diseased",
@@ -19145,7 +19276,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-rat-diseased.png",
-    "url": "/api/2014/monsters/giant-rat-diseased"
+    "url": "/api/2014/monsters/giant-rat-diseased",
+    "source": "SRC"
   },
   {
     "index": "giant-scorpion",
@@ -19234,7 +19366,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-scorpion.png",
-    "url": "/api/2014/monsters/giant-scorpion"
+    "url": "/api/2014/monsters/giant-scorpion",
+    "source": "SRC"
   },
   {
     "index": "giant-sea-horse",
@@ -19302,7 +19435,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-sea-horse.png",
-    "url": "/api/2014/monsters/giant-sea-horse"
+    "url": "/api/2014/monsters/giant-sea-horse",
+    "source": "SRC"
   },
   {
     "index": "giant-shark",
@@ -19379,7 +19513,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-shark.png",
-    "url": "/api/2014/monsters/giant-shark"
+    "url": "/api/2014/monsters/giant-shark",
+    "source": "SRC"
   },
   {
     "index": "giant-spider",
@@ -19472,7 +19607,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-spider.png",
-    "url": "/api/2014/monsters/giant-spider"
+    "url": "/api/2014/monsters/giant-spider",
+    "source": "SRC"
   },
   {
     "index": "giant-toad",
@@ -19552,7 +19688,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-toad.png",
-    "url": "/api/2014/monsters/giant-toad"
+    "url": "/api/2014/monsters/giant-toad",
+    "source": "SRC"
   },
   {
     "index": "giant-vulture",
@@ -19661,7 +19798,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-vulture.png",
-    "url": "/api/2014/monsters/giant-vulture"
+    "url": "/api/2014/monsters/giant-vulture",
+    "source": "SRC"
   },
   {
     "index": "giant-wasp",
@@ -19719,7 +19857,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-wasp.png",
-    "url": "/api/2014/monsters/giant-wasp"
+    "url": "/api/2014/monsters/giant-wasp",
+    "source": "SRC"
   },
   {
     "index": "giant-weasel",
@@ -19799,7 +19938,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-weasel.png",
-    "url": "/api/2014/monsters/giant-weasel"
+    "url": "/api/2014/monsters/giant-weasel",
+    "source": "SRC"
   },
   {
     "index": "giant-wolf-spider",
@@ -19890,7 +20030,8 @@
       }
     ],
     "image": "/api/images/monsters/giant-wolf-spider.png",
-    "url": "/api/2014/monsters/giant-wolf-spider"
+    "url": "/api/2014/monsters/giant-wolf-spider",
+    "source": "SRC"
   },
   {
     "index": "gibbering-mouther",
@@ -20008,7 +20149,8 @@
       }
     ],
     "image": "/api/images/monsters/gibbering-mouther.png",
-    "url": "/api/2014/monsters/gibbering-mouther"
+    "url": "/api/2014/monsters/gibbering-mouther",
+    "source": "SRC"
   },
   {
     "index": "glabrezu",
@@ -20250,7 +20392,8 @@
       }
     ],
     "image": "/api/images/monsters/glabrezu.png",
-    "url": "/api/2014/monsters/glabrezu"
+    "url": "/api/2014/monsters/glabrezu",
+    "source": "SRC"
   },
   {
     "index": "gladiator",
@@ -20479,7 +20622,8 @@
       }
     ],
     "image": "/api/images/monsters/gladiator.png",
-    "url": "/api/2014/monsters/gladiator"
+    "url": "/api/2014/monsters/gladiator",
+    "source": "SRC"
   },
   {
     "index": "gnoll",
@@ -20606,7 +20750,8 @@
       }
     ],
     "image": "/api/images/monsters/gnoll.png",
-    "url": "/api/2014/monsters/gnoll"
+    "url": "/api/2014/monsters/gnoll",
+    "source": "SRC"
   },
   {
     "index": "goat",
@@ -20672,7 +20817,8 @@
       }
     ],
     "image": "/api/images/monsters/goat.png",
-    "url": "/api/2014/monsters/goat"
+    "url": "/api/2014/monsters/goat",
+    "source": "SRC"
   },
   {
     "index": "goblin",
@@ -20772,7 +20918,8 @@
       }
     ],
     "image": "/api/images/monsters/goblin.png",
-    "url": "/api/2014/monsters/goblin"
+    "url": "/api/2014/monsters/goblin",
+    "source": "SRC"
   },
   {
     "index": "gold-dragon-wyrmling",
@@ -20943,7 +21090,8 @@
       }
     ],
     "image": "/api/images/monsters/gold-dragon-wyrmling.png",
-    "url": "/api/2014/monsters/gold-dragon-wyrmling"
+    "url": "/api/2014/monsters/gold-dragon-wyrmling",
+    "source": "SRC"
   },
   {
     "index": "gorgon",
@@ -21054,7 +21202,8 @@
       }
     ],
     "image": "/api/images/monsters/gorgon.png",
-    "url": "/api/2014/monsters/gorgon"
+    "url": "/api/2014/monsters/gorgon",
+    "source": "SRC"
   },
   {
     "index": "gray-ooze",
@@ -21178,7 +21327,8 @@
       }
     ],
     "image": "/api/images/monsters/gray-ooze.png",
-    "url": "/api/2014/monsters/gray-ooze"
+    "url": "/api/2014/monsters/gray-ooze",
+    "source": "SRC"
   },
   {
     "index": "green-dragon-wyrmling",
@@ -21337,7 +21487,8 @@
       }
     ],
     "image": "/api/images/monsters/green-dragon-wyrmling.png",
-    "url": "/api/2014/monsters/green-dragon-wyrmling"
+    "url": "/api/2014/monsters/green-dragon-wyrmling",
+    "source": "SRC"
   },
   {
     "index": "green-hag",
@@ -21487,7 +21638,8 @@
       }
     ],
     "image": "/api/images/monsters/green-hag.png",
-    "url": "/api/2014/monsters/green-hag"
+    "url": "/api/2014/monsters/green-hag",
+    "source": "SRC"
   },
   {
     "index": "grick",
@@ -21585,7 +21737,8 @@
       }
     ],
     "image": "/api/images/monsters/grick.png",
-    "url": "/api/2014/monsters/grick"
+    "url": "/api/2014/monsters/grick",
+    "source": "SRC"
   },
   {
     "index": "griffon",
@@ -21690,7 +21843,8 @@
       }
     ],
     "image": "/api/images/monsters/griffon.png",
-    "url": "/api/2014/monsters/griffon"
+    "url": "/api/2014/monsters/griffon",
+    "source": "SRC"
   },
   {
     "index": "grimlock",
@@ -21801,7 +21955,8 @@
       }
     ],
     "image": "/api/images/monsters/grimlock.png",
-    "url": "/api/2014/monsters/grimlock"
+    "url": "/api/2014/monsters/grimlock",
+    "source": "SRC"
   },
   {
     "index": "guard",
@@ -21901,7 +22056,8 @@
       }
     ],
     "image": "/api/images/monsters/guard.png",
-    "url": "/api/2014/monsters/guard"
+    "url": "/api/2014/monsters/guard",
+    "source": "SRC"
   },
   {
     "index": "guardian-naga",
@@ -22126,7 +22282,8 @@
       }
     ],
     "image": "/api/images/monsters/guardian-naga.png",
-    "url": "/api/2014/monsters/guardian-naga"
+    "url": "/api/2014/monsters/guardian-naga",
+    "source": "SRC"
   },
   {
     "index": "gynosphinx",
@@ -22371,7 +22528,8 @@
       }
     ],
     "image": "/api/images/monsters/gynosphinx.png",
-    "url": "/api/2014/monsters/gynosphinx"
+    "url": "/api/2014/monsters/gynosphinx",
+    "source": "SRC"
   },
   {
     "index": "half-red-dragon-veteran",
@@ -22535,7 +22693,8 @@
       }
     ],
     "image": "/api/images/monsters/half-red-dragon-veteran.png",
-    "url": "/api/2014/monsters/half-red-dragon-veteran"
+    "url": "/api/2014/monsters/half-red-dragon-veteran",
+    "source": "SRC"
   },
   {
     "index": "harpy",
@@ -22628,7 +22787,8 @@
       }
     ],
     "image": "/api/images/monsters/harpy.png",
-    "url": "/api/2014/monsters/harpy"
+    "url": "/api/2014/monsters/harpy",
+    "source": "SRC"
   },
   {
     "index": "hawk",
@@ -22700,7 +22860,8 @@
       }
     ],
     "image": "/api/images/monsters/hawk.png",
-    "url": "/api/2014/monsters/hawk"
+    "url": "/api/2014/monsters/hawk",
+    "source": "SRC"
   },
   {
     "index": "hell-hound",
@@ -22814,7 +22975,8 @@
       }
     ],
     "image": "/api/images/monsters/hell-hound.png",
-    "url": "/api/2014/monsters/hell-hound"
+    "url": "/api/2014/monsters/hell-hound",
+    "source": "SRC"
   },
   {
     "index": "hezrou",
@@ -22961,7 +23123,8 @@
       }
     ],
     "image": "/api/images/monsters/hezrou.png",
-    "url": "/api/2014/monsters/hezrou"
+    "url": "/api/2014/monsters/hezrou",
+    "source": "SRC"
   },
   {
     "index": "hill-giant",
@@ -23053,7 +23216,8 @@
       }
     ],
     "image": "/api/images/monsters/hill-giant.png",
-    "url": "/api/2014/monsters/hill-giant"
+    "url": "/api/2014/monsters/hill-giant",
+    "source": "SRC"
   },
   {
     "index": "hippogriff",
@@ -23157,7 +23321,8 @@
       }
     ],
     "image": "/api/images/monsters/hippogriff.png",
-    "url": "/api/2014/monsters/hippogriff"
+    "url": "/api/2014/monsters/hippogriff",
+    "source": "SRC"
   },
   {
     "index": "hobgoblin",
@@ -23269,7 +23434,8 @@
       }
     ],
     "image": "/api/images/monsters/hobgoblin.png",
-    "url": "/api/2014/monsters/hobgoblin"
+    "url": "/api/2014/monsters/hobgoblin",
+    "source": "SRC"
   },
   {
     "index": "homunculus",
@@ -23346,7 +23512,8 @@
       }
     ],
     "image": "/api/images/monsters/homunculus.png",
-    "url": "/api/2014/monsters/homunculus"
+    "url": "/api/2014/monsters/homunculus",
+    "source": "SRC"
   },
   {
     "index": "horned-devil",
@@ -23561,7 +23728,8 @@
       }
     ],
     "image": "/api/images/monsters/horned-devil.png",
-    "url": "/api/2014/monsters/horned-devil"
+    "url": "/api/2014/monsters/horned-devil",
+    "source": "SRC"
   },
   {
     "index": "hunter-shark",
@@ -23638,7 +23806,8 @@
       }
     ],
     "image": "/api/images/monsters/hunter-shark.png",
-    "url": "/api/2014/monsters/hunter-shark"
+    "url": "/api/2014/monsters/hunter-shark",
+    "source": "SRC"
   },
   {
     "index": "hydra",
@@ -23735,7 +23904,8 @@
       }
     ],
     "image": "/api/images/monsters/hydra.png",
-    "url": "/api/2014/monsters/hydra"
+    "url": "/api/2014/monsters/hydra",
+    "source": "SRC"
   },
   {
     "index": "hyena",
@@ -23806,7 +23976,8 @@
       }
     ],
     "image": "/api/images/monsters/hyena.png",
-    "url": "/api/2014/monsters/hyena"
+    "url": "/api/2014/monsters/hyena",
+    "source": "SRC"
   },
   {
     "index": "ice-devil",
@@ -23999,7 +24170,8 @@
       }
     ],
     "image": "/api/images/monsters/ice-devil.png",
-    "url": "/api/2014/monsters/ice-devil"
+    "url": "/api/2014/monsters/ice-devil",
+    "source": "SRC"
   },
   {
     "index": "ice-mephit",
@@ -24177,7 +24349,8 @@
       }
     ],
     "image": "/api/images/monsters/ice-mephit.png",
-    "url": "/api/2014/monsters/ice-mephit"
+    "url": "/api/2014/monsters/ice-mephit",
+    "source": "SRC"
   },
   {
     "index": "imp",
@@ -24299,7 +24472,8 @@
       }
     ],
     "image": "/api/images/monsters/imp.png",
-    "url": "/api/2014/monsters/imp"
+    "url": "/api/2014/monsters/imp",
+    "source": "SRC"
   },
   {
     "index": "invisible-stalker",
@@ -24442,7 +24616,8 @@
       }
     ],
     "image": "/api/images/monsters/invisible-stalker.png",
-    "url": "/api/2014/monsters/invisible-stalker"
+    "url": "/api/2014/monsters/invisible-stalker",
+    "source": "SRC"
   },
   {
     "index": "iron-golem",
@@ -24639,7 +24814,8 @@
       }
     ],
     "image": "/api/images/monsters/iron-golem.png",
-    "url": "/api/2014/monsters/iron-golem"
+    "url": "/api/2014/monsters/iron-golem",
+    "source": "SRC"
   },
   {
     "index": "jackal",
@@ -24714,7 +24890,8 @@
       }
     ],
     "image": "/api/images/monsters/jackal.png",
-    "url": "/api/2014/monsters/jackal"
+    "url": "/api/2014/monsters/jackal",
+    "source": "SRC"
   },
   {
     "index": "killer-whale",
@@ -24794,12 +24971,13 @@
       }
     ],
     "image": "/api/images/monsters/killer-whale.png",
-    "url": "/api/2014/monsters/killer-whale"
+    "url": "/api/2014/monsters/killer-whale",
+    "source": "SRC"
   },
   {
     "index": "knight",
     "name": "Knight",
-    "desc": "Knights are warriors who pledge service to rulers, religious orders, and noble causes. A knight’s alignment determines the extent to which a pledge is honored. Whether undertaking a quest or patrolling a realm, a knight often travels with an entourage that includes squires and hirelings who are commoners.",
+    "desc": "Knights are warriors who pledge service to rulers, religious orders, and noble causes. A knight\u2019s alignment determines the extent to which a pledge is honored. Whether undertaking a quest or patrolling a realm, a knight often travels with an entourage that includes squires and hirelings who are commoners.",
     "size": "Medium",
     "type": "humanoid",
     "subtype": "any race",
@@ -24926,7 +25104,8 @@
       }
     ],
     "image": "/api/images/monsters/knight.png",
-    "url": "/api/2014/monsters/knight"
+    "url": "/api/2014/monsters/knight",
+    "source": "SRC"
   },
   {
     "index": "kobold",
@@ -25009,7 +25188,8 @@
       }
     ],
     "image": "/api/images/monsters/kobold.png",
-    "url": "/api/2014/monsters/kobold"
+    "url": "/api/2014/monsters/kobold",
+    "source": "SRC"
   },
   {
     "index": "kraken",
@@ -25274,7 +25454,8 @@
       }
     ],
     "image": "/api/images/monsters/kraken.png",
-    "url": "/api/2014/monsters/kraken"
+    "url": "/api/2014/monsters/kraken",
+    "source": "SRC"
   },
   {
     "index": "lamia",
@@ -25506,7 +25687,8 @@
       }
     ],
     "image": "/api/images/monsters/lamia.png",
-    "url": "/api/2014/monsters/lamia"
+    "url": "/api/2014/monsters/lamia",
+    "source": "SRC"
   },
   {
     "index": "lemure",
@@ -25595,7 +25777,8 @@
       }
     ],
     "image": "/api/images/monsters/lemure.png",
-    "url": "/api/2014/monsters/lemure"
+    "url": "/api/2014/monsters/lemure",
+    "source": "SRC"
   },
   {
     "index": "lich",
@@ -25969,7 +26152,8 @@
       }
     ],
     "image": "/api/images/monsters/lich.png",
-    "url": "/api/2014/monsters/lich"
+    "url": "/api/2014/monsters/lich",
+    "source": "SRC"
   },
   {
     "index": "lion",
@@ -26084,7 +26268,8 @@
       }
     ],
     "image": "/api/images/monsters/lion.png",
-    "url": "/api/2014/monsters/lion"
+    "url": "/api/2014/monsters/lion",
+    "source": "SRC"
   },
   {
     "index": "lizard",
@@ -26142,7 +26327,8 @@
       }
     ],
     "image": "/api/images/monsters/lizard.png",
-    "url": "/api/2014/monsters/lizard"
+    "url": "/api/2014/monsters/lizard",
+    "source": "SRC"
   },
   {
     "index": "lizardfolk",
@@ -26403,7 +26589,8 @@
       }
     ],
     "image": "/api/images/monsters/lizardfolk.png",
-    "url": "/api/2014/monsters/lizardfolk"
+    "url": "/api/2014/monsters/lizardfolk",
+    "source": "SRC"
   },
   {
     "index": "mage",
@@ -26614,7 +26801,8 @@
       }
     ],
     "image": "/api/images/monsters/mage.png",
-    "url": "/api/2014/monsters/mage"
+    "url": "/api/2014/monsters/mage",
+    "source": "SRC"
   },
   {
     "index": "magma-mephit",
@@ -26784,7 +26972,8 @@
       }
     ],
     "image": "/api/images/monsters/magma-mephit.png",
-    "url": "/api/2014/monsters/magma-mephit"
+    "url": "/api/2014/monsters/magma-mephit",
+    "source": "SRC"
   },
   {
     "index": "magmin",
@@ -26874,7 +27063,8 @@
       }
     ],
     "image": "/api/images/monsters/magmin.png",
-    "url": "/api/2014/monsters/magmin"
+    "url": "/api/2014/monsters/magmin",
+    "source": "SRC"
   },
   {
     "index": "mammoth",
@@ -26952,7 +27142,8 @@
       }
     ],
     "image": "/api/images/monsters/mammoth.png",
-    "url": "/api/2014/monsters/mammoth"
+    "url": "/api/2014/monsters/mammoth",
+    "source": "SRC"
   },
   {
     "index": "manticore",
@@ -27083,7 +27274,8 @@
       }
     ],
     "image": "/api/images/monsters/manticore.png",
-    "url": "/api/2014/monsters/manticore"
+    "url": "/api/2014/monsters/manticore",
+    "source": "SRC"
   },
   {
     "index": "marilith",
@@ -27243,7 +27435,8 @@
       }
     ],
     "image": "/api/images/monsters/marilith.png",
-    "url": "/api/2014/monsters/marilith"
+    "url": "/api/2014/monsters/marilith",
+    "source": "SRC"
   },
   {
     "index": "mastiff",
@@ -27315,7 +27508,8 @@
       }
     ],
     "image": "/api/images/monsters/mastiff.png",
-    "url": "/api/2014/monsters/mastiff"
+    "url": "/api/2014/monsters/mastiff",
+    "source": "SRC"
   },
   {
     "index": "medusa",
@@ -27503,7 +27697,8 @@
       }
     ],
     "image": "/api/images/monsters/medusa.png",
-    "url": "/api/2014/monsters/medusa"
+    "url": "/api/2014/monsters/medusa",
+    "source": "SRC"
   },
   {
     "index": "merfolk",
@@ -27597,7 +27792,8 @@
       }
     ],
     "image": "/api/images/monsters/merfolk.png",
-    "url": "/api/2014/monsters/merfolk"
+    "url": "/api/2014/monsters/merfolk",
+    "source": "SRC"
   },
   {
     "index": "merrow",
@@ -27756,7 +27952,8 @@
       }
     ],
     "image": "/api/images/monsters/merrow.png",
-    "url": "/api/2014/monsters/merrow"
+    "url": "/api/2014/monsters/merrow",
+    "source": "SRC"
   },
   {
     "index": "mimic",
@@ -27872,7 +28069,8 @@
       }
     ],
     "image": "/api/images/monsters/mimic.png",
-    "url": "/api/2014/monsters/mimic"
+    "url": "/api/2014/monsters/mimic",
+    "source": "SRC"
   },
   {
     "index": "minotaur",
@@ -27967,7 +28165,8 @@
       }
     ],
     "image": "/api/images/monsters/minotaur.png",
-    "url": "/api/2014/monsters/minotaur"
+    "url": "/api/2014/monsters/minotaur",
+    "source": "SRC"
   },
   {
     "index": "minotaur-skeleton",
@@ -28060,7 +28259,8 @@
       }
     ],
     "image": "/api/images/monsters/minotaur-skeleton.png",
-    "url": "/api/2014/monsters/minotaur-skeleton"
+    "url": "/api/2014/monsters/minotaur-skeleton",
+    "source": "SRC"
   },
   {
     "index": "mule",
@@ -28126,7 +28326,8 @@
       }
     ],
     "image": "/api/images/monsters/mule.png",
-    "url": "/api/2014/monsters/mule"
+    "url": "/api/2014/monsters/mule",
+    "source": "SRC"
   },
   {
     "index": "mummy",
@@ -28263,7 +28464,8 @@
       }
     ],
     "image": "/api/images/monsters/mummy.png",
-    "url": "/api/2014/monsters/mummy"
+    "url": "/api/2014/monsters/mummy",
+    "source": "SRC"
   },
   {
     "index": "mummy-lord",
@@ -28594,7 +28796,8 @@
       }
     ],
     "image": "/api/images/monsters/mummy-lord.png",
-    "url": "/api/2014/monsters/mummy-lord"
+    "url": "/api/2014/monsters/mummy-lord",
+    "source": "SRC"
   },
   {
     "index": "nalfeshnee",
@@ -28764,7 +28967,8 @@
       }
     ],
     "image": "/api/images/monsters/nalfeshnee.png",
-    "url": "/api/2014/monsters/nalfeshnee"
+    "url": "/api/2014/monsters/nalfeshnee",
+    "source": "SRC"
   },
   {
     "index": "night-hag",
@@ -28953,7 +29157,8 @@
       }
     ],
     "image": "/api/images/monsters/night-hag.png",
-    "url": "/api/2014/monsters/night-hag"
+    "url": "/api/2014/monsters/night-hag",
+    "source": "SRC"
   },
   {
     "index": "nightmare",
@@ -29034,12 +29239,13 @@
       }
     ],
     "image": "/api/images/monsters/nightmare.png",
-    "url": "/api/2014/monsters/nightmare"
+    "url": "/api/2014/monsters/nightmare",
+    "source": "SRC"
   },
   {
     "index": "noble",
     "name": "Noble",
-    "desc": "**Nobles** wield great authority and influence as members of the upper class, possessing wealth and connections that can make them as powerful as monarchs and generals. A noble often travels in the company of guards, as well as servants who are commoners.\n\nThe noble’s statistics can also be used to represent **courtiers** who aren’t of noble birth.",
+    "desc": "**Nobles** wield great authority and influence as members of the upper class, possessing wealth and connections that can make them as powerful as monarchs and generals. A noble often travels in the company of guards, as well as servants who are commoners.\n\nThe noble\u2019s statistics can also be used to represent **courtiers** who aren\u2019t of noble birth.",
     "size": "Medium",
     "type": "humanoid",
     "subtype": "any race",
@@ -29130,7 +29336,8 @@
       }
     ],
     "image": "/api/images/monsters/noble.png",
-    "url": "/api/2014/monsters/noble"
+    "url": "/api/2014/monsters/noble",
+    "source": "SRC"
   },
   {
     "index": "ochre-jelly",
@@ -29248,7 +29455,8 @@
       }
     ],
     "image": "/api/images/monsters/ochre-jelly.png",
-    "url": "/api/2014/monsters/ochre-jelly"
+    "url": "/api/2014/monsters/ochre-jelly",
+    "source": "SRC"
   },
   {
     "index": "octopus",
@@ -29349,7 +29557,8 @@
       }
     ],
     "image": "/api/images/monsters/octopus.png",
-    "url": "/api/2014/monsters/octopus"
+    "url": "/api/2014/monsters/octopus",
+    "source": "SRC"
   },
   {
     "index": "ogre",
@@ -29428,7 +29637,8 @@
       }
     ],
     "image": "/api/images/monsters/ogre.png",
-    "url": "/api/2014/monsters/ogre"
+    "url": "/api/2014/monsters/ogre",
+    "source": "SRC"
   },
   {
     "index": "ogre-zombie",
@@ -29508,7 +29718,8 @@
       }
     ],
     "image": "/api/images/monsters/ogre-zombie.png",
-    "url": "/api/2014/monsters/ogre-zombie"
+    "url": "/api/2014/monsters/ogre-zombie",
+    "source": "SRC"
   },
   {
     "index": "oni",
@@ -29774,7 +29985,8 @@
       }
     ],
     "image": "/api/images/monsters/oni.png",
-    "url": "/api/2014/monsters/oni"
+    "url": "/api/2014/monsters/oni",
+    "source": "SRC"
   },
   {
     "index": "orc",
@@ -29869,7 +30081,8 @@
       }
     ],
     "image": "/api/images/monsters/orc.png",
-    "url": "/api/2014/monsters/orc"
+    "url": "/api/2014/monsters/orc",
+    "source": "SRC"
   },
   {
     "index": "otyugh",
@@ -29994,7 +30207,8 @@
       }
     ],
     "image": "/api/images/monsters/otyugh.png",
-    "url": "/api/2014/monsters/otyugh"
+    "url": "/api/2014/monsters/otyugh",
+    "source": "SRC"
   },
   {
     "index": "owl",
@@ -30079,7 +30293,8 @@
       }
     ],
     "image": "/api/images/monsters/owl.png",
-    "url": "/api/2014/monsters/owl"
+    "url": "/api/2014/monsters/owl",
+    "source": "SRC"
   },
   {
     "index": "owlbear",
@@ -30183,7 +30398,8 @@
       }
     ],
     "image": "/api/images/monsters/owlbear.png",
-    "url": "/api/2014/monsters/owlbear"
+    "url": "/api/2014/monsters/owlbear",
+    "source": "SRC"
   },
   {
     "index": "panther",
@@ -30291,7 +30507,8 @@
       }
     ],
     "image": "/api/images/monsters/panther.png",
-    "url": "/api/2014/monsters/panther"
+    "url": "/api/2014/monsters/panther",
+    "source": "SRC"
   },
   {
     "index": "pegasus",
@@ -30381,7 +30598,8 @@
       }
     ],
     "image": "/api/images/monsters/pegasus.png",
-    "url": "/api/2014/monsters/pegasus"
+    "url": "/api/2014/monsters/pegasus",
+    "source": "SRC"
   },
   {
     "index": "phase-spider",
@@ -30463,7 +30681,8 @@
       }
     ],
     "image": "/api/images/monsters/phase-spider.png",
-    "url": "/api/2014/monsters/phase-spider"
+    "url": "/api/2014/monsters/phase-spider",
+    "source": "SRC"
   },
   {
     "index": "pit-fiend",
@@ -30706,7 +30925,8 @@
       }
     ],
     "image": "/api/images/monsters/pit-fiend.png",
-    "url": "/api/2014/monsters/pit-fiend"
+    "url": "/api/2014/monsters/pit-fiend",
+    "source": "SRC"
   },
   {
     "index": "planetar",
@@ -30956,7 +31176,8 @@
       }
     ],
     "image": "/api/images/monsters/planetar.png",
-    "url": "/api/2014/monsters/planetar"
+    "url": "/api/2014/monsters/planetar",
+    "source": "SRC"
   },
   {
     "index": "plesiosaurus",
@@ -31036,7 +31257,8 @@
       }
     ],
     "image": "/api/images/monsters/plesiosaurus.png",
-    "url": "/api/2014/monsters/plesiosaurus"
+    "url": "/api/2014/monsters/plesiosaurus",
+    "source": "SRC"
   },
   {
     "index": "poisonous-snake",
@@ -31094,7 +31316,8 @@
       }
     ],
     "image": "/api/images/monsters/poisonous-snake.png",
-    "url": "/api/2014/monsters/poisonous-snake"
+    "url": "/api/2014/monsters/poisonous-snake",
+    "source": "SRC"
   },
   {
     "index": "polar-bear",
@@ -31198,7 +31421,8 @@
       }
     ],
     "image": "/api/images/monsters/polar-bear.png",
-    "url": "/api/2014/monsters/polar-bear"
+    "url": "/api/2014/monsters/polar-bear",
+    "source": "SRC"
   },
   {
     "index": "pony",
@@ -31254,7 +31478,8 @@
       }
     ],
     "image": "/api/images/monsters/pony.png",
-    "url": "/api/2014/monsters/pony"
+    "url": "/api/2014/monsters/pony",
+    "source": "SRC"
   },
   {
     "index": "priest",
@@ -31427,7 +31652,8 @@
       }
     ],
     "image": "/api/images/monsters/priest.png",
-    "url": "/api/2014/monsters/priest"
+    "url": "/api/2014/monsters/priest",
+    "source": "SRC"
   },
   {
     "index": "pseudodragon",
@@ -31532,7 +31758,8 @@
       }
     ],
     "image": "/api/images/monsters/pseudodragon.png",
-    "url": "/api/2014/monsters/pseudodragon"
+    "url": "/api/2014/monsters/pseudodragon",
+    "source": "SRC"
   },
   {
     "index": "purple-worm",
@@ -31646,7 +31873,8 @@
       }
     ],
     "image": "/api/images/monsters/purple-worm.png",
-    "url": "/api/2014/monsters/purple-worm"
+    "url": "/api/2014/monsters/purple-worm",
+    "source": "SRC"
   },
   {
     "index": "quasit",
@@ -31757,7 +31985,8 @@
       }
     ],
     "image": "/api/images/monsters/quasit.png",
-    "url": "/api/2014/monsters/quasit"
+    "url": "/api/2014/monsters/quasit",
+    "source": "SRC"
   },
   {
     "index": "quipper",
@@ -31825,7 +32054,8 @@
       }
     ],
     "image": "/api/images/monsters/quipper.png",
-    "url": "/api/2014/monsters/quipper"
+    "url": "/api/2014/monsters/quipper",
+    "source": "SRC"
   },
   {
     "index": "rakshasa",
@@ -32053,7 +32283,8 @@
       }
     ],
     "image": "/api/images/monsters/rakshasa.png",
-    "url": "/api/2014/monsters/rakshasa"
+    "url": "/api/2014/monsters/rakshasa",
+    "source": "SRC"
   },
   {
     "index": "rat",
@@ -32116,7 +32347,8 @@
       }
     ],
     "image": "/api/images/monsters/rat.png",
-    "url": "/api/2014/monsters/rat"
+    "url": "/api/2014/monsters/rat",
+    "source": "SRC"
   },
   {
     "index": "raven",
@@ -32188,7 +32420,8 @@
       }
     ],
     "image": "/api/images/monsters/raven.png",
-    "url": "/api/2014/monsters/raven"
+    "url": "/api/2014/monsters/raven",
+    "source": "SRC"
   },
   {
     "index": "red-dragon-wyrmling",
@@ -32335,7 +32568,8 @@
       }
     ],
     "image": "/api/images/monsters/red-dragon-wyrmling.png",
-    "url": "/api/2014/monsters/red-dragon-wyrmling"
+    "url": "/api/2014/monsters/red-dragon-wyrmling",
+    "source": "SRC"
   },
   {
     "index": "reef-shark",
@@ -32412,7 +32646,8 @@
       }
     ],
     "image": "/api/images/monsters/reef-shark.png",
-    "url": "/api/2014/monsters/reef-shark"
+    "url": "/api/2014/monsters/reef-shark",
+    "source": "SRC"
   },
   {
     "index": "remorhaz",
@@ -32502,7 +32737,8 @@
       }
     ],
     "image": "/api/images/monsters/remorhaz.png",
-    "url": "/api/2014/monsters/remorhaz"
+    "url": "/api/2014/monsters/remorhaz",
+    "source": "SRC"
   },
   {
     "index": "rhinoceros",
@@ -32564,7 +32800,8 @@
       }
     ],
     "image": "/api/images/monsters/rhinoceros.png",
-    "url": "/api/2014/monsters/rhinoceros"
+    "url": "/api/2014/monsters/rhinoceros",
+    "source": "SRC"
   },
   {
     "index": "riding-horse",
@@ -32620,7 +32857,8 @@
       }
     ],
     "image": "/api/images/monsters/riding-horse.png",
-    "url": "/api/2014/monsters/riding-horse"
+    "url": "/api/2014/monsters/riding-horse",
+    "source": "SRC"
   },
   {
     "index": "roc",
@@ -32756,7 +32994,8 @@
       }
     ],
     "image": "/api/images/monsters/roc.png",
-    "url": "/api/2014/monsters/roc"
+    "url": "/api/2014/monsters/roc",
+    "source": "SRC"
   },
   {
     "index": "roper",
@@ -32876,7 +33115,8 @@
       }
     ],
     "image": "/api/images/monsters/roper.png",
-    "url": "/api/2014/monsters/roper"
+    "url": "/api/2014/monsters/roper",
+    "source": "SRC"
   },
   {
     "index": "rug-of-smothering",
@@ -32976,7 +33216,8 @@
       }
     ],
     "image": "/api/images/monsters/rug-of-smothering.png",
-    "url": "/api/2014/monsters/rug-of-smothering"
+    "url": "/api/2014/monsters/rug-of-smothering",
+    "source": "SRC"
   },
   {
     "index": "rust-monster",
@@ -33047,7 +33288,8 @@
       }
     ],
     "image": "/api/images/monsters/rust-monster.png",
-    "url": "/api/2014/monsters/rust-monster"
+    "url": "/api/2014/monsters/rust-monster",
+    "source": "SRC"
   },
   {
     "index": "saber-toothed-tiger",
@@ -33154,7 +33396,8 @@
       }
     ],
     "image": "/api/images/monsters/saber-toothed-tiger.png",
-    "url": "/api/2014/monsters/saber-toothed-tiger"
+    "url": "/api/2014/monsters/saber-toothed-tiger",
+    "source": "SRC"
   },
   {
     "index": "sahuagin",
@@ -33335,7 +33578,8 @@
       }
     ],
     "image": "/api/images/monsters/sahuagin.png",
-    "url": "/api/2014/monsters/sahuagin"
+    "url": "/api/2014/monsters/sahuagin",
+    "source": "SRC"
   },
   {
     "index": "salamander",
@@ -33487,7 +33731,8 @@
       }
     ],
     "image": "/api/images/monsters/salamander.png",
-    "url": "/api/2014/monsters/salamander"
+    "url": "/api/2014/monsters/salamander",
+    "source": "SRC"
   },
   {
     "index": "satyr",
@@ -33611,7 +33856,8 @@
       }
     ],
     "image": "/api/images/monsters/satyr.png",
-    "url": "/api/2014/monsters/satyr"
+    "url": "/api/2014/monsters/satyr",
+    "source": "SRC"
   },
   {
     "index": "scorpion",
@@ -33668,7 +33914,8 @@
       }
     ],
     "image": "/api/images/monsters/scorpion.png",
-    "url": "/api/2014/monsters/scorpion"
+    "url": "/api/2014/monsters/scorpion",
+    "source": "SRC"
   },
   {
     "index": "scout",
@@ -33813,7 +34060,8 @@
       }
     ],
     "image": "/api/images/monsters/scout.png",
-    "url": "/api/2014/monsters/scout"
+    "url": "/api/2014/monsters/scout",
+    "source": "SRC"
   },
   {
     "index": "sea-hag",
@@ -33898,7 +34146,8 @@
       }
     ],
     "image": "/api/images/monsters/sea-hag.png",
-    "url": "/api/2014/monsters/sea-hag"
+    "url": "/api/2014/monsters/sea-hag",
+    "source": "SRC"
   },
   {
     "index": "sea-horse",
@@ -33943,7 +34192,8 @@
       }
     ],
     "image": "/api/images/monsters/sea-horse.png",
-    "url": "/api/2014/monsters/sea-horse"
+    "url": "/api/2014/monsters/sea-horse",
+    "source": "SRC"
   },
   {
     "index": "shadow",
@@ -34076,7 +34326,8 @@
       }
     ],
     "image": "/api/images/monsters/shadow.png",
-    "url": "/api/2014/monsters/shadow"
+    "url": "/api/2014/monsters/shadow",
+    "source": "SRC"
   },
   {
     "index": "shambling-mound",
@@ -34191,7 +34442,8 @@
       }
     ],
     "image": "/api/images/monsters/shambling-mound.png",
-    "url": "/api/2014/monsters/shambling-mound"
+    "url": "/api/2014/monsters/shambling-mound",
+    "source": "SRC"
   },
   {
     "index": "shield-guardian",
@@ -34309,7 +34561,8 @@
       }
     ],
     "image": "/api/images/monsters/shield-guardian.png",
-    "url": "/api/2014/monsters/shield-guardian"
+    "url": "/api/2014/monsters/shield-guardian",
+    "source": "SRC"
   },
   {
     "index": "shrieker",
@@ -34377,7 +34630,8 @@
       }
     ],
     "image": "/api/images/monsters/shrieker.png",
-    "url": "/api/2014/monsters/shrieker"
+    "url": "/api/2014/monsters/shrieker",
+    "source": "SRC"
   },
   {
     "index": "silver-dragon-wyrmling",
@@ -34541,7 +34795,8 @@
       }
     ],
     "image": "/api/images/monsters/silver-dragon-wyrmling.png",
-    "url": "/api/2014/monsters/silver-dragon-wyrmling"
+    "url": "/api/2014/monsters/silver-dragon-wyrmling",
+    "source": "SRC"
   },
   {
     "index": "skeleton",
@@ -34629,7 +34884,8 @@
       }
     ],
     "image": "/api/images/monsters/skeleton.png",
-    "url": "/api/2014/monsters/skeleton"
+    "url": "/api/2014/monsters/skeleton",
+    "source": "SRC"
   },
   {
     "index": "solar",
@@ -34946,7 +35202,8 @@
       }
     ],
     "image": "/api/images/monsters/solar.png",
-    "url": "/api/2014/monsters/solar"
+    "url": "/api/2014/monsters/solar",
+    "source": "SRC"
   },
   {
     "index": "specter",
@@ -35071,7 +35328,8 @@
       }
     ],
     "image": "/api/images/monsters/specter.png",
-    "url": "/api/2014/monsters/specter"
+    "url": "/api/2014/monsters/specter",
+    "source": "SRC"
   },
   {
     "index": "spider",
@@ -35152,7 +35410,8 @@
       }
     ],
     "image": "/api/images/monsters/spider.png",
-    "url": "/api/2014/monsters/spider"
+    "url": "/api/2014/monsters/spider",
+    "source": "SRC"
   },
   {
     "index": "spirit-naga",
@@ -35353,7 +35612,8 @@
       }
     ],
     "image": "/api/images/monsters/spirit-naga.png",
-    "url": "/api/2014/monsters/spirit-naga"
+    "url": "/api/2014/monsters/spirit-naga",
+    "source": "SRC"
   },
   {
     "index": "sprite",
@@ -35466,7 +35726,8 @@
       }
     ],
     "image": "/api/images/monsters/sprite.png",
-    "url": "/api/2014/monsters/sprite"
+    "url": "/api/2014/monsters/sprite",
+    "source": "SRC"
   },
   {
     "index": "spy",
@@ -35610,7 +35871,8 @@
       }
     ],
     "image": "/api/images/monsters/spy.png",
-    "url": "/api/2014/monsters/spy"
+    "url": "/api/2014/monsters/spy",
+    "source": "SRC"
   },
   {
     "index": "steam-mephit",
@@ -35765,7 +36027,8 @@
       }
     ],
     "image": "/api/images/monsters/steam-mephit.png",
-    "url": "/api/2014/monsters/steam-mephit"
+    "url": "/api/2014/monsters/steam-mephit",
+    "source": "SRC"
   },
   {
     "index": "stirge",
@@ -35823,7 +36086,8 @@
       }
     ],
     "image": "/api/images/monsters/stirge.png",
-    "url": "/api/2014/monsters/stirge"
+    "url": "/api/2014/monsters/stirge",
+    "source": "SRC"
   },
   {
     "index": "stone-giant",
@@ -35960,7 +36224,8 @@
       }
     ],
     "image": "/api/images/monsters/stone-giant.png",
-    "url": "/api/2014/monsters/stone-giant"
+    "url": "/api/2014/monsters/stone-giant",
+    "source": "SRC"
   },
   {
     "index": "stone-golem",
@@ -36096,7 +36361,8 @@
       }
     ],
     "image": "/api/images/monsters/stone-golem.png",
-    "url": "/api/2014/monsters/stone-golem"
+    "url": "/api/2014/monsters/stone-golem",
+    "source": "SRC"
   },
   {
     "index": "storm-giant",
@@ -36359,7 +36625,8 @@
       }
     ],
     "image": "/api/images/monsters/storm-giant.png",
-    "url": "/api/2014/monsters/storm-giant"
+    "url": "/api/2014/monsters/storm-giant",
+    "source": "SRC"
   },
   {
     "index": "succubus-incubus",
@@ -36506,7 +36773,8 @@
       }
     ],
     "image": "/api/images/monsters/succubus-incubus.png",
-    "url": "/api/2014/monsters/succubus-incubus"
+    "url": "/api/2014/monsters/succubus-incubus",
+    "source": "SRC"
   },
   {
     "index": "swarm-of-bats",
@@ -36623,7 +36891,8 @@
       }
     ],
     "image": "/api/images/monsters/swarm-of-bats.png",
-    "url": "/api/2014/monsters/swarm-of-bats"
+    "url": "/api/2014/monsters/swarm-of-bats",
+    "source": "SRC"
   },
   {
     "index": "swarm-of-beetles",
@@ -36733,7 +37002,8 @@
       }
     ],
     "image": "/api/images/monsters/swarm-of-beetles.png",
-    "url": "/api/2014/monsters/swarm-of-beetles"
+    "url": "/api/2014/monsters/swarm-of-beetles",
+    "source": "SRC"
   },
   {
     "index": "swarm-of-centipedes",
@@ -36842,7 +37112,8 @@
       }
     ],
     "image": "/api/images/monsters/swarm-of-centipedes.png",
-    "url": "/api/2014/monsters/swarm-of-centipedes"
+    "url": "/api/2014/monsters/swarm-of-centipedes",
+    "source": "SRC"
   },
   {
     "index": "swarm-of-insects",
@@ -36951,7 +37222,8 @@
       }
     ],
     "image": "/api/images/monsters/swarm-of-insects.png",
-    "url": "/api/2014/monsters/swarm-of-insects"
+    "url": "/api/2014/monsters/swarm-of-insects",
+    "source": "SRC"
   },
   {
     "index": "swarm-of-poisonous-snakes",
@@ -37060,7 +37332,8 @@
       }
     ],
     "image": "/api/images/monsters/swarm-of-poisonous-snakes.png",
-    "url": "/api/2014/monsters/swarm-of-poisonous-snakes"
+    "url": "/api/2014/monsters/swarm-of-poisonous-snakes",
+    "source": "SRC"
   },
   {
     "index": "swarm-of-quippers",
@@ -37177,7 +37450,8 @@
       }
     ],
     "image": "/api/images/monsters/swarm-of-quippers.png",
-    "url": "/api/2014/monsters/swarm-of-quippers"
+    "url": "/api/2014/monsters/swarm-of-quippers",
+    "source": "SRC"
   },
   {
     "index": "swarm-of-rats",
@@ -37289,7 +37563,8 @@
       }
     ],
     "image": "/api/images/monsters/swarm-of-rats.png",
-    "url": "/api/2014/monsters/swarm-of-rats"
+    "url": "/api/2014/monsters/swarm-of-rats",
+    "source": "SRC"
   },
   {
     "index": "swarm-of-ravens",
@@ -37397,7 +37672,8 @@
       }
     ],
     "image": "/api/images/monsters/swarm-of-ravens.png",
-    "url": "/api/2014/monsters/swarm-of-ravens"
+    "url": "/api/2014/monsters/swarm-of-ravens",
+    "source": "SRC"
   },
   {
     "index": "swarm-of-spiders",
@@ -37513,7 +37789,8 @@
       }
     ],
     "image": "/api/images/monsters/swarm-of-spiders.png",
-    "url": "/api/2014/monsters/swarm-of-spiders"
+    "url": "/api/2014/monsters/swarm-of-spiders",
+    "source": "SRC"
   },
   {
     "index": "swarm-of-wasps",
@@ -37622,7 +37899,8 @@
       }
     ],
     "image": "/api/images/monsters/swarm-of-wasps.png",
-    "url": "/api/2014/monsters/swarm-of-wasps"
+    "url": "/api/2014/monsters/swarm-of-wasps",
+    "source": "SRC"
   },
   {
     "index": "tarrasque",
@@ -37913,7 +38191,8 @@
       }
     ],
     "image": "/api/images/monsters/tarrasque.png",
-    "url": "/api/2014/monsters/tarrasque"
+    "url": "/api/2014/monsters/tarrasque",
+    "source": "SRC"
   },
   {
     "index": "thug",
@@ -38020,7 +38299,8 @@
       }
     ],
     "image": "/api/images/monsters/thug.png",
-    "url": "/api/2014/monsters/thug"
+    "url": "/api/2014/monsters/thug",
+    "source": "SRC"
   },
   {
     "index": "tiger",
@@ -38128,7 +38408,8 @@
       }
     ],
     "image": "/api/images/monsters/tiger.png",
-    "url": "/api/2014/monsters/tiger"
+    "url": "/api/2014/monsters/tiger",
+    "source": "SRC"
   },
   {
     "index": "treant",
@@ -38234,7 +38515,8 @@
       }
     ],
     "image": "/api/images/monsters/treant.png",
-    "url": "/api/2014/monsters/treant"
+    "url": "/api/2014/monsters/treant",
+    "source": "SRC"
   },
   {
     "index": "tribal-warrior",
@@ -38326,7 +38608,8 @@
       }
     ],
     "image": "/api/images/monsters/tribal-warrior.png",
-    "url": "/api/2014/monsters/tribal-warrior"
+    "url": "/api/2014/monsters/tribal-warrior",
+    "source": "SRC"
   },
   {
     "index": "triceratops",
@@ -38403,7 +38686,8 @@
       }
     ],
     "image": "/api/images/monsters/triceratops.png",
-    "url": "/api/2014/monsters/triceratops"
+    "url": "/api/2014/monsters/triceratops",
+    "source": "SRC"
   },
   {
     "index": "troll",
@@ -38511,7 +38795,8 @@
       }
     ],
     "image": "/api/images/monsters/troll.png",
-    "url": "/api/2014/monsters/troll"
+    "url": "/api/2014/monsters/troll",
+    "source": "SRC"
   },
   {
     "index": "tyrannosaurus-rex",
@@ -38608,7 +38893,8 @@
       }
     ],
     "image": "/api/images/monsters/tyrannosaurus-rex.png",
-    "url": "/api/2014/monsters/tyrannosaurus-rex"
+    "url": "/api/2014/monsters/tyrannosaurus-rex",
+    "source": "SRC"
   },
   {
     "index": "unicorn",
@@ -38825,7 +39111,8 @@
       }
     ],
     "image": "/api/images/monsters/unicorn.png",
-    "url": "/api/2014/monsters/unicorn"
+    "url": "/api/2014/monsters/unicorn",
+    "source": "SRC"
   },
   {
     "index": "vampire-vampire",
@@ -39067,7 +39354,8 @@
       }
     ],
     "image": "/api/images/monsters/vampire-vampire.png",
-    "url": "/api/2014/monsters/vampire-vampire"
+    "url": "/api/2014/monsters/vampire-vampire",
+    "source": "SRC"
   },
   {
     "index": "vampire-bat",
@@ -39258,7 +39546,8 @@
       }
     ],
     "image": "/api/images/monsters/vampire-bat.png",
-    "url": "/api/2014/monsters/vampire-bat"
+    "url": "/api/2014/monsters/vampire-bat",
+    "source": "SRC"
   },
   {
     "index": "vampire-mist",
@@ -39403,7 +39692,8 @@
       }
     ],
     "image": "/api/images/monsters/vampire-mist.png",
-    "url": "/api/2014/monsters/vampire-mist"
+    "url": "/api/2014/monsters/vampire-mist",
+    "source": "SRC"
   },
   {
     "index": "vampire-spawn",
@@ -39570,7 +39860,8 @@
       }
     ],
     "image": "/api/images/monsters/vampire-spawn.png",
-    "url": "/api/2014/monsters/vampire-spawn"
+    "url": "/api/2014/monsters/vampire-spawn",
+    "source": "SRC"
   },
   {
     "index": "veteran",
@@ -39720,7 +40011,8 @@
       }
     ],
     "image": "/api/images/monsters/veteran.png",
-    "url": "/api/2014/monsters/veteran"
+    "url": "/api/2014/monsters/veteran",
+    "source": "SRC"
   },
   {
     "index": "violet-fungus",
@@ -39811,7 +40103,8 @@
       }
     ],
     "image": "/api/images/monsters/violet-fungus.png",
-    "url": "/api/2014/monsters/violet-fungus"
+    "url": "/api/2014/monsters/violet-fungus",
+    "source": "SRC"
   },
   {
     "index": "vrock",
@@ -39981,7 +40274,8 @@
       }
     ],
     "image": "/api/images/monsters/vrock.png",
-    "url": "/api/2014/monsters/vrock"
+    "url": "/api/2014/monsters/vrock",
+    "source": "SRC"
   },
   {
     "index": "vulture",
@@ -40057,7 +40351,8 @@
       }
     ],
     "image": "/api/images/monsters/vulture.png",
-    "url": "/api/2014/monsters/vulture"
+    "url": "/api/2014/monsters/vulture",
+    "source": "SRC"
   },
   {
     "index": "warhorse",
@@ -40119,7 +40414,8 @@
       }
     ],
     "image": "/api/images/monsters/warhorse.png",
-    "url": "/api/2014/monsters/warhorse"
+    "url": "/api/2014/monsters/warhorse",
+    "source": "SRC"
   },
   {
     "index": "warhorse-skeleton",
@@ -40192,7 +40488,8 @@
       }
     ],
     "image": "/api/images/monsters/warhorse-skeleton.png",
-    "url": "/api/2014/monsters/warhorse-skeleton"
+    "url": "/api/2014/monsters/warhorse-skeleton",
+    "source": "SRC"
   },
   {
     "index": "water-elemental",
@@ -40346,7 +40643,8 @@
       }
     ],
     "image": "/api/images/monsters/water-elemental.png",
-    "url": "/api/2014/monsters/water-elemental"
+    "url": "/api/2014/monsters/water-elemental",
+    "source": "SRC"
   },
   {
     "index": "weasel",
@@ -40425,7 +40723,8 @@
       }
     ],
     "image": "/api/images/monsters/weasel.png",
-    "url": "/api/2014/monsters/weasel"
+    "url": "/api/2014/monsters/weasel",
+    "source": "SRC"
   },
   {
     "index": "werebear-bear",
@@ -40543,7 +40842,8 @@
       }
     ],
     "image": "/api/images/monsters/werebear-bear.png",
-    "url": "/api/2014/monsters/werebear-bear"
+    "url": "/api/2014/monsters/werebear-bear",
+    "source": "SRC"
   },
   {
     "index": "werebear-human",
@@ -40645,7 +40945,8 @@
       }
     ],
     "image": "/api/images/monsters/werebear-human.png",
-    "url": "/api/2014/monsters/werebear-human"
+    "url": "/api/2014/monsters/werebear-human",
+    "source": "SRC"
   },
   {
     "index": "werebear-hybrid",
@@ -40809,7 +41110,8 @@
       }
     ],
     "image": "/api/images/monsters/werebear-hybrid.png",
-    "url": "/api/2014/monsters/werebear-hybrid"
+    "url": "/api/2014/monsters/werebear-hybrid",
+    "source": "SRC"
   },
   {
     "index": "wereboar-boar",
@@ -40910,7 +41212,8 @@
       }
     ],
     "image": "/api/images/monsters/wereboar-boar.png",
-    "url": "/api/2014/monsters/wereboar-boar"
+    "url": "/api/2014/monsters/wereboar-boar",
+    "source": "SRC"
   },
   {
     "index": "wereboar-human",
@@ -41019,7 +41322,8 @@
       }
     ],
     "image": "/api/images/monsters/wereboar-human.png",
-    "url": "/api/2014/monsters/wereboar-human"
+    "url": "/api/2014/monsters/wereboar-human",
+    "source": "SRC"
   },
   {
     "index": "wereboar-hybrid",
@@ -41172,7 +41476,8 @@
       }
     ],
     "image": "/api/images/monsters/wereboar-hybrid.png",
-    "url": "/api/2014/monsters/wereboar-hybrid"
+    "url": "/api/2014/monsters/wereboar-hybrid",
+    "source": "SRC"
   },
   {
     "index": "wererat-human",
@@ -41328,7 +41633,8 @@
       }
     ],
     "image": "/api/images/monsters/wererat-human.png",
-    "url": "/api/2014/monsters/wererat-human"
+    "url": "/api/2014/monsters/wererat-human",
+    "source": "SRC"
   },
   {
     "index": "wererat-hybrid",
@@ -41533,7 +41839,8 @@
       }
     ],
     "image": "/api/images/monsters/wererat-hybrid.png",
-    "url": "/api/2014/monsters/wererat-hybrid"
+    "url": "/api/2014/monsters/wererat-hybrid",
+    "source": "SRC"
   },
   {
     "index": "wererat-rat",
@@ -41632,7 +41939,8 @@
       }
     ],
     "image": "/api/images/monsters/wererat-rat.png",
-    "url": "/api/2014/monsters/wererat-rat"
+    "url": "/api/2014/monsters/wererat-rat",
+    "source": "SRC"
   },
   {
     "index": "weretiger-human",
@@ -41772,7 +42080,8 @@
       }
     ],
     "image": "/api/images/monsters/weretiger-human.png",
-    "url": "/api/2014/monsters/weretiger-human"
+    "url": "/api/2014/monsters/weretiger-human",
+    "source": "SRC"
   },
   {
     "index": "weretiger-hybrid",
@@ -41961,7 +42270,8 @@
       }
     ],
     "image": "/api/images/monsters/weretiger-hybrid.png",
-    "url": "/api/2014/monsters/weretiger-hybrid"
+    "url": "/api/2014/monsters/weretiger-hybrid",
+    "source": "SRC"
   },
   {
     "index": "weretiger-tiger",
@@ -42088,7 +42398,8 @@
       }
     ],
     "image": "/api/images/monsters/weretiger-tiger.png",
-    "url": "/api/2014/monsters/weretiger-tiger"
+    "url": "/api/2014/monsters/weretiger-tiger",
+    "source": "SRC"
   },
   {
     "index": "werewolf-human",
@@ -42211,7 +42522,8 @@
       }
     ],
     "image": "/api/images/monsters/werewolf-human.png",
-    "url": "/api/2014/monsters/werewolf-human"
+    "url": "/api/2014/monsters/werewolf-human",
+    "source": "SRC"
   },
   {
     "index": "werewolf-hybrid",
@@ -42333,7 +42645,8 @@
       }
     ],
     "image": "/api/images/monsters/werewolf-hybrid.png",
-    "url": "/api/2014/monsters/werewolf-hybrid"
+    "url": "/api/2014/monsters/werewolf-hybrid",
+    "source": "SRC"
   },
   {
     "index": "werewolf-wolf",
@@ -42423,7 +42736,8 @@
       }
     ],
     "image": "/api/images/monsters/werewolf-wolf.png",
-    "url": "/api/2014/monsters/werewolf-wolf"
+    "url": "/api/2014/monsters/werewolf-wolf",
+    "source": "SRC"
   },
   {
     "index": "white-dragon-wyrmling",
@@ -42571,7 +42885,8 @@
       }
     ],
     "image": "/api/images/monsters/white-dragon-wyrmling.png",
-    "url": "/api/2014/monsters/white-dragon-wyrmling"
+    "url": "/api/2014/monsters/white-dragon-wyrmling",
+    "source": "SRC"
   },
   {
     "index": "wight",
@@ -42768,7 +43083,8 @@
       }
     ],
     "image": "/api/images/monsters/wight.png",
-    "url": "/api/2014/monsters/wight"
+    "url": "/api/2014/monsters/wight",
+    "source": "SRC"
   },
   {
     "index": "will-o-wisp",
@@ -42904,12 +43220,13 @@
       }
     ],
     "image": "/api/images/monsters/will-o-wisp.png",
-    "url": "/api/2014/monsters/will-o-wisp"
+    "url": "/api/2014/monsters/will-o-wisp",
+    "source": "SRC"
   },
   {
     "index": "winter-wolf",
     "name": "Winter Wolf",
-    "desc": "The arctic-dwelling winter wolf is as large as a dire wolf but has snow-white fur and pale blue eyes. Frost giants use these evil creatures as guards and hunting companions, putting the wolves’ deadly breath weapon to use against their foes. Winter wolves communicate with one another using growls and barks, but they speak Common and Giant well enough to follow simple conversations.",
+    "desc": "The arctic-dwelling winter wolf is as large as a dire wolf but has snow-white fur and pale blue eyes. Frost giants use these evil creatures as guards and hunting companions, putting the wolves\u2019 deadly breath weapon to use against their foes. Winter wolves communicate with one another using growls and barks, but they speak Common and Giant well enough to follow simple conversations.",
     "size": "Large",
     "type": "monstrosity",
     "alignment": "neutral evil",
@@ -43022,7 +43339,8 @@
       }
     ],
     "image": "/api/images/monsters/winter-wolf.png",
-    "url": "/api/2014/monsters/winter-wolf"
+    "url": "/api/2014/monsters/winter-wolf",
+    "source": "SRC"
   },
   {
     "index": "wolf",
@@ -43105,7 +43423,8 @@
       }
     ],
     "image": "/api/images/monsters/wolf.png",
-    "url": "/api/2014/monsters/wolf"
+    "url": "/api/2014/monsters/wolf",
+    "source": "SRC"
   },
   {
     "index": "worg",
@@ -43178,7 +43497,8 @@
       }
     ],
     "image": "/api/images/monsters/worg.png",
-    "url": "/api/2014/monsters/worg"
+    "url": "/api/2014/monsters/worg",
+    "source": "SRC"
   },
   {
     "index": "wraith",
@@ -43302,7 +43622,8 @@
       }
     ],
     "image": "/api/images/monsters/wraith.png",
-    "url": "/api/2014/monsters/wraith"
+    "url": "/api/2014/monsters/wraith",
+    "source": "SRC"
   },
   {
     "index": "wyvern",
@@ -43464,7 +43785,8 @@
       }
     ],
     "image": "/api/images/monsters/wyvern.png",
-    "url": "/api/2014/monsters/wyvern"
+    "url": "/api/2014/monsters/wyvern",
+    "source": "SRC"
   },
   {
     "index": "xorn",
@@ -43588,7 +43910,8 @@
       }
     ],
     "image": "/api/images/monsters/xorn.png",
-    "url": "/api/2014/monsters/xorn"
+    "url": "/api/2014/monsters/xorn",
+    "source": "SRC"
   },
   {
     "index": "young-black-dragon",
@@ -43773,7 +44096,8 @@
       }
     ],
     "image": "/api/images/monsters/young-black-dragon.png",
-    "url": "/api/2014/monsters/young-black-dragon"
+    "url": "/api/2014/monsters/young-black-dragon",
+    "source": "SRC"
   },
   {
     "index": "young-blue-dragon",
@@ -43952,7 +44276,8 @@
       }
     ],
     "image": "/api/images/monsters/young-blue-dragon.png",
-    "url": "/api/2014/monsters/young-blue-dragon"
+    "url": "/api/2014/monsters/young-blue-dragon",
+    "source": "SRC"
   },
   {
     "index": "young-brass-dragon",
@@ -44157,7 +44482,8 @@
       }
     ],
     "image": "/api/images/monsters/young-brass-dragon.png",
-    "url": "/api/2014/monsters/young-brass-dragon"
+    "url": "/api/2014/monsters/young-brass-dragon",
+    "source": "SRC"
   },
   {
     "index": "young-bronze-dragon",
@@ -44368,7 +44694,8 @@
       }
     ],
     "image": "/api/images/monsters/young-bronze-dragon.png",
-    "url": "/api/2014/monsters/young-bronze-dragon"
+    "url": "/api/2014/monsters/young-bronze-dragon",
+    "source": "SRC"
   },
   {
     "index": "young-copper-dragon",
@@ -44573,7 +44900,8 @@
       }
     ],
     "image": "/api/images/monsters/young-copper-dragon.png",
-    "url": "/api/2014/monsters/young-copper-dragon"
+    "url": "/api/2014/monsters/young-copper-dragon",
+    "source": "SRC"
   },
   {
     "index": "young-gold-dragon",
@@ -44792,7 +45120,8 @@
       }
     ],
     "image": "/api/images/monsters/young-gold-dragon.png",
-    "url": "/api/2014/monsters/young-gold-dragon"
+    "url": "/api/2014/monsters/young-gold-dragon",
+    "source": "SRC"
   },
   {
     "index": "young-green-dragon",
@@ -44991,7 +45320,8 @@
       }
     ],
     "image": "/api/images/monsters/young-green-dragon.png",
-    "url": "/api/2014/monsters/young-green-dragon"
+    "url": "/api/2014/monsters/young-green-dragon",
+    "source": "SRC"
   },
   {
     "index": "young-red-dragon",
@@ -45170,7 +45500,8 @@
       }
     ],
     "image": "/api/images/monsters/young-red-dragon.png",
-    "url": "/api/2014/monsters/young-red-dragon"
+    "url": "/api/2014/monsters/young-red-dragon",
+    "source": "SRC"
   },
   {
     "index": "young-silver-dragon",
@@ -45382,7 +45713,8 @@
       }
     ],
     "image": "/api/images/monsters/young-silver-dragon.png",
-    "url": "/api/2014/monsters/young-silver-dragon"
+    "url": "/api/2014/monsters/young-silver-dragon",
+    "source": "SRC"
   },
   {
     "index": "young-white-dragon",
@@ -45568,7 +45900,8 @@
       }
     ],
     "image": "/api/images/monsters/young-white-dragon.png",
-    "url": "/api/2014/monsters/young-white-dragon"
+    "url": "/api/2014/monsters/young-white-dragon",
+    "source": "SRC"
   },
   {
     "index": "zombie",
@@ -45648,6 +45981,7 @@
       }
     ],
     "image": "/api/images/monsters/zombie.png",
-    "url": "/api/2014/monsters/zombie"
+    "url": "/api/2014/monsters/zombie",
+    "source": "SRC"
   }
 ]
