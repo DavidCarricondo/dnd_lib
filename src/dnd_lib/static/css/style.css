@@ -2302,3 +2302,66 @@ body.dark-mode .dice-link:hover {
     color: #1a1a1a;
     background: var(--accent-gold-light);
 }
+
+/* ===== CUSTOM FILE MENU ===== */
+.custom-file-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-file-menu.hidden {
+    display: none;
+}
+
+.custom-file-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 6px;
+    background: var(--parchment);
+    border: 2px solid var(--accent-gold);
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    min-width: 200px;
+    overflow: hidden;
+}
+
+.custom-file-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.custom-file-menu button:hover {
+    background: rgba(201, 168, 76, 0.2);
+}
+
+.custom-file-menu button + button {
+    border-top: 1px solid var(--border-ornate);
+}
+
+body.dark-mode .custom-file-menu {
+    background: #2a2a2a;
+    border-color: var(--accent-gold);
+}
+
+body.dark-mode .custom-file-menu button {
+    color: #ddd;
+}
+
+body.dark-mode .custom-file-menu button:hover {
+    background: #444;
+}
+
+body.dark-mode .custom-file-menu button + button {
+    border-top-color: #444;
+}

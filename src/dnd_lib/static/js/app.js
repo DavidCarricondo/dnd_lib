@@ -1744,6 +1744,20 @@ let initiativeRows = [];
 let hpEditRowId = null;
 let initIdCounter = 0;
 
+function saveInitiativeState() {
+    localStorage.setItem('initiativeRows', JSON.stringify(initiativeRows));
+    localStorage.setItem('initIdCounter', String(initIdCounter));
+}
+
+function loadInitiativeState() {
+    try {
+        const rows = localStorage.getItem('initiativeRows');
+        const counter = localStorage.getItem('initIdCounter');
+        if (rows) initiativeRows = JSON.parse(rows);
+        if (counter) initIdCounter = parseInt(counter) || 0;
+    } catch (_) { /* ignore corrupt data */ }
+}
+
 // Conditions from the SRD
 const CONDITIONS = [
     "", "Blinded", "Charmed", "Deafened", "Exhaustion",
@@ -1757,6 +1771,8 @@ function toggleInitiativePanel() {
     const btn = document.getElementById("initiative-toggle-btn");
     panel.classList.toggle("hidden");
     btn.classList.toggle("active");
+    loadInitiativeState();
+    renderInitiativeTable();
     setupInitiativeSearch();
 }
 
@@ -1831,6 +1847,7 @@ function addToInitiative(name, hp, ac, type, itemIndex) {
         itemIndex: itemIndex || null,
     };
     initiativeRows.push(row);
+    saveInitiativeState();
     renderInitiativeTable();
 }
 
@@ -1852,6 +1869,7 @@ function renderInitiativeTable() {
         initInp.value = row.initiative;
         initInp.addEventListener("change", (e) => {
             row.initiative = parseInt(e.target.value) || 0;
+            saveInitiativeState();
             renderInitiativeTable();
         });
         tdInit.appendChild(initInp);
@@ -1895,7 +1913,7 @@ function renderInitiativeTable() {
             if (c === row.condition) opt.selected = true;
             condSel.appendChild(opt);
         });
-        condSel.addEventListener("change", (e) => { row.condition = e.target.value; });
+        condSel.addEventListener("change", (e) => { row.condition = e.target.value; saveInitiativeState(); });
         tdCond.appendChild(condSel);
 
         // Notes
@@ -1913,6 +1931,7 @@ function renderInitiativeTable() {
             row.notes = e.target.value;
             notesTooltip.textContent = row.notes;
             notesTooltip.classList.toggle("has-content", !!row.notes);
+            saveInitiativeState();
         });
         tdNotes.appendChild(notesInp);
         tdNotes.appendChild(notesTooltip);
@@ -1925,6 +1944,7 @@ function renderInitiativeTable() {
         delBtn.title = "Remove";
         delBtn.addEventListener("click", () => {
             initiativeRows = initiativeRows.filter(r => r.id !== row.id);
+            saveInitiativeState();
             renderInitiativeTable();
         });
         tdDel.appendChild(delBtn);
@@ -1937,6 +1957,7 @@ function renderInitiativeTable() {
 function clearInitiative() {
     initiativeRows = [];
     initIdCounter = 0;
+    saveInitiativeState();
     renderInitiativeTable();
 }
 
@@ -1969,6 +1990,7 @@ function applyHpChange() {
     if (row.currentHp < 0) row.currentHp = 0;
 
     closeHpModal();
+    saveInitiativeState();
     renderInitiativeTable();
 }
 
@@ -2239,6 +2261,7 @@ function toggleDiceRoller() {
     const fab = document.getElementById('dice-roller-fab');
     const isOpen = panel.classList.toggle('open');
     fab.classList.toggle('active', isOpen);
+    if (!isOpen) resetDiceRoller();
 }
 
 function selectDieType(type) {
@@ -2281,6 +2304,11 @@ function rollDice() {
 function resetDiceRoller() {
     diceRollerState.rolls = [];
     diceRollerState.total = 0;
+    diceRollerState.count = 1;
+    diceRollerState.modifier = 0;
+    document.getElementById('dice-count').value = 1;
+    document.getElementById('dice-modifier').value = 0;
+    updateDiceFormula();
     renderDiceResults();
 }
 
@@ -2391,4 +2419,72 @@ function openDiceRollerWithRoll(notation) {
 
     // Roll immediately
     rollDice();
+}
+
+// ===== CUSTOM ITEMS FILE MANAGEMENT =====
+function toggleCustomFileMenu(e) {
+    if (e) e.stopPropagation();
+    const menu = document.getElementById('custom-file-menu');
+    menu.classList.toggle('hidden');
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.custom-file-wrapper')) {
+        const menu = document.getElementById('custom-file-menu');
+        if (menu) menu.classList.add('hidden');
+    }
+});
+
+async function saveCustomItemsFile() {
+    document.getElementById('custom-file-menu').classList.add('hidden');
+    try {
+        const res = await fetch('/api/custom-items-file');
+        if (!res.ok) throw new Error('Failed to download');
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'custom_items.json';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+    } catch (err) {
+        alert('Failed to save custom items file.');
+    }
+}
+
+function loadCustomItemsFile() {
+    document.getElementById('custom-file-menu').classList.add('hidden');
+    const input = document.getElementById('custom-file-input');
+    input.value = '';
+    input.onchange = async () => {
+        const file = input.files[0];
+        if (!file) return;
+        try {
+            const text = await file.text();
+            const data = JSON.parse(text);
+            const res = await fetch('/api/custom-items-file', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+            const result = await res.json();
+            if (!res.ok) {
+                alert(result.error || 'Failed to load file');
+                return;
+            }
+            alert(`Loaded successfully. ${result.added} new item(s) added, ${result.skipped} duplicate(s) skipped.`);
+            // Refresh sidebar if a category is selected
+            if (currentCategory) {
+                const name = document.getElementById('sidebar-title').textContent;
+                await selectCategory(currentCategory, name);
+            }
+            await loadGlobalIndex();
+        } catch (err) {
+            alert('Invalid JSON file.');
+        }
+    };
+    input.click();
 }

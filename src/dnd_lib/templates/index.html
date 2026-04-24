@@ -18,6 +18,14 @@
                 </select>
                 <button id="search-btn" class="btn btn-search">Search</button>
                 <button id="dark-mode-btn" class="dark-mode-toggle" title="Toggle dark mode" onclick="toggleDarkMode()">🌙</button>
+                <div class="custom-file-wrapper">
+                    <button id="custom-file-btn" class="dark-mode-toggle" title="Custom items file" onclick="toggleCustomFileMenu(event)">📁</button>
+                    <div id="custom-file-menu" class="custom-file-menu hidden">
+                        <button onclick="saveCustomItemsFile()">Save custom items file</button>
+                        <button onclick="loadCustomItemsFile()">Load custom items file</button>
+                    </div>
+                </div>
+                <input type="file" id="custom-file-input" accept=".json" style="display:none">
                 <button id="initiative-toggle-btn" class="btn btn-initiative" title="Toggle Initiative Tracker" onclick="toggleInitiativePanel()">⚔ Initiative</button>
             </div>
             <div id="search-results" class="search-results hidden"></div>
