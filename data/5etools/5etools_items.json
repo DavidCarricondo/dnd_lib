@@ -1,0 +1,43 @@
+[{
+	"name": "Hammer",
+	"source": "PHB",
+	"page": 150,
+	"srd": true,
+	"basicRules": true,
+	"referenceSources": [
+		"SjA"
+	],
+	"type": "G",
+	"rarity": "none",
+	"weight": 3,
+	"value": 100,
+	"entries": []
+},
+{
+	"name": "Abacus",
+	"source": "PHB",
+	"page": 150,
+	"srd": true,
+	"basicRules": true,
+	"type": "G",
+	"rarity": "none",
+	"weight": 2,
+	"value": 200,
+	"entries": []
+},
+{
+	"name": "Common Clothes",
+	"source": "PHB",
+	"page": 150,
+	"srd": true,
+	"basicRules": true,
+	"referenceSources": [
+		"CoS",
+		"WDH"
+	],
+	"type": "G",
+	"rarity": "none",
+	"weight": 3,
+	"value": 50,
+	"entries": []
+}]

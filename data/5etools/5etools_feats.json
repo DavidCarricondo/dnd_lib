@@ -1,0 +1,53 @@
+[{
+	"name": "Grappler",
+	"source": "PHB",
+	"page": 167,
+	"srd": true,
+	"reprintedAs": [
+		"Grappler|XPHB"
+	],
+	"prerequisite": [
+		{
+			"ability": [
+				{
+					"str": 13
+				}
+			]
+		}
+	],
+	"entries": [
+		"You've developed the skills necessary to hold your own in close-quarters grappling. You gain the following benefits:",
+		{
+			"type": "list",
+			"items": [
+				"You have advantage on attack rolls against a creature you are grappling.",
+				"You can use your action to try to pin a creature {@condition grappled} by you. To do so, make another grapple check. If you succeed, you and the creature are both {@condition restrained} until the grapple ends."
+			]
+		}
+	]
+},
+{
+	"name": "Lucky",
+	"source": "PHB",
+	"page": 167,
+	"reprintedAs": [
+		"Lucky|XPHB"
+	],
+	"entries": [
+		"You have inexplicable luck that seems to kick in at just the right moment.",
+		"You have 3 luck points. Whenever you make an attack roll, an ability check, or a saving throw, you can spend one luck point to roll an additional {@dice d20}. You can choose to spend one of your luck points after you roll the die, but before the outcome is determined. You choose which of the {@dice d20}s is used for the attack roll, ability check, or saving throw.",
+		"You can also spend one luck point when an attack roll is made against you. Roll a {@dice d20}, and then choose whether the attack uses the attacker's roll or yours. If more than one creature spends a luck point to influence the outcome of a roll, the points cancel each other out; no additional dice are rolled.",
+		"You regain your expended luck points when you finish a long rest."
+	]
+},
+{
+	"name": "Tough",
+	"source": "PHB",
+	"page": 170,
+	"reprintedAs": [
+		"Tough|XPHB"
+	],
+	"entries": [
+		"Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points."
+	]
+}]
