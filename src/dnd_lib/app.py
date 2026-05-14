@@ -10,6 +10,17 @@ from pathlib import Path
 
 from flask import Flask, jsonify, request, send_from_directory
 
+from dnd_lib.convert_5etools import (
+    convert_5etools_file,
+    convert_5etools_monster,
+    convert_5etools_feat,
+    convert_5etools_feats,
+    convert_5etools_item,
+    convert_5etools_items,
+    convert_5etools_spell,
+    convert_5etools_spells,
+)
+
 
 def get_base_path() -> Path:
     """Return project root in dev mode, or PyInstaller extraction dir when frozen."""
@@ -33,6 +44,7 @@ app = Flask(
 )
 
 DATA_DIR = get_base_path() / "data" / "2014"
+DATA_5ETOOLS_DIR = get_base_path() / "data" / "5etools"
 
 # Custom items must live in a writable user-data directory, not inside the
 # (potentially read-only) bundle.
@@ -115,6 +127,83 @@ def _is_custom_item(item):
     """Return True when an item is user-created/customized."""
     idx = str(item.get("index", ""))
     return bool(item.get("_custom")) or idx.endswith("_custom")
+
+
+def _is_5etools_monster(item):
+    """Detect whether a monster dict is in 5etools format (vs SRD format).
+
+    Key indicators: uses abbreviated ability scores (str/dex/con) and has 'ac'
+    array instead of 'armor_class', or 'hp' object instead of 'hit_points'.
+    """
+    # 5etools uses 'str' for strength; SRD uses 'strength'
+    has_abbrev_abilities = "str" in item and "strength" not in item
+    # 5etools uses 'ac' array; SRD uses 'armor_class'
+    has_5etools_ac = "ac" in item and "armor_class" not in item
+    # 5etools uses 'hp' object; SRD uses 'hit_points'
+    has_5etools_hp = "hp" in item and "hit_points" not in item
+    return has_abbrev_abilities or has_5etools_ac or has_5etools_hp
+
+
+def _is_5etools_spell(item):
+    """Detect whether a spell dict is in 5etools format (vs SRD format).
+
+    5etools uses 'school' as a single letter code and 'time' array;
+    SRD uses 'school' as an object and 'casting_time' as a string.
+    """
+    # 5etools school is a single-char string; SRD school is a dict
+    has_5etools_school = isinstance(item.get("school"), str) and len(item.get("school", "")) <= 2
+    # 5etools uses 'time' array; SRD uses 'casting_time' string
+    has_5etools_time = "time" in item and "casting_time" not in item
+    # 5etools uses 'entries' array for desc; SRD uses 'desc'
+    has_5etools_entries = "entries" in item and "desc" not in item
+    return has_5etools_school or has_5etools_time or has_5etools_entries
+
+
+def _is_5etools_item(item):
+    """Detect whether an equipment dict is in 5etools format (vs SRD format).
+
+    5etools uses 'type' as a short code (G, A, M, R, etc.) and 'value' in cp;
+    SRD uses 'equipment_category' as an object and 'cost' as an object.
+    """
+    # 5etools uses 'value' in copper; SRD uses 'cost' object
+    has_5etools_value = "value" in item and "cost" not in item
+    # 5etools uses short 'type' codes; SRD uses equipment_category object
+    has_5etools_type = (
+        isinstance(item.get("type"), str)
+        and len(item.get("type", "")) <= 3
+        and "equipment_category" not in item
+    )
+    # 5etools has 'source' field; SRD doesn't
+    has_source = "source" in item and "equipment_category" not in item
+    return has_5etools_value or (has_5etools_type and has_source)
+
+
+def _is_5etools_feat(item):
+    """Detect whether a feat dict is in 5etools format (vs SRD format).
+
+    5etools uses 'entries' array and 'prerequisite' array;
+    SRD uses 'desc' array and 'prerequisites' array.
+    """
+    # 5etools uses 'entries'; SRD uses 'desc'
+    has_5etools_entries = "entries" in item and "desc" not in item
+    # 5etools uses 'prerequisite' (singular); SRD uses 'prerequisites' (plural)
+    has_5etools_prereq = "prerequisite" in item and "prerequisites" not in item
+    # 5etools has 'source' field
+    has_source = "source" in item
+    return has_5etools_entries or (has_5etools_prereq and has_source)
+
+
+def _maybe_convert_5etools(slug, item_json):
+    """Auto-detect and convert 5etools-format item to SRD format for the given category."""
+    if slug == "monsters" and _is_5etools_monster(item_json):
+        return convert_5etools_monster(item_json)
+    elif slug == "spells" and _is_5etools_spell(item_json):
+        return convert_5etools_spell(item_json)
+    elif slug == "equipment" and _is_5etools_item(item_json):
+        return convert_5etools_item(item_json)
+    elif slug == "feats" and _is_5etools_feat(item_json):
+        return convert_5etools_feat(item_json)
+    return item_json
 
 
 def _load_custom_items():
@@ -220,10 +309,70 @@ def _load_category(slug):
         with open(filepath, "r", encoding="utf-8") as f:
             raw = json.load(f)
         srd_items = [item for item in raw if not _is_custom_item(item)]
+
+    # Load 5etools-format items for supported categories
+    fivetools_items = _load_5etools_category(slug)
+    if fivetools_items:
+        existing_indices = {item.get("index") for item in srd_items}
+        for item in fivetools_items:
+            if item.get("index") not in existing_indices:
+                srd_items.append(item)
+                existing_indices.add(item.get("index"))
+
     # Append custom items from the gitignored custom store
     custom_data = _load_custom_items()
     custom_items = custom_data.get(slug, [])
     return srd_items + custom_items
+
+
+# Mapping from category slug to 5etools JSON key (when wrapped in an object)
+# and the converter function.
+_5ETOOLS_CATEGORY_CONFIG = {
+    "monsters": {"keys": ["monster"], "converter": convert_5etools_file},
+    "spells": {"keys": ["spell"], "converter": convert_5etools_spells},
+    "equipment": {"keys": ["item", "baseitem"], "converter": convert_5etools_items},
+    "feats": {"keys": ["feat"], "converter": convert_5etools_feats},
+}
+
+
+def _load_5etools_category(slug):
+    """Load and convert 5etools JSON files from data/5etools/ for a given category."""
+    config = _5ETOOLS_CATEGORY_CONFIG.get(slug)
+    if not config:
+        return []
+    if not DATA_5ETOOLS_DIR.exists():
+        return []
+
+    converter = config["converter"]
+    keys = config["keys"]
+    items = []
+
+    for filepath in sorted(DATA_5ETOOLS_DIR.glob("*.json")):
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                raw = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            continue
+
+        if isinstance(raw, list):
+            # Detect what type of data this is based on first item
+            if not raw:
+                continue
+            first = raw[0]
+            if slug == "monsters" and ("str" in first or "hp" in first):
+                items.extend(converter(raw))
+            elif slug == "spells" and ("school" in first and "time" in first):
+                items.extend(converter(raw))
+            elif slug == "equipment" and ("type" in first and "value" in first):
+                items.extend(converter(raw))
+            elif slug == "feats" and ("entries" in first and "source" in first and "hp" not in first and "time" not in first and "value" not in first):
+                items.extend(converter(raw))
+        elif isinstance(raw, dict):
+            for key in keys:
+                if key in raw and isinstance(raw[key], list):
+                    items.extend(converter(raw[key]))
+
+    return items
 
 
 def _save_category(slug, data):
@@ -475,6 +624,9 @@ def add_custom_item(slug):
     if not item_json or not isinstance(item_json, dict):
         return jsonify({"error": "Valid item JSON object is required"}), 400
 
+    # Auto-convert 5etools-format items to SRD format
+    item_json = _maybe_convert_5etools(slug, item_json)
+
     safe_index = _sanitize_index_name(name)
     custom_index = f"{safe_index}_custom"
 
@@ -515,6 +667,9 @@ def update_custom_item(slug, item_index):
         return jsonify({"error": "Name is required"}), 400
     if not item_json or not isinstance(item_json, dict):
         return jsonify({"error": "Valid item JSON object is required"}), 400
+
+    # Auto-convert 5etools-format items to SRD format
+    item_json = _maybe_convert_5etools(slug, item_json)
 
     custom_data = _load_custom_items()
     slug_customs = custom_data.get(slug, [])

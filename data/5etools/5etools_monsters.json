@@ -1,0 +1,3137 @@
+[{
+	"name": "Dracolich",
+	"source": "XMM",
+	"page": 102,
+	"referenceSources": [
+		"FRAiF"
+	],
+	"size": [
+		"H",
+		"G"
+	],
+	"type": "undead",
+	"alignment": [
+		"L",
+		"E"
+	],
+	"ac": [
+		20
+	],
+	"hp": {
+		"average": 225,
+		"formula": "18d12 + 108"
+	},
+	"speed": {
+		"walk": 40,
+		"burrow": 30,
+		"fly": 80
+	},
+	"initiative": {
+		"proficiency": 2
+	},
+	"str": 25,
+	"dex": 10,
+	"con": 23,
+	"int": 19,
+	"wis": 15,
+	"cha": 21,
+	"save": {
+		"dex": "+6",
+		"wis": "+8"
+	},
+	"skill": {
+		"perception": "+14",
+		"stealth": "+6"
+	},
+	"senses": [
+		"Blindsight 60 ft.",
+		"Darkvision 120 ft."
+	],
+	"passive": 24,
+	"immune": [
+		"necrotic",
+		"poison"
+	],
+	"conditionImmune": [
+		"charmed",
+		"exhaustion",
+		"frightened",
+		"paralyzed",
+		"poisoned"
+	],
+	"languages": [
+		"Common",
+		"Draconic"
+	],
+	"cr": {
+		"cr": "17",
+		"xpLair": 20000
+	},
+	"spellcasting": [
+		{
+			"name": "Spellcasting",
+			"type": "spellcasting",
+			"headerEntries": [
+				"The dracolich casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save {@dc 19}, {@hit 11} to hit with spell attacks):"
+			],
+			"will": [
+				"{@spell Detect Magic|XPHB}",
+				"{@spell Ray of Sickness|XPHB} (level 2 version)"
+			],
+			"daily": {
+				"1e": [
+					"{@spell Create Undead|XPHB} (level 8 version)",
+					"{@spell Finger of Death|XPHB}"
+				]
+			},
+			"ability": "cha",
+			"displayAs": "action"
+		}
+	],
+	"trait": [
+		{
+			"name": "Legendary Resistance (3/Day, or 4/Day in Lair)",
+			"entries": [
+				"If the dracolich fails a saving throw, it can choose to succeed instead."
+			]
+		},
+		{
+			"name": "Life Suppression",
+			"entries": [
+				"Creatures within 60 feet of the dracolich can't regain {@variantrule Hit Points|XPHB}."
+			]
+		},
+		{
+			"name": "Magic Resistance",
+			"entries": [
+				"The dracolich has {@variantrule Advantage|XPHB} on saving throws against spells and other magical effects."
+			]
+		},
+		{
+			"name": "Soul Gem",
+			"entries": [
+				"The dracolich has a magical gem. If the dracolich is destroyed while the gem is on the same plane of existence as it, the dracolich gains a new body in {@dice 1d20} days, regaining all its {@variantrule Hit Points|XPHB} and appearing within 5 feet of the gem.",
+				"The gem is a Tiny object that has AC 20; HP 50; and {@variantrule Immunity|XPHB} to Necrotic, Poison, and Psychic damage. The gem regains all its {@variantrule Hit Points|XPHB} at the end of every turn, but it turns to dust if reduced to 0 {@variantrule Hit Points|XPHB}. If the gem is destroyed, the dracolich can create a new one by completing an 8-hour ritual using a gem worth 1,000+ GP and by expending 5,000 GP, which the ritual consumes."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Multiattack",
+			"entries": [
+				"The dracolich makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast {@spell Ray of Sickness|XPHB} (level 2 version)."
+			]
+		},
+		{
+			"name": "Rend",
+			"entries": [
+				"{@atkr m} {@hit 13}, reach 10 ft. {@h}18 ({@damage 2d10 + 7}) Slashing damage plus 4 ({@damage 1d8}) Necrotic damage."
+			]
+		},
+		{
+			"name": "Necrotic Breath {@recharge 5}",
+			"entries": [
+				"{@actSave con} {@dc 20}, each creature in a 60-foot {@variantrule Cone [Area of Effect]|XPHB|Cone}. {@actSaveFail} 52 ({@damage 8d12}) Necrotic damage. {@actSaveSuccess} Half damage."
+			]
+		}
+	],
+	"legendaryActionsLair": 4,
+	"legendary": [
+		{
+			"name": "Pounce",
+			"entries": [
+				"The dracolich moves up to half its {@variantrule Speed|XPHB}, and it makes one Rend attack."
+			]
+		},
+		{
+			"name": "Sickening Ray",
+			"entries": [
+				"The dracolich uses Spellcasting to cast {@spell Ray of Sickness|XPHB} (level 2 version). The dracolich can't take this action again until the start of its next turn."
+			]
+		},
+		{
+			"name": "Terrifying Presence",
+			"entries": [
+				"{@actSave wis} {@dc 19}, each creature in a 30-foot {@variantrule Emanation [Area of Effect]|XPHB|Emanation} originating from the dracolich. {@actSaveFail} 11 ({@damage 2d10}) Psychic damage, and the target has the {@condition Frightened|XPHB} condition until the end of its next turn. {@actSaveSuccessOrFail} The dracolich can't take this action again until the start of its next turn."
+			]
+		}
+	],
+	"legendaryGroup": {
+		"name": "Dracolich",
+		"source": "XMM"
+	},
+	"environment": [
+		"any"
+	],
+	"treasure": [
+		"any"
+	],
+	"traitTags": [
+		"Legendary Resistances",
+		"Magic Resistance"
+	],
+	"senseTags": [
+		"B",
+		"SD"
+	],
+	"actionTags": [
+		"Breath Weapon",
+		"Multiattack"
+	],
+	"languageTags": [
+		"C",
+		"DR"
+	],
+	"damageTags": [
+		"N",
+		"S",
+		"Y"
+	],
+	"damageTagsSpell": [
+		"I",
+		"N"
+	],
+	"spellcastingTags": [
+		"O"
+	],
+	"miscTags": [
+		"MA",
+		"RCH"
+	],
+	"conditionInflict": [
+		"frightened"
+	],
+	"conditionInflictSpell": [
+		"poisoned"
+	],
+	"savingThrowForced": [
+		"constitution",
+		"wisdom"
+	],
+	"savingThrowForcedLegendary": [
+		"constitution"
+	],
+	"savingThrowForcedSpell": [
+		"constitution"
+	],
+	"hasToken": true,
+	"hasFluff": true,
+	"hasFluffImages": true
+},
+{
+	"name": "Archmage",
+	"source": "MM",
+	"page": 342,
+	"srd": true,
+	"referenceSources": [
+		"BGDIA",
+		"BMT",
+		"CM",
+		"CoA",
+		"CoS",
+		"DSotDQ",
+		"EGW",
+		"ERLW",
+		"GoS",
+		"IDRotF",
+		"IMR",
+		"JttRC",
+		"KftGV",
+		"LoX",
+		"MOT",
+		"NRH-TLT",
+		"OotA",
+		"OoW",
+		"QftIS",
+		"SatO",
+		"SKT",
+		"ToA",
+		"ToFW",
+		"VEoR",
+		"WDH",
+		"WDMM"
+	],
+	"reprintedAs": [
+		"Archmage|XMM"
+	],
+	"size": [
+		"M"
+	],
+	"type": {
+		"type": "humanoid",
+		"tags": [
+			"any race"
+		]
+	},
+	"alignment": [
+		"A"
+	],
+	"ac": [
+		12,
+		{
+			"ac": 15,
+			"condition": "with {@spell mage armor}",
+			"braces": true
+		}
+	],
+	"hp": {
+		"average": 99,
+		"formula": "18d8 + 18"
+	},
+	"speed": {
+		"walk": 30
+	},
+	"str": 10,
+	"dex": 14,
+	"con": 12,
+	"int": 20,
+	"wis": 15,
+	"cha": 16,
+	"save": {
+		"int": "+9",
+		"wis": "+6"
+	},
+	"skill": {
+		"arcana": "+13",
+		"history": "+13"
+	},
+	"passive": 12,
+	"resist": [
+		{
+			"special": "damage from spells"
+		},
+		{
+			"resist": [
+				"bludgeoning",
+				"piercing",
+				"slashing"
+			],
+			"note": "(from stoneskin)",
+			"cond": true,
+			"preNote": "nonmagical"
+		}
+	],
+	"languages": [
+		"any six languages"
+	],
+	"cr": "12",
+	"spellcasting": [
+		{
+			"name": "Spellcasting",
+			"type": "spellcasting",
+			"headerEntries": [
+				"The archmage is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save {@dc 17}, {@hit 9} to hit with spell attacks). The archmage can cast {@spell disguise self} and {@spell invisibility} at will and has the following wizard spells prepared:"
+			],
+			"will": [
+				"{@spell disguise self}",
+				"{@spell invisibility}"
+			],
+			"spells": {
+				"0": {
+					"spells": [
+						"{@spell fire bolt}",
+						"{@spell light}",
+						"{@spell mage hand}",
+						"{@spell prestidigitation}",
+						"{@spell shocking grasp}"
+					]
+				},
+				"1": {
+					"slots": 4,
+					"spells": [
+						"{@spell detect magic}",
+						"{@spell identify}",
+						"{@spell mage armor}*",
+						"{@spell magic missile}"
+					]
+				},
+				"2": {
+					"slots": 3,
+					"spells": [
+						"{@spell detect thoughts}",
+						"{@spell mirror image}",
+						"{@spell misty step}"
+					]
+				},
+				"3": {
+					"slots": 3,
+					"spells": [
+						"{@spell counterspell}",
+						"{@spell fly}",
+						"{@spell lightning bolt}"
+					]
+				},
+				"4": {
+					"slots": 3,
+					"spells": [
+						"{@spell banishment}",
+						"{@spell fire shield}",
+						"{@spell stoneskin}*"
+					]
+				},
+				"5": {
+					"slots": 3,
+					"spells": [
+						"{@spell cone of cold}",
+						"{@spell scrying}",
+						"{@spell wall of force}"
+					]
+				},
+				"6": {
+					"slots": 1,
+					"spells": [
+						"{@spell globe of invulnerability}"
+					]
+				},
+				"7": {
+					"slots": 1,
+					"spells": [
+						"{@spell teleport}"
+					]
+				},
+				"8": {
+					"slots": 1,
+					"spells": [
+						"{@spell mind blank}*"
+					]
+				},
+				"9": {
+					"slots": 1,
+					"spells": [
+						"{@spell time stop}"
+					]
+				}
+			},
+			"footerEntries": [
+				"*The archmage casts these spells on itself before combat."
+			],
+			"ability": "int",
+			"hidden": [
+				"will"
+			]
+		}
+	],
+	"trait": [
+		{
+			"name": "Magic Resistance",
+			"entries": [
+				"The archmage has advantage on saving throws against spells and other magical effects."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Dagger",
+			"entries": [
+				"{@atk mw,rw} {@hit 6} to hit, reach 5 ft. or range 20/60 ft., one target. {@h}4 ({@damage 1d4 + 2}) piercing damage."
+			]
+		}
+	],
+	"variant": [
+		{
+			"type": "variant",
+			"name": "Familiars",
+			"entries": [
+				"Any spellcaster that can cast the {@spell find familiar} spell (such as an archmage or mage) is likely to have a familiar. The familiar can be one of the creatures described in the spell or some other Tiny monster, such as a {@creature crawling claw}, {@creature imp}, {@creature pseudodragon}, or {@creature quasit}."
+			]
+		}
+	],
+	"environment": [
+		"urban"
+	],
+	"soundClip": {
+		"type": "internal",
+		"path": "bestiary/archmage.opus"
+	},
+	"attachedItems": [
+		"dagger|phb"
+	],
+	"traitTags": [
+		"Magic Resistance"
+	],
+	"languageTags": [
+		"X"
+	],
+	"damageTags": [
+		"P"
+	],
+	"damageTagsSpell": [
+		"C",
+		"F",
+		"L",
+		"O"
+	],
+	"spellcastingTags": [
+		"CW"
+	],
+	"miscTags": [
+		"MLW",
+		"MW",
+		"RW",
+		"THW"
+	],
+	"savingThrowForcedSpell": [
+		"charisma",
+		"constitution",
+		"dexterity",
+		"wisdom"
+	],
+	"hasToken": true,
+	"hasFluff": true,
+	"hasFluffImages": true,
+	"_versions": [
+		{
+			"name": "Archmage (Familiar)",
+			"source": "MM",
+			"_mod": {
+				"_": {
+					"mode": "addSpells",
+					"spells": {
+						"1": {
+							"spells": [
+								"{@spell find familiar} (one of the creatures described in the spell or some other Tiny monster, such as a {@creature crawling claw}, {@creature imp}, {@creature pseudodragon}, or {@creature quasit})"
+							]
+						}
+					}
+				}
+			},
+			"variant": null
+		}
+	]
+},
+{
+	"name": "Goblin",
+	"source": "MM",
+	"page": 166,
+	"srd": true,
+	"basicRules": true,
+	"referenceSources": [
+		"BGDIA",
+		"BMT",
+		"CRCotN",
+		"DSotDQ",
+		"EGW",
+		"ERLW",
+		"GoS",
+		"HftT",
+		"IDRotF",
+		"KKW",
+		"LMoP",
+		"OotA",
+		"OoW",
+		"PaBTSO",
+		"PotA",
+		"RMBRE",
+		"SatO",
+		"SKT",
+		"TCE",
+		"TftYP",
+		"ToA",
+		"WBtW",
+		"WDH",
+		"WDMM"
+	],
+	"reprintedAs": [
+		"Goblin Warrior|XMM"
+	],
+	"size": [
+		"S"
+	],
+	"type": {
+		"type": "humanoid",
+		"tags": [
+			"goblinoid"
+		]
+	},
+	"alignment": [
+		"N",
+		"E"
+	],
+	"ac": [
+		{
+			"ac": 15,
+			"from": [
+				"{@item leather armor|phb}",
+				"{@item shield|phb}"
+			]
+		}
+	],
+	"hp": {
+		"average": 7,
+		"formula": "2d6"
+	},
+	"speed": {
+		"walk": 30
+	},
+	"str": 8,
+	"dex": 14,
+	"con": 10,
+	"int": 10,
+	"wis": 8,
+	"cha": 8,
+	"skill": {
+		"stealth": "+6"
+	},
+	"senses": [
+		"darkvision 60 ft."
+	],
+	"passive": 9,
+	"languages": [
+		"Common",
+		"Goblin"
+	],
+	"cr": "1/4",
+	"trait": [
+		{
+			"name": "Nimble Escape",
+			"entries": [
+				"The goblin can take the {@action Disengage} or {@action Hide} action as a bonus action on each of its turns."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Scimitar",
+			"entries": [
+				"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}5 ({@damage 1d6 + 2}) slashing damage."
+			]
+		},
+		{
+			"name": "Shortbow",
+			"entries": [
+				"{@atk rw} {@hit 4} to hit, range 80/320 ft., one target. {@h}5 ({@damage 1d6 + 2}) piercing damage."
+			]
+		}
+	],
+	"environment": [
+		"underdark",
+		"grassland",
+		"forest",
+		"hill"
+	],
+	"soundClip": {
+		"type": "internal",
+		"path": "bestiary/goblin.opus"
+	},
+	"altArt": [
+		{
+			"name": "Goblin",
+			"source": "RMBRE"
+		}
+	],
+	"attachedItems": [
+		"scimitar|phb",
+		"shortbow|phb"
+	],
+	"senseTags": [
+		"D"
+	],
+	"languageTags": [
+		"C",
+		"GO"
+	],
+	"damageTags": [
+		"P",
+		"S"
+	],
+	"miscTags": [
+		"MLW",
+		"MW",
+		"RNG",
+		"RW"
+	],
+	"hasToken": true,
+	"hasFluff": true,
+	"hasFluffImages": true
+}, {
+	"name": "Goblin",
+	"source": "MM",
+	"page": 166,
+	"srd": true,
+	"basicRules": true,
+	"referenceSources": [
+		"BGDIA",
+		"BMT",
+		"CRCotN",
+		"DSotDQ",
+		"EGW",
+		"ERLW",
+		"GoS",
+		"HftT",
+		"IDRotF",
+		"KKW",
+		"LMoP",
+		"OotA",
+		"OoW",
+		"PaBTSO",
+		"PotA",
+		"RMBRE",
+		"SatO",
+		"SKT",
+		"TCE",
+		"TftYP",
+		"ToA",
+		"WBtW",
+		"WDH",
+		"WDMM"
+	],
+	"reprintedAs": [
+		"Goblin Warrior|XMM"
+	],
+	"size": [
+		"S"
+	],
+	"type": {
+		"type": "humanoid",
+		"tags": [
+			"goblinoid"
+		]
+	},
+	"alignment": [
+		"N",
+		"E"
+	],
+	"ac": [
+		{
+			"ac": 15,
+			"from": [
+				"{@item leather armor|phb}",
+				"{@item shield|phb}"
+			]
+		}
+	],
+	"hp": {
+		"average": 7,
+		"formula": "2d6"
+	},
+	"speed": {
+		"walk": 30
+	},
+	"str": 8,
+	"dex": 14,
+	"con": 10,
+	"int": 10,
+	"wis": 8,
+	"cha": 8,
+	"skill": {
+		"stealth": "+6"
+	},
+	"senses": [
+		"darkvision 60 ft."
+	],
+	"passive": 9,
+	"languages": [
+		"Common",
+		"Goblin"
+	],
+	"cr": "1/4",
+	"trait": [
+		{
+			"name": "Nimble Escape",
+			"entries": [
+				"The goblin can take the {@action Disengage} or {@action Hide} action as a bonus action on each of its turns."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Scimitar",
+			"entries": [
+				"{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}5 ({@damage 1d6 + 2}) slashing damage."
+			]
+		},
+		{
+			"name": "Shortbow",
+			"entries": [
+				"{@atk rw} {@hit 4} to hit, range 80/320 ft., one target. {@h}5 ({@damage 1d6 + 2}) piercing damage."
+			]
+		}
+	],
+	"environment": [
+		"underdark",
+		"grassland",
+		"forest",
+		"hill"
+	],
+	"soundClip": {
+		"type": "internal",
+		"path": "bestiary/goblin.opus"
+	},
+	"altArt": [
+		{
+			"name": "Goblin",
+			"source": "RMBRE"
+		}
+	],
+	"attachedItems": [
+		"scimitar|phb",
+		"shortbow|phb"
+	],
+	"senseTags": [
+		"D"
+	],
+	"languageTags": [
+		"C",
+		"GO"
+	],
+	"damageTags": [
+		"P",
+		"S"
+	],
+	"miscTags": [
+		"MLW",
+		"MW",
+		"RNG",
+		"RW"
+	],
+	"hasToken": true,
+	"hasFluff": true,
+	"hasFluffImages": true
+},{
+	"name": "Bone Devil",
+	"source": "MM",
+	"page": 71,
+	"srd": true,
+	"referenceSources": [
+		"BGDIA",
+		"CoA",
+		"DC",
+		"DIP",
+		"DSotDQ",
+		"EGW",
+		"HotDQ",
+		"LLK",
+		"RoT",
+		"SatO",
+		"ToA",
+		"WDMM"
+	],
+	"reprintedAs": [
+		"Bone Devil|XMM"
+	],
+	"size": [
+		"L"
+	],
+	"type": {
+		"type": "fiend",
+		"tags": [
+			"devil"
+		]
+	},
+	"alignment": [
+		"L",
+		"E"
+	],
+	"ac": [
+		{
+			"ac": 19,
+			"from": [
+				"natural armor"
+			]
+		}
+	],
+	"hp": {
+		"average": 142,
+		"formula": "15d10 + 60"
+	},
+	"speed": {
+		"walk": 40,
+		"fly": 40
+	},
+	"str": 18,
+	"dex": 16,
+	"con": 18,
+	"int": 13,
+	"wis": 14,
+	"cha": 16,
+	"save": {
+		"int": "+5",
+		"wis": "+6",
+		"cha": "+7"
+	},
+	"skill": {
+		"deception": "+7",
+		"insight": "+6"
+	},
+	"senses": [
+		"darkvision 120 ft."
+	],
+	"passive": 12,
+	"resist": [
+		"cold",
+		{
+			"resist": [
+				"bludgeoning",
+				"piercing",
+				"slashing"
+			],
+			"note": "from nonmagical attacks that aren't silvered",
+			"cond": true
+		}
+	],
+	"immune": [
+		"fire",
+		"poison"
+	],
+	"conditionImmune": [
+		"poisoned"
+	],
+	"languages": [
+		"Infernal",
+		"telepathy 120 ft."
+	],
+	"cr": "9",
+	"trait": [
+		{
+			"name": "Devil's Sight",
+			"entries": [
+				"Magical darkness doesn't impede the devil's darkvision."
+			]
+		},
+		{
+			"name": "Magic Resistance",
+			"entries": [
+				"The devil has advantage on saving throws against spells and other magical effects."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Multiattack",
+			"entries": [
+				"The devil makes three attacks: two with its claws and one with its sting."
+			]
+		},
+		{
+			"name": "Claw",
+			"entries": [
+				"{@atk mw} {@hit 8} to hit, reach 10 ft., one target. {@h}8 ({@damage 1d8 + 4}) slashing damage."
+			]
+		},
+		{
+			"name": "Sting",
+			"entries": [
+				"{@atk mw} {@hit 8} to hit, reach 10 ft., one target. {@h}13 ({@damage 2d8 + 4}) piercing damage plus 17 ({@damage 5d6}) poison damage, and the target must succeed on a {@dc 14} Constitution saving throw or become {@condition poisoned} for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+			]
+		}
+	],
+	"variant": [
+		{
+			"type": "variant",
+			"name": "Bone Devil Polearm",
+			"entries": [
+				"Some bone devils have the following action options.",
+				{
+					"name": "Multiattack",
+					"type": "entries",
+					"entries": [
+						"The devil makes two attacks: one with its hooked polearm and one with its sting."
+					]
+				},
+				{
+					"name": "Hooked Polearm",
+					"type": "entries",
+					"entries": [
+						"{@atk mw} {@hit 8} to hit, reach 10 ft., one target. {@h}17 ({@damage 2d12 + 4}) piercing damage. If the target is a Huge or smaller creature, it is {@condition grappled} (escape {@dc 14}). Until this grapple ends, the devil can't use its polearm on another target."
+					]
+				}
+			],
+			"_version": {
+				"name": "Bone Devil (Polearm)",
+				"addHeadersAs": "action"
+			}
+		},
+		{
+			"type": "variant",
+			"name": "Summon Devil (1/Day)",
+			"entries": [
+				"The devil chooses what to summon and attempts a magical summoning.",
+				"A bone devil has a {@chance 40} chance of summoning {@dice 2d6} {@creature spined devil||spined devils} or one bone devil.",
+				"A summoned devil appears in an unoccupied space within 60 feet of its summoner, acts as an ally of its summoner, and can't summon other devils. It remains for 1 minute, until it or its summoner dies, or until its summoner dismisses it as an action."
+			],
+			"_version": {
+				"name": "Bone Devil (Summoner)",
+				"addAs": "action"
+			}
+		}
+	],
+	"soundClip": {
+		"type": "internal",
+		"path": "bestiary/bone-devil.opus"
+	},
+	"traitTags": [
+		"Devil's Sight",
+		"Magic Resistance"
+	],
+	"senseTags": [
+		"SD"
+	],
+	"actionTags": [
+		"Multiattack"
+	],
+	"languageTags": [
+		"I",
+		"TP"
+	],
+	"damageTags": [
+		"I",
+		"P",
+		"S"
+	],
+	"miscTags": [
+		"MW",
+		"RCH"
+	],
+	"conditionInflict": [
+		"grappled",
+		"poisoned"
+	],
+	"savingThrowForced": [
+		"constitution"
+	],
+	"hasToken": true,
+	"hasFluff": true,
+	"hasFluffImages": true
+},
+{
+	"name": "Krull",
+	"isNpc": true,
+	"isNamedCreature": true,
+	"source": "BGDIA",
+	"page": 110,
+	"size": [
+		"M"
+	],
+	"type": {
+		"type": "humanoid",
+		"tags": [
+			"tortle"
+		]
+	},
+	"alignment": [
+		"L",
+		"E"
+	],
+	"ac": [
+		{
+			"ac": 17,
+			"from": [
+				"natural armor"
+			]
+		}
+	],
+	"hp": {
+		"average": 117,
+		"formula": "18d8 + 36"
+	},
+	"speed": {
+		"walk": 30
+	},
+	"str": 20,
+	"dex": 14,
+	"con": 15,
+	"int": 12,
+	"wis": 20,
+	"cha": 12,
+	"save": {
+		"wis": "+8",
+		"cha": "+4"
+	},
+	"skill": {
+		"arcana": "+4",
+		"medicine": "+8",
+		"nature": "+4",
+		"survival": "+8"
+	},
+	"passive": 15,
+	"languages": [
+		"Aquan",
+		"Common",
+		"Draconic"
+	],
+	"cr": "6",
+	"spellcasting": [
+		{
+			"name": "Spellcasting",
+			"type": "spellcasting",
+			"headerEntries": [
+				"Krull is a 14th-level spellcaster. His spellcasting ability is Wisdom (spell save {@dc 16}, {@hit 8} to hit with spell attacks). He has the following cleric spells prepared:"
+			],
+			"spells": {
+				"0": {
+					"spells": [
+						"{@spell chill touch}",
+						"{@spell mending}",
+						"{@spell resistance}",
+						"{@spell sacred flame}",
+						"{@spell spare the dying}",
+						"{@spell thaumaturgy}"
+					]
+				},
+				"1": {
+					"slots": 4,
+					"spells": [
+						"{@spell cure wounds}",
+						"{@spell detect evil and good}",
+						"{@spell false life}",
+						"{@spell inflict wounds}",
+						"{@spell ray of sickness}"
+					]
+				},
+				"2": {
+					"slots": 3,
+					"spells": [
+						"{@spell blindness/deafness}",
+						"{@spell gentle repose}",
+						"{@spell hold person}",
+						"{@spell ray of enfeeblement}",
+						"{@spell spiritual weapon}"
+					]
+				},
+				"3": {
+					"slots": 3,
+					"spells": [
+						"{@spell animate dead}",
+						"{@spell magic circle}",
+						"{@spell speak with dead}",
+						"{@spell spirit guardians}",
+						"{@spell vampiric touch}"
+					]
+				},
+				"4": {
+					"slots": 3,
+					"spells": [
+						"{@spell banishment}",
+						"{@spell blight}",
+						"{@spell death ward}",
+						"{@spell divination}",
+						"{@spell locate creature}"
+					]
+				},
+				"5": {
+					"slots": 2,
+					"spells": [
+						"{@spell antilife shell}",
+						"{@spell cloudkill}",
+						"{@spell contagion}",
+						"{@spell greater restoration}"
+					]
+				},
+				"6": {
+					"slots": 1,
+					"spells": [
+						"{@spell create undead}",
+						"{@spell true seeing}"
+					]
+				},
+				"7": {
+					"slots": 1,
+					"spells": [
+						"{@spell divine word}",
+						"{@spell regenerate}"
+					]
+				}
+			},
+			"ability": "wis"
+		}
+	],
+	"trait": [
+		{
+			"name": "Hold Breath",
+			"entries": [
+				"Krull can hold his breath for 1 hour."
+			]
+		},
+		{
+			"name": "Inescapable Destruction",
+			"entries": [
+				"Necrotic damage dealt by Krull's spells ignores resistance to necrotic damage."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Claws",
+			"entries": [
+				"{@atk mw} {@hit 8} to hit, reach 5 ft., one target. {@h}7 ({@damage 1d4 + 5}) piercing damage."
+			]
+		},
+		{
+			"name": "+1 Maul",
+			"entries": [
+				"{@atk mw} {@hit 9} to hit, reach 5 ft., one target. {@h}13 ({@damage 2d6 + 6}) bludgeoning damage plus 9 ({@damage 2d8}) necrotic damage."
+			]
+		},
+		{
+			"name": "Shell Defense",
+			"entries": [
+				"Krull withdraws into his shell. Until he emerges as a bonus action, he has a +4 bonus to AC and has advantage on Strength and Constitution saving throws. While in his shell, Krull is {@condition prone}, his speed is 0 and can't increase, he has disadvantage on Dexterity saving throws, he can't take reactions, and the only action he can take is to emerge from his shell."
+			]
+		}
+	],
+	"attachedItems": [
+		"+1 maul|dmg"
+	],
+	"traitTags": [
+		"Hold Breath"
+	],
+	"languageTags": [
+		"AQ",
+		"C",
+		"DR"
+	],
+	"damageTags": [
+		"B",
+		"N",
+		"P"
+	],
+	"damageTagsSpell": [
+		"I",
+		"N",
+		"O",
+		"R"
+	],
+	"spellcastingTags": [
+		"CC"
+	],
+	"miscTags": [
+		"MLW",
+		"MW"
+	],
+	"conditionInflictSpell": [
+		"blinded",
+		"deafened",
+		"incapacitated",
+		"paralyzed",
+		"poisoned",
+		"stunned"
+	],
+	"savingThrowForcedSpell": [
+		"charisma",
+		"constitution",
+		"dexterity",
+		"wisdom"
+	],
+	"hasToken": true,
+	"hasFluffImages": true
+},
+{
+	"name": "Lulu",
+	"isNpc": true,
+	"isNamedCreature": true,
+	"source": "BGDIA",
+	"page": 5,
+	"hasToken": true,
+	"hasFluffImages": true,
+	"size": [
+		"S"
+	],
+	"type": "celestial",
+	"alignment": [
+		"L",
+		"G"
+	],
+	"ac": [
+		{
+			"ac": 18,
+			"from": [
+				"natural armor"
+			]
+		}
+	],
+	"hp": {
+		"average": 36,
+		"formula": "8d6 + 8"
+	},
+	"speed": {
+		"walk": 20,
+		"fly": 120
+	},
+	"str": 10,
+	"dex": 11,
+	"con": 12,
+	"int": 16,
+	"wis": 19,
+	"cha": 16,
+	"save": {
+		"dex": "+3",
+		"con": "+4",
+		"cha": "+6"
+	},
+	"passive": 14,
+	"resist": [
+		{
+			"resist": [
+				"bludgeoning",
+				"piercing",
+				"slashing"
+			],
+			"note": "from nonmagical attacks",
+			"cond": true
+		}
+	],
+	"immune": [
+		"poison"
+	],
+	"conditionImmune": [
+		"poisoned"
+	],
+	"languages": [
+		"Celestial",
+		"telepathy 120 ft."
+	],
+	"cr": "5",
+	"spellcasting": [
+		{
+			"name": "Innate Spellcasting",
+			"type": "spellcasting",
+			"headerEntries": [
+				"Lulu's innate spellcasting ability is Wisdom (spell save {@dc 15}). It can innately cast the following spells, requiring no material components:"
+			],
+			"will": [
+				"{@spell light}"
+			],
+			"daily": {
+				"2e": [
+					"{@spell bless}",
+					"{@spell cure wounds}",
+					"{@spell protection from evil and good}"
+				],
+				"1e": [
+					"{@spell banishment}",
+					"{@spell heal}",
+					"{@spell raise dead}",
+					"{@spell shapechange} (into a golden-furred {@creature mammoth} with feathered wings and a flying speed of 120 ft.)",
+					"{@spell teleport} (with no chance of error)"
+				]
+			},
+			"ability": "wis"
+		}
+	],
+	"trait": [
+		{
+			"name": "Aura of Invulnerability",
+			"entries": [
+				"An {@condition invisible} aura forms a 10-foot-radius sphere around Lulu for as long as it lives. Any spell of 5th level or lower cast from outside the barrier can't affect creatures or objects within it, even if the spell is cast using a higher level spell slot. Such a spell can target creatures and objects within the barrier, but the spell has no effect on them. Similarly, the area within the barrier is excluded from the areas affected by such spells. Lulu can use an action to suppress this trait until its {@status concentration} ends (as if {@status concentration||concentrating} on a spell)."
+			]
+		},
+		{
+			"name": "Magic Weapons",
+			"entries": [
+				"Lulu's weapon attacks are magical."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Tusks",
+			"entries": [
+				"{@atk mw} {@hit 3} to hit, reach 5 ft., one target. {@h}3 ({@damage 1d6}) piercing damage."
+			]
+		},
+		{
+			"name": "Trumpet (3/Day)",
+			"entries": [
+				"Lulu blows air through its trunk, creating a trumpet sound that can be heard out to a range of 600 feet. The trumpet also creates a 30-foot cone of energy that has one of the following effects, chosen by Lulu:"
+			]
+		},
+		{
+			"name": "Trumpet of Blasting",
+			"entries": [
+				"Each creature in the cone must make a {@dc 14} Constitution saving throw. On a failed save, a creature takes 17 ({@damage 5d6}) thunder damage and is {@condition deafened} for 1 minute. On a successful save, a creature takes half as much damage and isn't {@condition deafened}. Nonmagical objects in the cone that aren't being held or worn take 35 ({@damage 10d6}) thunder damage."
+			]
+		},
+		{
+			"name": "Trumpet of Sparkles",
+			"entries": [
+				"Creatures in the cone must make a {@dc 14} Constitution saving throw, taking 22 ({@damage 4d8 + 4}) radiant damage on a failed save, or half as much damage on a successful one. Evil creatures have disadvantage on the saving throw. Good creatures in the cone take no damage."
+			]
+		}
+	],
+	"traitTags": [
+		"Magic Weapons"
+	],
+	"languageTags": [
+		"CE",
+		"TP"
+	],
+	"damageTags": [
+		"P",
+		"R",
+		"T"
+	],
+	"spellcastingTags": [
+		"I"
+	],
+	"miscTags": [
+		"AOE",
+		"MW"
+	],
+	"conditionInflict": [
+		"deafened"
+	],
+	"conditionInflictSpell": [
+		"incapacitated"
+	],
+	"savingThrowForced": [
+		"constitution"
+	],
+	"savingThrowForcedSpell": [
+		"charisma",
+		"dexterity"
+	]
+},
+{
+	"name": "Mad Maggie",
+	"isNpc": true,
+	"isNamedCreature": true,
+	"source": "BGDIA",
+	"page": 74,
+	"hasToken": true,
+	"hasFluffImages": true,
+	"size": [
+		"M"
+	],
+	"type": "fiend",
+	"alignment": [
+		"N",
+		"E"
+	],
+	"ac": [
+		{
+			"ac": 17,
+			"from": [
+				"natural armor"
+			]
+		}
+	],
+	"hp": {
+		"average": 112,
+		"formula": "15d8 + 45"
+	},
+	"speed": {
+		"walk": 30
+	},
+	"str": 18,
+	"dex": 15,
+	"con": 16,
+	"int": 16,
+	"wis": 14,
+	"cha": 16,
+	"skill": {
+		"deception": "+6",
+		"insight": "+5",
+		"perception": "+5",
+		"stealth": "+5"
+	},
+	"senses": [
+		"darkvision 120 ft."
+	],
+	"passive": 16,
+	"resist": [
+		"cold",
+		"fire",
+		{
+			"resist": [
+				"bludgeoning",
+				"piercing",
+				"slashing"
+			],
+			"note": "from nonmagical attacks that aren't silvered",
+			"cond": true
+		}
+	],
+	"conditionImmune": [
+		"charmed"
+	],
+	"languages": [
+		"Abyssal",
+		"Common",
+		"Infernal",
+		"Primordial"
+	],
+	"cr": {
+		"cr": "5",
+		"coven": "7"
+	},
+	"spellcasting": [
+		{
+			"name": "Innate Spellcasting",
+			"type": "spellcasting",
+			"headerEntries": [
+				"Maggie's innate spellcasting ability is Charisma (spell save {@dc 14}, {@hit 6} to hit with spell attacks). She can innately cast the following spells, requiring no material components:"
+			],
+			"will": [
+				"{@spell detect magic}",
+				"{@spell magic missile}"
+			],
+			"daily": {
+				"2e": [
+					"{@spell plane shift} (self only)",
+					"{@spell ray of enfeeblement}",
+					"{@spell sleep}"
+				]
+			},
+			"ability": "cha"
+		}
+	],
+	"trait": [
+		{
+			"name": "Magic Resistance",
+			"entries": [
+				"Maggie has advantage on saving throws against spells and other magical effects."
+			]
+		},
+		{
+			"name": "Night Hag Items",
+			"entries": [
+				"A night hag carries two very rare magic items that she must craft for herself. If either object is lost, the night hag will go to great lengths to retrieve it, as creating a new tool takes time and effort.",
+				"Heartstone: This lustrous black gem allows a night hag to become ethereal while it is in her possession. The touch of a heartstone also cures any disease. Crafting a heartstone takes 30 days.",
+				"Soul Bag: When an evil humanoid dies as a result of a night hag's Nightmare Haunting, Maggie catches the soul in this black sack made of stitched flesh. A soul bag can hold only one evil soul at a time, and only the night hag who crafted the bag can catch a soul with it. Crafting a soul bag takes 7 days and a humanoid sacrifice (whose flesh is used to make the bag)."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Claws (Hag Form Only)",
+			"entries": [
+				"{@atk mw} {@hit 7} to hit, reach 5 ft., one target. {@h}13 ({@damage 2d8 + 4}) slashing damage."
+			]
+		},
+		{
+			"name": "Change Shape",
+			"entries": [
+				"Maggie magically polymorphs into a Small or Medium female humanoid, or back into her true form. Her statistics are the same in each form. Any equipment she is wearing or carrying isn't transformed. She reverts to her true form if she dies."
+			]
+		},
+		{
+			"name": "Etherealness",
+			"entries": [
+				"Maggie magically enters the Ethereal Plane from the Material Plane, or vice versa. To do so, Maggie must have a heartstone in her possession."
+			]
+		},
+		{
+			"name": "Nightmare Haunting (1/Day)",
+			"entries": [
+				"While on the Ethereal Plane, Maggie magically touches a sleeping humanoid on the Material Plane. A {@spell protection from evil and good} spell cast on the target prevents this contact, as does a magic circle. As long as the contact persists, the target has dreadful visions. If these visions last for at least 1 hour, the target gains no benefit from its rest, and its hit point maximum is reduced by 5 ({@dice 1d10}). If this effect reduces the target's hit point maximum to 0, the target dies, and if the target was evil, its soul is trapped in Maggie's soul bag. The reduction to the target's hit point maximum lasts until removed by the  {@spell greater restoration} spell or similar magic."
+			]
+		}
+	],
+	"traitTags": [
+		"Magic Resistance"
+	],
+	"senseTags": [
+		"SD"
+	],
+	"actionTags": [
+		"Shapechanger"
+	],
+	"languageTags": [
+		"AB",
+		"C",
+		"I",
+		"P"
+	],
+	"damageTags": [
+		"S"
+	],
+	"damageTagsSpell": [
+		"O"
+	],
+	"spellcastingTags": [
+		"CW",
+		"I",
+		"S"
+	],
+	"miscTags": [
+		"HPR",
+		"MW"
+	],
+	"conditionInflictSpell": [
+		"frightened",
+		"paralyzed",
+		"poisoned",
+		"unconscious"
+	],
+	"savingThrowForcedLegendary": [
+		"charisma",
+		"constitution"
+	],
+	"savingThrowForcedSpell": [
+		"charisma",
+		"constitution"
+	]
+},
+{
+	"name": "Mahadi the Rakshasa",
+	"isNpc": true,
+	"isNamedCreature": true,
+	"source": "BGDIA",
+	"page": 127,
+	"size": [
+		"M"
+	],
+	"type": "fiend",
+	"alignment": [
+		"L",
+		"E"
+	],
+	"ac": [
+		{
+			"ac": 17,
+			"from": [
+				"natural armor"
+			]
+		}
+	],
+	"hp": {
+		"average": 195,
+		"formula": "23d8 + 92"
+	},
+	"speed": {
+		"walk": 40
+	},
+	"str": 14,
+	"dex": 18,
+	"con": 18,
+	"int": 14,
+	"wis": 18,
+	"cha": 20,
+	"save": {
+		"wis": "+9",
+		"cha": "+10"
+	},
+	"skill": {
+		"arcana": "+7",
+		"deception": "+10",
+		"insight": "+9",
+		"perception": "+9"
+	},
+	"senses": [
+		"darkvision 120 ft."
+	],
+	"passive": 19,
+	"resist": [
+		{
+			"resist": [
+				"bludgeoning",
+				"piercing",
+				"slashing"
+			],
+			"note": "from nonmagical attacks",
+			"cond": true
+		}
+	],
+	"vulnerable": [
+		{
+			"vulnerable": [
+				"piercing"
+			],
+			"note": "from magic weapons wielded by good creatures",
+			"cond": true
+		}
+	],
+	"languages": [
+		"all (can read only)",
+		"Common",
+		"Infernal"
+	],
+	"cr": "14",
+	"spellcasting": [
+		{
+			"name": "Innate Spellcasting",
+			"type": "spellcasting",
+			"headerEntries": [
+				"Mahadi's innate spellcasting ability is Charisma (spell save {@dc 18}, {@hit 9} to hit with spell attacks). He can innately cast the following spells, requiring no material components:"
+			],
+			"will": [
+				"{@spell detect thoughts}",
+				"{@spell disguise self}",
+				"{@spell mage hand}",
+				"{@spell minor illusion}"
+			],
+			"daily": {
+				"3e": [
+					"{@spell charm person}",
+					"{@spell detect magic}",
+					"{@spell dispel magic}",
+					"{@spell hellish rebuke}",
+					"{@spell invisibility}",
+					"{@spell major image}",
+					"{@spell speak with dead}",
+					"{@spell suggestion}"
+				],
+				"1e": [
+					"{@spell banishment}",
+					"{@spell demiplane}",
+					"{@spell dominate person}",
+					"{@spell fly}",
+					"{@spell forcecage}",
+					"{@spell geas}",
+					"{@spell plane shift}",
+					"{@spell true seeing}"
+				]
+			},
+			"ability": "cha"
+		}
+	],
+	"trait": [
+		{
+			"name": "Limited Magic Immunity",
+			"entries": [
+				"Mahadi can't be affected or detected by spells of 6th level or lower unless he wishes to be. He has advantage on saving throws against all other spells and magical effects."
+			]
+		},
+		{
+			"name": "Magic Weapons",
+			"entries": [
+				"Mahadi's weapon attacks are magical."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Multiattack",
+			"entries": [
+				"Mahadi makes four claw attacks."
+			]
+		},
+		{
+			"name": "Claw",
+			"entries": [
+				"{@atk mw} {@hit 7} to hit, reach 5 ft., one target. {@h}9 ({@damage 2d6 + 2}) slashing damage, and the target is cursed if it's a creature. The curse takes effect whenever the target takes a short or long rest, filling the target's thoughts with horrible images and dreams. The cursed target gains no benefit from finishing a short or long rest. The curse lasts until it is lifted by a {@spell remove curse} spell or similar magic."
+			]
+		},
+		{
+			"name": "Summon Erinyes (1/Day)",
+			"entries": [
+				"Mahadi summons Ilzabet, an erinyes bound to him by an infernal contract. The erinyes appears in an unoccupied space within 60 feet of him, acts as his ally, and can't summon other devils. The erinyes remains for 10 minutes or until Mahadi dismisses it as an action. If the erinyes dies, Mahadi loses this action option."
+			]
+		}
+	],
+	"traitTags": [
+		"Magic Weapons"
+	],
+	"senseTags": [
+		"SD"
+	],
+	"actionTags": [
+		"Multiattack"
+	],
+	"languageTags": [
+		"C",
+		"I",
+		"XX"
+	],
+	"damageTags": [
+		"S"
+	],
+	"damageTagsSpell": [
+		"F",
+		"Y"
+	],
+	"spellcastingTags": [
+		"I"
+	],
+	"miscTags": [
+		"CUR",
+		"MW"
+	],
+	"savingThrowForcedSpell": [
+		"charisma",
+		"dexterity",
+		"wisdom"
+	],
+	"hasToken": true,
+	"hasFluff": true,
+	"hasFluffImages": true
+},
+{
+	"name": "Hollyphant",
+	"source": "BGDIA",
+	"page": 237,
+	"size": [
+		"S"
+	],
+	"type": "celestial",
+	"alignment": [
+		"L",
+		"G"
+	],
+	"ac": [
+		{
+			"ac": 18,
+			"from": [
+				"natural armor"
+			]
+		}
+	],
+	"hp": {
+		"average": 36,
+		"formula": "8d6 + 8"
+	},
+	"speed": {
+		"walk": 20,
+		"fly": 120
+	},
+	"str": 10,
+	"dex": 11,
+	"con": 12,
+	"int": 16,
+	"wis": 19,
+	"cha": 16,
+	"save": {
+		"dex": "+3",
+		"con": "+4",
+		"cha": "+6"
+	},
+	"passive": 14,
+	"resist": [
+		{
+			"resist": [
+				"bludgeoning",
+				"piercing",
+				"slashing"
+			],
+			"note": "from nonmagical attacks",
+			"cond": true
+		}
+	],
+	"immune": [
+		"poison"
+	],
+	"conditionImmune": [
+		"poisoned"
+	],
+	"languages": [
+		"Celestial",
+		"telepathy 120 ft."
+	],
+	"cr": "5",
+	"spellcasting": [
+		{
+			"name": "Innate Spellcasting",
+			"type": "spellcasting",
+			"headerEntries": [
+				"The hollyphant's innate spellcasting ability is Wisdom (spell save {@dc 15}). It can innately cast the following spells, requiring no material components:"
+			],
+			"will": [
+				"{@spell light}"
+			],
+			"daily": {
+				"2e": [
+					"{@spell bless}",
+					"{@spell cure wounds}",
+					"{@spell protection from evil and good}"
+				],
+				"1e": [
+					"{@spell banishment}",
+					"{@spell heal}",
+					"{@spell raise dead}",
+					"{@spell shapechange} (into a golden-furred {@creature mammoth} with feathered wings and a flying speed of 120 ft.)",
+					"{@spell teleport} (with no chance of error)"
+				]
+			},
+			"ability": "wis"
+		}
+	],
+	"trait": [
+		{
+			"name": "Aura of Invulnerability",
+			"entries": [
+				"An {@condition invisible} aura forms a 10-foot-radius sphere around the hollyphant for as long as it lives. Any spell of 5th level or lower cast from outside the barrier can't affect creatures or objects within it, even if the spell is cast using a higher level spell slot. Such a spell can target creatures and objects within the barrier, but the spell has no effect on them. Similarly, the area within the barrier is excluded from the areas affected by such spells. The hollyphant can use an action to suppress this trait until its {@status concentration} ends (as if {@status concentration||concentrating} on a spell)."
+			]
+		},
+		{
+			"name": "Magic Weapons",
+			"entries": [
+				"The hollyphant's weapon attacks are magical."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Tusks",
+			"entries": [
+				"{@atk mw} {@hit 3} to hit, reach 5 ft., one target. {@h}3 ({@damage 1d6}) piercing damage."
+			]
+		},
+		{
+			"name": "Trumpet (3/Day)",
+			"entries": [
+				"The hollyphant blows air through its trunk, creating a trumpet sound that can be heard out to a range of 600 feet. The trumpet also creates a 30-foot cone of energy that has one of the following effects, chosen by the hollyphant:"
+			]
+		},
+		{
+			"name": "Trumpet of Blasting",
+			"entries": [
+				"Each creature in the cone must make a {@dc 14} Constitution saving throw. On a failed save, a creature takes 17 ({@damage 5d6}) thunder damage and is {@condition deafened} for 1 minute. On a successful save, a creature takes half as much damage and isn't {@condition deafened}. Nonmagical objects in the cone that aren't being held or worn take 35 ({@damage 10d6}) thunder damage."
+			]
+		},
+		{
+			"name": "Trumpet of Sparkles",
+			"entries": [
+				"Creatures in the cone must make a {@dc 14} Constitution saving throw, taking 22 ({@damage 4d8 + 4}) radiant damage on a failed save, or half as much damage on a successful one. Evil creatures have disadvantage on the saving throw. Good creatures in the cone take no damage."
+			]
+		}
+	],
+	"traitTags": [
+		"Magic Weapons"
+	],
+	"languageTags": [
+		"CE",
+		"TP"
+	],
+	"damageTags": [
+		"P",
+		"R",
+		"T"
+	],
+	"spellcastingTags": [
+		"I"
+	],
+	"miscTags": [
+		"AOE",
+		"MW"
+	],
+	"conditionInflict": [
+		"deafened"
+	],
+	"conditionInflictSpell": [
+		"incapacitated"
+	],
+	"savingThrowForced": [
+		"constitution"
+	],
+	"savingThrowForcedSpell": [
+		"charisma",
+		"dexterity"
+	],
+	"hasToken": true,
+	"hasFluff": true,
+	"hasFluffImages": true
+},
+{
+	"name": "Hellwasp",
+	"source": "BGDIA",
+	"page": 236,
+	"size": [
+		"L"
+	],
+	"type": "fiend",
+	"alignment": [
+		"L",
+		"E"
+	],
+	"ac": [
+		{
+			"ac": 19,
+			"from": [
+				"natural armor"
+			]
+		}
+	],
+	"hp": {
+		"average": 52,
+		"formula": "8d10 + 8"
+	},
+	"speed": {
+		"walk": 10,
+		"fly": {
+			"number": 60,
+			"condition": "(hover)"
+		},
+		"canHover": true
+	},
+	"str": 18,
+	"dex": 15,
+	"con": 12,
+	"int": 10,
+	"wis": 10,
+	"cha": 7,
+	"save": {
+		"dex": "+5",
+		"wis": "+3"
+	},
+	"senses": [
+		"darkvision 60 ft."
+	],
+	"passive": 10,
+	"immune": [
+		"fire"
+	],
+	"vulnerable": [
+		"cold"
+	],
+	"languages": [
+		"Infernal",
+		"telepathy 300 ft. (with other hellwasps only)"
+	],
+	"cr": "5",
+	"trait": [
+		{
+			"name": "Magic Weapons",
+			"entries": [
+				"The hellwasp's weapon attacks are magical."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Multiattack",
+			"entries": [
+				"The hellwasp makes two attacks: one with its sting and one with its sword talons."
+			]
+		},
+		{
+			"name": "Sting",
+			"entries": [
+				"{@atk mw} {@hit 7} to hit, reach 5 ft., one creature. {@h}8 ({@damage 1d8 + 4}) piercing damage plus 7 ({@damage 2d6}) fire damage, and the target must succeed on a {@dc 12} Constitution saving throw or be {@condition poisoned} for 1 minute. While {@condition poisoned} in this way, the target is also {@condition paralyzed}. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+			]
+		},
+		{
+			"name": "Sword Talons",
+			"entries": [
+				"{@atk mw} {@hit 7} to hit, reach 5 ft., one target. {@h}11 ({@damage 2d6 + 4}) piercing damage."
+			]
+		}
+	],
+	"traitTags": [
+		"Magic Weapons"
+	],
+	"senseTags": [
+		"D"
+	],
+	"actionTags": [
+		"Multiattack"
+	],
+	"languageTags": [
+		"I",
+		"TP"
+	],
+	"damageTags": [
+		"F",
+		"P"
+	],
+	"miscTags": [
+		"MW"
+	],
+	"conditionInflict": [
+		"paralyzed",
+		"poisoned"
+	],
+	"savingThrowForced": [
+		"constitution"
+	],
+	"hasToken": true,
+	"hasFluff": true,
+	"hasFluffImages": true
+},
+{
+	"name": "Hellwasp Grub",
+	"source": "BGDIA",
+	"page": 95,
+	"hasToken": true,
+	"size": [
+		"S"
+	],
+	"type": "beast",
+	"alignment": [
+		"U"
+	],
+	"ac": [
+		{
+			"ac": 13,
+			"from": [
+				"natural armor"
+			]
+		}
+	],
+	"hp": {
+		"average": 4,
+		"formula": "1d6 + 1"
+	},
+	"speed": {
+		"walk": 30,
+		"climb": 30
+	},
+	"str": 5,
+	"dex": 14,
+	"con": 12,
+	"int": 1,
+	"wis": 7,
+	"cha": 3,
+	"senses": [
+		"blindsight 30 ft."
+	],
+	"passive": 8,
+	"cr": "1/4",
+	"action": [
+		{
+			"name": "Bite",
+			"entries": [
+				"{@atk mw} {@hit 4} to hit, reach 5 ft., one creature. {@h}4 ({@damage 1d4 + 2}) piercing damage, and the target must succeed on a {@dc 11} Constitution saving throw or take 10 ({@damage 3d6}) poison damage. If the poison damage reduces the target to 0 hit points, the target is stable but {@condition poisoned} for 1 hour, even after regaining hit points, and is {@condition paralyzed} while {@condition poisoned} in this way."
+			]
+		}
+	],
+	"senseTags": [
+		"B"
+	],
+	"damageTags": [
+		"I",
+		"P"
+	],
+	"miscTags": [
+		"MW"
+	],
+	"conditionInflict": [
+		"paralyzed",
+		"poisoned"
+	],
+	"savingThrowForced": [
+		"constitution"
+	]
+},
+{
+	"name": "Fiendish Flesh Golem",
+	"source": "BGDIA",
+	"page": 236,
+	"size": [
+		"L"
+	],
+	"type": "construct",
+	"alignment": [
+		"U"
+	],
+	"ac": [
+		{
+			"ac": 12,
+			"from": [
+				"natural armor"
+			]
+		}
+	],
+	"hp": {
+		"average": 210,
+		"formula": "20d10 + 100"
+	},
+	"speed": {
+		"walk": 30,
+		"fly": {
+			"number": 30,
+			"condition": "(hover)"
+		},
+		"canHover": true
+	},
+	"str": 20,
+	"dex": 9,
+	"con": 20,
+	"int": 7,
+	"wis": 10,
+	"cha": 5,
+	"senses": [
+		"darkvision 60 ft."
+	],
+	"passive": 10,
+	"resist": [
+		"cold",
+		"fire"
+	],
+	"immune": [
+		"lightning",
+		"poison",
+		{
+			"immune": [
+				"bludgeoning",
+				"piercing",
+				"slashing"
+			],
+			"note": "from nonmagical attacks that aren't adamantine or silvered",
+			"cond": true
+		}
+	],
+	"conditionImmune": [
+		"charmed",
+		"exhaustion",
+		"frightened",
+		"paralyzed",
+		"petrified",
+		"poisoned"
+	],
+	"languages": [
+		"understands the languages of its creator but can't speak"
+	],
+	"cr": "8",
+	"trait": [
+		{
+			"name": "Berserk",
+			"entries": [
+				"Whenever the golem starts its turn with 100 hit points or fewer, roll a {@dice d6}. On a 6, the golem goes berserk. On each of its turns while berserk, the golem attacks the nearest creature it can see. If no creature is near enough to move to and attack, the golem attacks an object, with preference for an object smaller than itself. Once the golem goes berserk, it continues to do so until it is destroyed or regains all its hit points. If the golem's creator is within 60 feet of the berserk golem, the creator can try to calm it by speaking firmly and persuasively. The golem must be able to hear its creator, who must take an action to make a {@dc 15} Charisma ({@skill Persuasion}) check. If the check succeeds, the golem ceases being berserk. If it takes damage while still at 100 hit points or fewer, the golem might go berserk again."
+			]
+		},
+		{
+			"name": "Immutable Form",
+			"entries": [
+				"The golem is immune to any spell or effect that would alter its form."
+			]
+		},
+		{
+			"name": "Lightning Absorption",
+			"entries": [
+				"Whenever the golem is subjected to lightning damage, it takes no damage and instead regains a number of hit points equal to the lightning damage dealt."
+			]
+		},
+		{
+			"name": "Magic Resistance",
+			"entries": [
+				"The golem has advantage on saving throws against spells and other magical effects."
+			]
+		},
+		{
+			"name": "Magic Weapons",
+			"entries": [
+				"The golem's weapon attacks are magical."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Multiattack",
+			"entries": [
+				"The golem makes two slam attacks."
+			]
+		},
+		{
+			"name": "Slam",
+			"entries": [
+				"{@atk mw} {@hit 8} to hit, reach 5 ft., one target. {@h}16 ({@damage 2d10 + 5}) bludgeoning damage."
+			]
+		}
+	],
+	"traitTags": [
+		"Damage Absorption",
+		"Immutable Form",
+		"Magic Resistance",
+		"Magic Weapons"
+	],
+	"senseTags": [
+		"D"
+	],
+	"actionTags": [
+		"Multiattack"
+	],
+	"languageTags": [
+		"CS"
+	],
+	"damageTags": [
+		"B"
+	],
+	"miscTags": [
+		"MW"
+	],
+	"hasToken": true,
+	"hasFluff": true
+},
+{
+	"name": "Crokek'toeck",
+	"isNpc": true,
+	"isNamedCreature": true,
+	"source": "BGDIA",
+	"page": 231,
+	"size": [
+		"G"
+	],
+	"type": {
+		"type": "fiend",
+		"tags": [
+			"demon"
+		]
+	},
+	"alignment": [
+		"C",
+		"E"
+	],
+	"ac": [
+		{
+			"ac": 15,
+			"from": [
+				"natural armor"
+			]
+		}
+	],
+	"hp": {
+		"average": 297,
+		"formula": "17d20 + 119"
+	},
+	"speed": {
+		"walk": 60,
+		"swim": 60
+	},
+	"str": 28,
+	"dex": 10,
+	"con": 24,
+	"int": 6,
+	"wis": 10,
+	"cha": 13,
+	"save": {
+		"con": "+12",
+		"wis": "+5"
+	},
+	"senses": [
+		"darkvision 120 ft."
+	],
+	"passive": 10,
+	"resist": [
+		"cold",
+		"fire",
+		"lightning",
+		{
+			"resist": [
+				"bludgeoning",
+				"piercing",
+				"slashing"
+			],
+			"note": "from nonmagical attacks",
+			"cond": true
+		}
+	],
+	"immune": [
+		"poison"
+	],
+	"conditionImmune": [
+		"charmed",
+		"frightened",
+		"poisoned"
+	],
+	"languages": [
+		"understands Abyssal but can't speak"
+	],
+	"cr": "14",
+	"trait": [
+		{
+			"name": "Amphibious",
+			"entries": [
+				"Crokek'toeck can breathe air and water."
+			]
+		},
+		{
+			"name": "Magic Resistance",
+			"entries": [
+				"Crokek'toeck has advantage on saving throws against spells and other magical effects."
+			]
+		},
+		{
+			"name": "Magic Weapons",
+			"entries": [
+				"Crokek'toeck's weapon attacks are magical."
+			]
+		},
+		{
+			"name": "Secure Memory",
+			"entries": [
+				"Crokek'toeck is immune to the waters of the River Styx as well as any effect that would steal or modify its memories or detect or read its thoughts."
+			]
+		},
+		{
+			"name": "Standing Leap",
+			"entries": [
+				"Crokek'toeck's long jump is up to 60 feet and its high jump is up to 30 feet, with or without a running start."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Bite",
+			"entries": [
+				"{@atk mw} {@hit 14} to hit, reach 15 ft., one target. {@h}44 ({@damage 10d6 + 9}) piercing damage."
+			]
+		},
+		{
+			"name": "Disgorge Allies {@recharge}",
+			"entries": [
+				"Crokek'toeck opens its mouth and disgorges {@dice 1d4} {@creature barlgura||barlguras}, {@dice 3d6} {@creature gnoll||gnolls} led by 1 {@creature gnoll fang of Yeenoghu}, {@dice 6d6} {@creature dretch||dretches}, or {@dice 1d3} {@creature vrock||vrocks}. Each creature it disgorges appears in an unoccupied space within 30 feet of Crokek'toeck's mouth, or the next closest unoccupied space."
+			]
+		}
+	],
+	"traitTags": [
+		"Amphibious",
+		"Magic Resistance",
+		"Magic Weapons"
+	],
+	"senseTags": [
+		"SD"
+	],
+	"languageTags": [
+		"AB",
+		"CS"
+	],
+	"damageTags": [
+		"P"
+	],
+	"miscTags": [
+		"MW",
+		"RCH"
+	],
+	"hasToken": true,
+	"hasFluff": true,
+	"hasFluffImages": true
+},
+{
+	"name": "Bel",
+	"isNpc": true,
+	"isNamedCreature": true,
+	"source": "BGDIA",
+	"page": 115,
+	"size": [
+		"L"
+	],
+	"type": {
+		"type": "fiend",
+		"tags": [
+			"devil"
+		]
+	},
+	"alignment": [
+		"L",
+		"E"
+	],
+	"ac": [
+		{
+			"ac": 19,
+			"from": [
+				"natural armor"
+			]
+		}
+	],
+	"hp": {
+		"average": 364,
+		"formula": "27d10 + 216"
+	},
+	"speed": {
+		"walk": 30,
+		"fly": 60
+	},
+	"str": 28,
+	"dex": 14,
+	"con": 26,
+	"int": 25,
+	"wis": 19,
+	"cha": 26,
+	"save": {
+		"dex": "+10",
+		"con": "+16",
+		"wis": "+12"
+	},
+	"skill": {
+		"arcana": "+15",
+		"deception": "+16",
+		"insight": "+12",
+		"persuasion": "+16"
+	},
+	"senses": [
+		"truesight 120 ft."
+	],
+	"passive": 14,
+	"resist": [
+		"cold",
+		{
+			"resist": [
+				"bludgeoning",
+				"piercing",
+				"slashing"
+			],
+			"note": "from nonmagical attacks that aren't silvered",
+			"cond": true
+		}
+	],
+	"immune": [
+		"fire",
+		"poison"
+	],
+	"conditionImmune": [
+		"poisoned"
+	],
+	"languages": [
+		"Common",
+		"Infernal",
+		"telepathy 120 ft."
+	],
+	"cr": "25",
+	"spellcasting": [
+		{
+			"name": "Innate Spellcasting",
+			"type": "spellcasting",
+			"headerEntries": [
+				"Bel's spellcasting ability is Charisma (spell save {@dc 23}). Bel can innately cast the following spells, requiring no material components:"
+			],
+			"will": [
+				"{@spell detect magic}",
+				"{@spell fireball}"
+			],
+			"daily": {
+				"3e": [
+					"{@spell dispel magic}",
+					"{@spell hold monster}",
+					"{@spell mirror image}",
+					"{@spell mislead}",
+					"{@spell raise dead}",
+					"{@spell teleport}",
+					"{@spell wall of fire}"
+				],
+				"1e": [
+					"{@spell imprisonment}",
+					"{@spell meteor swarm}"
+				]
+			},
+			"ability": "cha"
+		}
+	],
+	"trait": [
+		{
+			"name": "Fear Aura",
+			"entries": [
+				"Any creature hostile to Bel that starts its turn within 20 feet of him must make a {@dc 23} Wisdom saving throw, unless Bel is {@condition incapacitated}. Unless the save succeeds, the creature is {@condition frightened} until the start of its next turn. If a creature's saving throw is successful, the creature is immune to Bel's Fear Aura for the next 24 hours."
+			]
+		},
+		{
+			"name": "Legendary Resistance (3/Day)",
+			"entries": [
+				"If Bel fails a saving throw, he can choose to succeed instead."
+			]
+		},
+		{
+			"name": "Magic Resistance",
+			"entries": [
+				"Bel has advantage on saving throws against spells and other magical effects."
+			]
+		},
+		{
+			"name": "Magic Weapons",
+			"entries": [
+				"Bel's weapon attacks are magical."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Multiattack",
+			"entries": [
+				"Bel makes three attacks: two with his greatsword and one with his tail."
+			]
+		},
+		{
+			"name": "Greatsword",
+			"entries": [
+				"{@atk mw} {@hit 16} to hit, reach 10 ft., one target. {@h}23 ({@damage 4d6 + 9}) slashing damage plus 21 ({@damage 6d6}) fire damage. If the target is a flammable object that is not being held or worn, it catches fire."
+			]
+		},
+		{
+			"name": "Tail",
+			"entries": [
+				"{@atk mw} {@hit 16} to hit, reach 10 ft., one target. {@h}25 ({@damage 3d10 + 9}) bludgeoning damage. If the target is a creature, it must succeed on a {@dc 23} Constitution saving throw or be {@condition stunned} until the end of its next turn."
+			]
+		}
+	],
+	"legendary": [
+		{
+			"name": "Fireball",
+			"entries": [
+				"Bel casts {@spell fireball}."
+			]
+		},
+		{
+			"name": "Tactical Edge (Costs 2 Actions)",
+			"entries": [
+				"Roll a {@dice d6} for Bel. The number rolled on the die is subtracted from the next attack roll made against Bel or an ally of his choice within the next minute."
+			]
+		},
+		{
+			"name": "Summon Ice Devil (Costs 3 Actions)",
+			"entries": [
+				"Bel magically summons an ice devil with an ice spear (as described in the ice devil's entry in the Monster Manual). The ice devil appears in an unoccupied space within 60 feet of Bel, acts as Bel's ally, and can summon other devils if it has such power. The ice devil remains until Bel dies or until he dismisses it as an action."
+			]
+		}
+	],
+	"attachedItems": [
+		"greatsword|phb"
+	],
+	"traitTags": [
+		"Legendary Resistances",
+		"Magic Resistance",
+		"Magic Weapons"
+	],
+	"senseTags": [
+		"U"
+	],
+	"actionTags": [
+		"Multiattack"
+	],
+	"languageTags": [
+		"C",
+		"I"
+	],
+	"damageTags": [
+		"B",
+		"F",
+		"S"
+	],
+	"damageTagsSpell": [
+		"B",
+		"F"
+	],
+	"spellcastingTags": [
+		"I"
+	],
+	"miscTags": [
+		"MLW",
+		"MW",
+		"RCH"
+	],
+	"conditionInflict": [
+		"frightened",
+		"stunned"
+	],
+	"conditionInflictSpell": [
+		"blinded",
+		"deafened",
+		"invisible",
+		"paralyzed",
+		"restrained"
+	],
+	"savingThrowForced": [
+		"constitution",
+		"wisdom"
+	],
+	"savingThrowForcedSpell": [
+		"dexterity",
+		"wisdom"
+	],
+	"hasToken": true,
+	"hasFluff": true,
+	"hasFluffImages": true
+},
+{
+	"name": "Archduke Zariel of Avernus",
+	"isNpc": true,
+	"isNamedCreature": true,
+	"source": "BGDIA",
+	"page": 243,
+	"resist": [
+		"fire",
+		"radiant",
+		{
+			"resist": [
+				"bludgeoning",
+				"piercing",
+				"slashing"
+			],
+			"note": "from nonmagical attacks that aren't silvered",
+			"cond": true
+		}
+	],
+	"immune": [
+		"cold",
+		"necrotic",
+		"poison"
+	],
+	"damageTags": [
+		"B",
+		"C",
+		"F",
+		"N",
+		"P"
+	],
+	"damageTagsLegendary": [],
+	"miscTags": [
+		"MW",
+		"RCH"
+	],
+	"hasToken": true,
+	"hasFluff": true,
+	"hasFluffImages": true,
+	"size": [
+		"L"
+	],
+	"type": {
+		"type": "fiend",
+		"tags": [
+			"devil"
+		]
+	},
+	"alignment": [
+		"L",
+		"E"
+	],
+	"ac": [
+		{
+			"ac": 21,
+			"from": [
+				"natural armor"
+			]
+		}
+	],
+	"hp": {
+		"average": 580,
+		"formula": "40d10 + 360"
+	},
+	"speed": {
+		"walk": 50,
+		"fly": 150
+	},
+	"str": 27,
+	"dex": 24,
+	"con": 28,
+	"int": 26,
+	"wis": 27,
+	"cha": 30,
+	"save": {
+		"int": "+16",
+		"wis": "+16",
+		"cha": "+18"
+	},
+	"skill": {
+		"intimidation": "+18",
+		"perception": "+16"
+	},
+	"senses": [
+		"darkvision 120 ft."
+	],
+	"passive": 26,
+	"conditionImmune": [
+		"charmed",
+		"exhaustion",
+		"frightened",
+		"poisoned"
+	],
+	"languages": [
+		"all",
+		"telepathy 120 ft."
+	],
+	"cr": "26",
+	"spellcasting": [
+		{
+			"name": "Innate Spellcasting",
+			"type": "spellcasting",
+			"headerEntries": [
+				"Zariel's innate spellcasting ability is Charisma (spell save {@dc 26}). She can innately cast the following spells, requiring no material components:"
+			],
+			"will": [
+				"{@spell alter self} (can become Medium when changing her appearance)",
+				"{@spell detect evil and good}",
+				"{@spell fireball}",
+				"{@spell invisibility} (self only)",
+				"{@spell wall of fire}"
+			],
+			"daily": {
+				"3e": [
+					"{@spell blade barrier}",
+					"{@spell dispel evil and good}",
+					"{@spell finger of death}"
+				]
+			},
+			"ability": "cha"
+		}
+	],
+	"trait": [
+		{
+			"name": "Devil's Sight",
+			"entries": [
+				"Magical darkness doesn't impede Zariel's darkvision."
+			]
+		},
+		{
+			"name": "Magic Weapons",
+			"entries": [
+				"Zariel's weapon attacks are magical. When she hits with any weapon, the weapon deals an extra 36 ({@damage 8d8}) fire damage (included in the weapon attacks below)."
+			]
+		},
+		{
+			"name": "Legendary Resistance (3/Day)",
+			"entries": [
+				"If Zariel fails a saving throw, she can choose to succeed instead."
+			]
+		},
+		{
+			"name": "Magic Resistance",
+			"entries": [
+				"Zariel has advantage on saving throws against spells and other magical effects."
+			]
+		},
+		{
+			"name": "Regeneration",
+			"entries": [
+				"Zariel regains 20 hit points at the start of her turn. If she takes radiant damage, this trait doesn't function at the start of her next turn. Zariel dies only if she starts her turn with 0 hit points and doesn't regenerate."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Multiattack",
+			"entries": [
+				"Zariel attacks twice with her flail and once with Matalotok. She can substitute Horrid Touch for Matalotok."
+			]
+		},
+		{
+			"name": "Flail",
+			"entries": [
+				"{@atk mw} {@hit 16} to hit, reach 10 ft., one target. {@h}17 ({@damage 2d8 + 8}) piercing damage plus 36 ({@damage 8d8}) fire damage."
+			]
+		},
+		{
+			"name": "Matalotok (Warhammer)",
+			"entries": [
+				"{@atk mw} {@hit 16} to hit, reach 10 ft., one target. {@h}17 ({@damage 2d8 + 8}) bludgeoning, or 19 ({@damage 2d10 + 8}) bludgeoning damage if used with two hands, plus 36 ({@damage 8d8}) fire damage. In addition, the weapon emits a burst of cold that deals 10 ({@damage 3d6}) cold damage to each creature within 30 feet of it."
+			]
+		},
+		{
+			"name": "Horrid Touch {@recharge 5}",
+			"entries": [
+				"Zariel touches one creature within 10 feet of her. The target must succeed on a {@dc 26} Constitution saving throw or take 44 ({@damage 8d10}) necrotic damage and be {@condition poisoned} for 1 minute. While {@condition poisoned} in this way, the target is also {@condition blinded} and {@condition deafened}. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+			]
+		},
+		{
+			"name": "Teleport",
+			"entries": [
+				"Zariel magically teleports, along with any equipment she is wearing and carrying, up to 120 feet to an unoccupied space she can see."
+			]
+		}
+	],
+	"legendary": [
+		{
+			"name": "Immolating Gaze (Costs 2 Actions)",
+			"entries": [
+				"Zariel turns her magical gaze toward one creature she can see within 120 feet of her and commands it to combust. The target must succeed on a {@dc 26} Wisdom saving throw or take 22 ({@damage 4d10}) fire damage."
+			]
+		},
+		{
+			"name": "Teleport",
+			"entries": [
+				"Zariel uses her Teleport action."
+			]
+		}
+	],
+	"attachedItems": [
+		"javelin|phb",
+		"longsword|phb"
+	],
+	"traitTags": [
+		"Devil's Sight",
+		"Legendary Resistances",
+		"Magic Resistance",
+		"Magic Weapons",
+		"Regeneration"
+	],
+	"senseTags": [
+		"SD"
+	],
+	"actionTags": [
+		"Multiattack",
+		"Teleport"
+	],
+	"languageTags": [
+		"TP",
+		"XX"
+	],
+	"damageTagsSpell": [
+		"B",
+		"F",
+		"N",
+		"P",
+		"S"
+	],
+	"spellcastingTags": [
+		"I"
+	],
+	"conditionInflict": [
+		"blinded",
+		"deafened",
+		"poisoned"
+	],
+	"conditionInflictLegendary": [
+		"frightened"
+	],
+	"conditionInflictSpell": [
+		"invisible"
+	],
+	"savingThrowForced": [
+		"constitution",
+		"wisdom"
+	],
+	"savingThrowForcedLegendary": [
+		"dexterity",
+		"wisdom"
+	],
+	"savingThrowForcedSpell": [
+		"charisma",
+		"constitution",
+		"dexterity"
+	]
+},
+{
+	"name": "Titivilus",
+	"isNamedCreature": true,
+	"source": "MTF",
+	"page": 179,
+	"reprintedAs": [
+		"Titivilus|MPMM"
+	],
+	"size": [
+		"M"
+	],
+	"type": {
+		"type": "fiend",
+		"tags": [
+			"devil"
+		]
+	},
+	"alignment": [
+		"L",
+		"E"
+	],
+	"ac": [
+		{
+			"ac": 20,
+			"from": [
+				"natural armor"
+			]
+		}
+	],
+	"hp": {
+		"average": 127,
+		"formula": "17d8 + 51"
+	},
+	"speed": {
+		"walk": 40,
+		"fly": 60
+	},
+	"str": 19,
+	"dex": 22,
+	"con": 17,
+	"int": 24,
+	"wis": 22,
+	"cha": 26,
+	"save": {
+		"dex": "+11",
+		"con": "+8",
+		"wis": "+11",
+		"cha": "+13"
+	},
+	"skill": {
+		"deception": "+13",
+		"insight": "+11",
+		"intimidation": "+13",
+		"persuasion": "+13"
+	},
+	"senses": [
+		"darkvision 120 ft."
+	],
+	"passive": 16,
+	"resist": [
+		"cold",
+		{
+			"resist": [
+				"bludgeoning",
+				"piercing",
+				"slashing"
+			],
+			"note": "from nonmagical attacks that aren't silvered",
+			"cond": true
+		}
+	],
+	"immune": [
+		"fire",
+		"poison"
+	],
+	"conditionImmune": [
+		"charmed",
+		"exhaustion",
+		"frightened",
+		"poisoned"
+	],
+	"languages": [
+		"all",
+		"telepathy 120 ft."
+	],
+	"cr": "16",
+	"spellcasting": [
+		{
+			"name": "Innate Spellcasting",
+			"type": "spellcasting",
+			"headerEntries": [
+				"Titivilus's innate spellcasting ability is Charisma (spell save {@dc 21}). He can innately cast the following spells, requiring no material components:"
+			],
+			"will": [
+				"{@spell alter self}",
+				"{@spell animate dead}",
+				"{@spell bestow curse}",
+				"{@spell confusion}",
+				"{@spell major image}",
+				"{@spell modify memory}",
+				"{@spell nondetection}",
+				"{@spell sending}",
+				"{@spell suggestion}"
+			],
+			"daily": {
+				"3e": [
+					"{@spell greater invisibility} (self only)",
+					"{@spell mislead}"
+				],
+				"1e": [
+					"{@spell feeblemind}",
+					"{@spell symbol} (discord or sleep only)"
+				]
+			},
+			"ability": "cha"
+		}
+	],
+	"trait": [
+		{
+			"name": "Legendary Resistance (3/Day)",
+			"entries": [
+				"If Titivilus fails a saving throw, he can choose to succeed instead."
+			]
+		},
+		{
+			"name": "Magic Resistance",
+			"entries": [
+				"Titivilus has advantage on saving throws against spells and other magical effects."
+			]
+		},
+		{
+			"name": "Magic Weapons",
+			"entries": [
+				"Titivilus's weapon attacks are magical."
+			]
+		},
+		{
+			"name": "Regeneration",
+			"entries": [
+				"Titivilus regains 10 hit points at the start of his turn. If he takes cold or radiant damage, this trait doesn't function at the start of his next turn. Titivilus dies only if he starts his turn with 0 hit points and doesn't regenerate."
+			]
+		},
+		{
+			"name": "Ventriloquism",
+			"entries": [
+				"Whenever Titivilus speaks, he can choose a point within 60 feet; his voice emanates from that point."
+			]
+		}
+	],
+	"action": [
+		{
+			"name": "Multiattack",
+			"entries": [
+				"Titivilus makes one sword attack and uses his Frightful Word once."
+			]
+		},
+		{
+			"name": "Silver Sword",
+			"entries": [
+				"{@atk mw} {@hit 9} to hit, reach 5 ft., one target. {@h}8 ({@damage 1d8 + 4}) slashing damage plus 16 ({@damage 3d10}) necrotic damage, or 9 ({@damage 1d10 + 4}) slashing damage plus 16 ({@damage 3d10}) necrotic damage if used with two hands. If the target is a creature, its hit point maximum is reduced by an amount equal to half the necrotic damage it takes."
+			]
+		},
+		{
+			"name": "Frightful Word",
+			"entries": [
+				"Titivilus targets one creature he can see within 10 feet of him. The target must succeed on a {@dc 21} Wisdom saving throw or become {@condition frightened} for 1 minute. While {@condition frightened} in this way, the target must take the {@action Dash} action and move away from Titivilus by the safest available route on each of its turns, unless there is nowhere to move, in which case it needn't take the {@action Dash} action. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+			]
+		},
+		{
+			"name": "Teleport",
+			"entries": [
+				"Titivilus magically teleports, along with any equipment he is wearing and carrying, up to 120 feet to an unoccupied space he can see."
+			]
+		},
+		{
+			"name": "Twisting Words",
+			"entries": [
+				"Titivilus targets one creature he can see within 60 feet of him. The target must make a {@dc 21} Charisma saving throw. On a failure the target is {@condition charmed} for 1 minute. The {@condition charmed} target can repeat the saving throw if Titivilus deals any damage to it. A creature that succeeds on the saving throw is immune to Titivilus's Twisting Words for 24 hours."
+			]
+		}
+	],
+	"legendary": [
+		{
+			"name": "Assault (Costs 2 Actions)",
+			"entries": [
+				"Titivilus attacks with his silver sword or uses his Frightful Word."
+			]
+		},
+		{
+			"name": "Corrupting Guidance",
+			"entries": [
+				"Titivilus uses Twisting Words. Alternatively, he targets one creature {@condition charmed} by him that is within 60 feet of him; that {@condition charmed} target must make a {@dc 21} Charisma saving throw. On a failure, Titivilus decides how the target acts during its next turn."
+			]
+		},
+		{
+			"name": "Teleport",
+			"entries": [
+				"Titivilus uses his Teleport action."
+			]
+		}
+	],
+	"soundClip": {
+		"type": "internal",
+		"path": "bestiary/titivilus.opus"
+	},
+	"traitTags": [
+		"Legendary Resistances",
+		"Magic Resistance",
+		"Magic Weapons",
+		"Regeneration"
+	],
+	"senseTags": [
+		"SD"
+	],
+	"actionTags": [
+		"Multiattack",
+		"Teleport"
+	],
+	"languageTags": [
+		"TP",
+		"XX"
+	],
+	"damageTags": [
+		"N",
+		"S"
+	],
+	"damageTagsSpell": [
+		"B",
+		"N",
+		"P",
+		"S",
+		"Y"
+	],
+	"spellcastingTags": [
+		"I"
+	],
+	"miscTags": [
+		"HPR",
+		"MW"
+	],
+	"conditionInflict": [
+		"charmed",
+		"frightened"
+	],
+	"conditionInflictSpell": [
+		"blinded",
+		"charmed",
+		"deafened",
+		"frightened",
+		"incapacitated",
+		"invisible",
+		"stunned",
+		"unconscious"
+	],
+	"savingThrowForced": [
+		"charisma",
+		"wisdom"
+	],
+	"savingThrowForcedSpell": [
+		"charisma",
+		"constitution",
+		"intelligence",
+		"wisdom"
+	],
+	"hasToken": true,
+	"hasFluff": true,
+	"hasFluffImages": true
+}]

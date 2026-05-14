@@ -1,0 +1,1139 @@
+[{
+	"name": "Plane Shift",
+	"source": "PHB",
+	"page": 266,
+	"srd": true,
+	"referenceSources": [
+		"AitFR-DN",
+		"BGDIA",
+		"CM",
+		"CoA",
+		"CoS",
+		"DSotDQ",
+		"GoS",
+		"IDRotF",
+		"JttRC",
+		"KftGV",
+		"OoW",
+		"PaBTSO",
+		"QftIS",
+		"SLW",
+		"ToA",
+		"ToFW",
+		"VEoR",
+		"WBtW",
+		"WDMM"
+	],
+	"reprintedAs": [
+		"Plane Shift|XPHB"
+	],
+	"level": 7,
+	"school": "C",
+	"time": [
+		{
+			"number": 1,
+			"unit": "action"
+		}
+	],
+	"range": {
+		"type": "point",
+		"distance": {
+			"type": "touch"
+		}
+	},
+	"components": {
+		"v": true,
+		"s": true,
+		"m": {
+			"text": "a forked, metal rod worth at least 250 gp, attuned to a particular plane of existence",
+			"cost": 25000
+		}
+	},
+	"duration": [
+		{
+			"type": "instant"
+		}
+	],
+	"entries": [
+		"You and up to eight willing creatures who link hands in a circle are transported to a different plane of existence. You can specify a target destination in general terms, such as the City of Brass on the Elemental Plane of Fire or the palace of Dispater on the second level of the Nine Hells, and you appear in or near that destination. If you are trying to reach the City of Brass, for example, you might arrive in its Street of Steel, before its Gate of Ashes, or looking at the city from across the Sea of Fire, at the DM's discretion.",
+		"Alternatively, if you know the sigil sequence of a teleportation circle on another plane of existence, this spell can take you to that circle. If the teleportation circle is too small to hold all the creatures you transported, they appear in the closest unoccupied spaces next to the circle.",
+		"You can use this spell to banish an unwilling creature to another plane. Choose a creature within your reach and make a melee spell attack against it. On a hit, the creature must make a Charisma saving throw. If the creature fails this save, it is transported to a random location on the plane of existence you specify. A creature so transported must find its own way back to your current plane of existence."
+	],
+	"spellAttack": [
+		"M"
+	],
+	"savingThrow": [
+		"charisma"
+	],
+	"miscTags": [
+		"PS",
+		"TP"
+	],
+	"areaTags": [
+		"MT",
+		"ST"
+	],
+	"classes": {
+		"fromClassList": [
+			{
+				"name": "Cleric",
+				"source": "PHB"
+			},
+			{
+				"name": "Druid",
+				"source": "PHB"
+			},
+			{
+				"name": "Sorcerer",
+				"source": "PHB"
+			},
+			{
+				"name": "Warlock",
+				"source": "PHB"
+			},
+			{
+				"name": "Wizard",
+				"source": "PHB"
+			}
+		],
+		"fromSubclass": [
+			{
+				"class": {
+					"name": "Cleric",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "Arcana Domain",
+					"shortName": "Arcana",
+					"source": "SCAG"
+				}
+			},
+			{
+				"class": {
+					"name": "Sorcerer",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "Divine Soul",
+					"shortName": "Divine Soul",
+					"source": "XGE"
+				}
+			},
+			{
+				"class": {
+					"name": "Cleric",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "Arcana Domain",
+					"shortName": "Arcana",
+					"source": "SCAG"
+				}
+			},
+			{
+				"class": {
+					"name": "Sorcerer",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "Divine Soul",
+					"shortName": "Divine Soul",
+					"source": "XGE"
+				}
+			}
+		]
+	},
+	"feats": [
+		{
+			"name": "Boon of Siberys",
+			"source": "EFA"
+		}
+	]
+},
+{
+	"name": "Sleep",
+	"source": "PHB",
+	"page": 276,
+	"srd": true,
+	"basicRules": true,
+	"otherSources": [
+		{
+			"source": "RMR",
+			"page": 59
+		}
+	],
+	"referenceSources": [
+		"BGDIA",
+		"CoS",
+		"DIP",
+		"KftGV",
+		"KKW",
+		"MOT",
+		"QftIS",
+		"RMBRE",
+		"SCC-CK",
+		"SDW",
+		"TftYP-TFoF",
+		"ToA",
+		"WBtW",
+		"WDMM"
+	],
+	"reprintedAs": [
+		"Sleep|XPHB"
+	],
+	"level": 1,
+	"school": "E",
+	"time": [
+		{
+			"number": 1,
+			"unit": "action"
+		}
+	],
+	"range": {
+		"type": "point",
+		"distance": {
+			"type": "feet",
+			"amount": 90
+		}
+	},
+	"components": {
+		"v": true,
+		"s": true,
+		"m": "a pinch of fine sand, rose petals, or a cricket"
+	},
+	"duration": [
+		{
+			"type": "timed",
+			"duration": {
+				"type": "minute",
+				"amount": 1
+			}
+		}
+	],
+	"entries": [
+		"This spell sends creatures into a magical slumber. Roll {@dice 5d8}; the total is how many hit points of creatures this spell can affect. Creatures within 20 feet of a point you choose within range are affected in ascending order of their current hit points (ignoring {@condition unconscious} creatures).",
+		"Starting with the creature that has the lowest current hit points, each creature affected by this spell falls {@condition unconscious} until the spell ends, the sleeper takes damage, or someone uses an action to shake or slap the sleeper awake. Subtract each creature's hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total for that creature to be affected.",
+		"Undead and creatures immune to being {@condition charmed} aren't affected by this spell."
+	],
+	"entriesHigherLevel": [
+		{
+			"type": "entries",
+			"name": "At Higher Levels",
+			"entries": [
+				"When you cast this spell using a spell slot of 2nd level or higher, roll an additional {@scaledice 5d8|1-9|2d8} for each slot level above 1st."
+			]
+		}
+	],
+	"conditionInflict": [
+		"unconscious"
+	],
+	"affectsCreatureType": [
+		"aberration",
+		"beast",
+		"celestial",
+		"construct",
+		"dragon",
+		"elemental",
+		"fey",
+		"fiend",
+		"giant",
+		"humanoid",
+		"monstrosity",
+		"ooze",
+		"plant",
+		"undead"
+	],
+	"areaTags": [
+		"S"
+	],
+	"classes": {
+		"fromClassList": [
+			{
+				"name": "Bard",
+				"source": "PHB"
+			},
+			{
+				"name": "Sorcerer",
+				"source": "PHB"
+			},
+			{
+				"name": "Wizard",
+				"source": "PHB"
+			}
+		],
+		"fromSubclass": [
+			{
+				"class": {
+					"name": "Bard",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "College of Lore",
+					"shortName": "Lore",
+					"source": "XPHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Cleric",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "Twilight Domain",
+					"shortName": "Twilight",
+					"source": "TCE"
+				}
+			},
+			{
+				"class": {
+					"name": "Fighter",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "Eldritch Knight",
+					"shortName": "Eldritch Knight",
+					"source": "XPHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Paladin",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "Oath of Redemption",
+					"shortName": "Redemption",
+					"source": "XGE"
+				}
+			},
+			{
+				"class": {
+					"name": "Rogue",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "Arcane Trickster",
+					"shortName": "Arcane Trickster",
+					"source": "XPHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Cleric",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "Twilight Domain",
+					"shortName": "Twilight",
+					"source": "TCE"
+				}
+			},
+			{
+				"class": {
+					"name": "Fighter",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "Eldritch Knight",
+					"shortName": "Eldritch Knight",
+					"source": "PHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Paladin",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "Oath of Redemption",
+					"shortName": "Redemption",
+					"source": "XGE"
+				}
+			},
+			{
+				"class": {
+					"name": "Rogue",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "Arcane Trickster",
+					"shortName": "Arcane Trickster",
+					"source": "PHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Warlock",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "The Archfey",
+					"shortName": "Archfey",
+					"source": "PHB"
+				}
+			}
+		]
+	},
+	"races": [
+		{
+			"name": "Elf (Pallid)",
+			"source": "EGW",
+			"baseName": "Elf",
+			"baseSource": "PHB"
+		},
+		{
+			"name": "Halfling (Mark of Hospitality)",
+			"source": "ERLW",
+			"baseName": "Halfling",
+			"baseSource": "PHB"
+		}
+	],
+	"backgrounds": [
+		{
+			"name": "Dimir Operative",
+			"source": "GGR"
+		}
+	],
+	"feats": [
+		{
+			"name": "Aberrant Dragonmark",
+			"source": "EFA"
+		},
+		{
+			"name": "Boon of Siberys",
+			"source": "EFA"
+		},
+		{
+			"name": "Aberrant Dragonmark",
+			"source": "ERLW"
+		},
+		{
+			"name": "Fey Touched",
+			"source": "TCE"
+		},
+		{
+			"name": "Fey-Touched",
+			"source": "XPHB"
+		},
+		{
+			"name": "Magic Initiate",
+			"source": "XPHB"
+		},
+		{
+			"name": "Magic Initiate",
+			"source": "PHB"
+		},
+		{
+			"name": "Strixhaven Initiate",
+			"source": "SCC"
+		},
+		{
+			"name": "Vampire Touched",
+			"source": "ABH"
+		}
+	],
+	"rewards": [
+		{
+			"name": "Dimir Charm",
+			"source": "GGR"
+		}
+	]
+},
+{
+	"name": "Thunderwave",
+	"source": "PHB",
+	"page": 282,
+	"srd": true,
+	"basicRules": true,
+	"otherSources": [
+		{
+			"source": "RMR",
+			"page": 61
+		}
+	],
+	"referenceSources": [
+		"CoS",
+		"CRCotN",
+		"DIP",
+		"GoS",
+		"IDRotF",
+		"JttRC",
+		"OoW",
+		"RoT",
+		"SKT",
+		"TftYP-DiT",
+		"TftYP-THSoT",
+		"TftYP-TSC",
+		"TftYP-WPM",
+		"ToA",
+		"ToR",
+		"WDH",
+		"WDMM"
+	],
+	"reprintedAs": [
+		"Thunderwave|XPHB"
+	],
+	"level": 1,
+	"school": "V",
+	"time": [
+		{
+			"number": 1,
+			"unit": "action"
+		}
+	],
+	"range": {
+		"type": "cube",
+		"distance": {
+			"type": "feet",
+			"amount": 15
+		}
+	},
+	"components": {
+		"v": true,
+		"s": true
+	},
+	"duration": [
+		{
+			"type": "instant"
+		}
+	],
+	"entries": [
+		"A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes {@damage 2d8} thunder damage and is pushed 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed.",
+		"In addition, unsecured objects that are completely within the area of effect are automatically pushed 10 feet away from you by the spell's effect, and the spell emits a thunderous boom audible out to 300 feet."
+	],
+	"entriesHigherLevel": [
+		{
+			"type": "entries",
+			"name": "At Higher Levels",
+			"entries": [
+				"When you cast this spell using a spell slot of 2nd level or higher, the damage increases by {@scaledamage 2d8|1-9|1d8} for each slot level above 1st."
+			]
+		}
+	],
+	"damageInflict": [
+		"thunder"
+	],
+	"savingThrow": [
+		"constitution"
+	],
+	"miscTags": [
+		"FMV",
+		"OBJ"
+	],
+	"areaTags": [
+		"C"
+	],
+	"classes": {
+		"fromClassList": [
+			{
+				"name": "Bard",
+				"source": "PHB"
+			},
+			{
+				"name": "Druid",
+				"source": "PHB"
+			},
+			{
+				"name": "Sorcerer",
+				"source": "PHB"
+			},
+			{
+				"name": "Wizard",
+				"source": "PHB"
+			}
+		],
+		"fromSubclass": [
+			{
+				"class": {
+					"name": "Artificer",
+					"source": "TCE"
+				},
+				"subclass": {
+					"name": "Armorer",
+					"shortName": "Armorer",
+					"source": "TCE"
+				}
+			},
+			{
+				"class": {
+					"name": "Artificer",
+					"source": "TCE"
+				},
+				"subclass": {
+					"name": "Artillerist",
+					"shortName": "Artillerist",
+					"source": "TCE"
+				}
+			},
+			{
+				"class": {
+					"name": "Bard",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "College of Lore",
+					"shortName": "Lore",
+					"source": "XPHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Cleric",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "Tempest Domain",
+					"shortName": "Tempest",
+					"source": "PHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Fighter",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "Eldritch Knight",
+					"shortName": "Eldritch Knight",
+					"source": "XPHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Rogue",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "Arcane Trickster",
+					"shortName": "Arcane Trickster",
+					"source": "XPHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Warlock",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "The Fathomless",
+					"shortName": "Fathomless",
+					"source": "TCE"
+				}
+			},
+			{
+				"class": {
+					"name": "Warlock",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "The Genie",
+					"shortName": "Genie",
+					"source": "TCE",
+					"subSubclass": "Djinni"
+				}
+			},
+			{
+				"class": {
+					"name": "Wizard",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "Evoker",
+					"shortName": "Evoker",
+					"source": "XPHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Cleric",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "Tempest Domain",
+					"shortName": "Tempest",
+					"source": "PHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Fighter",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "Eldritch Knight",
+					"shortName": "Eldritch Knight",
+					"source": "PHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Rogue",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "Arcane Trickster",
+					"shortName": "Arcane Trickster",
+					"source": "PHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Warlock",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "The Fathomless",
+					"shortName": "Fathomless",
+					"source": "TCE"
+				}
+			},
+			{
+				"class": {
+					"name": "Warlock",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "The Genie",
+					"shortName": "Genie",
+					"source": "TCE",
+					"subSubclass": "Djinni"
+				}
+			}
+		]
+	},
+	"optionalfeatures": [
+		{
+			"name": "Fist of Four Thunders",
+			"source": "PHB",
+			"featureType": [
+				"ED"
+			]
+		}
+	],
+	"backgrounds": [
+		{
+			"name": "Gruul Anarch",
+			"source": "GGR"
+		},
+		{
+			"name": "Prismari Student",
+			"source": "SCC"
+		}
+	],
+	"feats": [
+		{
+			"name": "Aberrant Dragonmark",
+			"source": "EFA"
+		},
+		{
+			"name": "Boon of Siberys",
+			"source": "EFA"
+		},
+		{
+			"name": "Aberrant Dragonmark",
+			"source": "ERLW"
+		},
+		{
+			"name": "Divinely Favored",
+			"source": "DSotDQ"
+		},
+		{
+			"name": "Magic Initiate",
+			"source": "PHB"
+		},
+		{
+			"name": "Magic Initiate",
+			"source": "XPHB"
+		},
+		{
+			"name": "Rune Shaper",
+			"source": "BGG"
+		},
+		{
+			"name": "Strixhaven Initiate",
+			"source": "SCC"
+		}
+	],
+	"rewards": [
+		{
+			"name": "Boon of the Stormborn",
+			"source": "DMG"
+		},
+		{
+			"name": "Gruul Charm",
+			"source": "GGR"
+		}
+	]
+},
+{
+	"name": "Healing Word",
+	"source": "PHB",
+	"page": 250,
+	"srd": true,
+	"basicRules": true,
+	"otherSources": [
+		{
+			"source": "RMR",
+			"page": 54
+		}
+	],
+	"reprintedAs": [
+		"Healing Word|XPHB"
+	],
+	"level": 1,
+	"school": "V",
+	"time": [
+		{
+			"number": 1,
+			"unit": "bonus"
+		}
+	],
+	"range": {
+		"type": "point",
+		"distance": {
+			"type": "feet",
+			"amount": 60
+		}
+	},
+	"components": {
+		"v": true
+	},
+	"duration": [
+		{
+			"type": "instant"
+		}
+	],
+	"entries": [
+		"A creature of your choice that you can see within range regains hit points equal to {@dice 1d4} + your spellcasting ability modifier. This spell has no effect on undead or constructs."
+	],
+	"entriesHigherLevel": [
+		{
+			"type": "entries",
+			"name": "At Higher Levels",
+			"entries": [
+				"When you cast this spell using a spell slot of 2nd level or higher, the healing increases by {@scaledice 1d4|1-9|1d4} for each slot level above 1st."
+			]
+		}
+	],
+	"affectsCreatureType": [
+		"aberration",
+		"beast",
+		"celestial",
+		"dragon",
+		"elemental",
+		"fey",
+		"fiend",
+		"giant",
+		"humanoid",
+		"monstrosity",
+		"ooze",
+		"plant"
+	],
+	"miscTags": [
+		"HL",
+		"SGT"
+	],
+	"areaTags": [
+		"ST"
+	],
+	"classes": {
+		"fromClassList": [
+			{
+				"name": "Bard",
+				"source": "PHB"
+			},
+			{
+				"name": "Cleric",
+				"source": "PHB"
+			},
+			{
+				"name": "Druid",
+				"source": "PHB"
+			}
+		],
+		"fromSubclass": [
+			{
+				"class": {
+					"name": "Artificer",
+					"source": "TCE"
+				},
+				"subclass": {
+					"name": "Alchemist",
+					"shortName": "Alchemist",
+					"source": "TCE"
+				}
+			},
+			{
+				"class": {
+					"name": "Bard",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "College of Lore",
+					"shortName": "Lore",
+					"source": "XPHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Sorcerer",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "Divine Soul",
+					"shortName": "Divine Soul",
+					"source": "XGE"
+				}
+			},
+			{
+				"class": {
+					"name": "Sorcerer",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "Divine Soul",
+					"shortName": "Divine Soul",
+					"source": "XGE"
+				}
+			}
+		]
+	},
+	"races": [
+		{
+			"name": "Halfling (Mark of Healing)",
+			"source": "ERLW",
+			"baseName": "Halfling",
+			"baseSource": "PHB"
+		}
+	],
+	"feats": [
+		{
+			"name": "Divinely Favored",
+			"source": "DSotDQ"
+		},
+		{
+			"name": "Magic Initiate",
+			"source": "PHB"
+		},
+		{
+			"name": "Magic Initiate",
+			"source": "XPHB"
+		},
+		{
+			"name": "Strixhaven Initiate",
+			"source": "SCC"
+		}
+	]
+},
+{
+	"name": "Enlarge/Reduce",
+	"source": "PHB",
+	"page": 237,
+	"srd": true,
+	"referenceSources": [
+		"CoS",
+		"LK",
+		"OotA",
+		"RoT",
+		"TftYP-TFoF",
+		"WBtW",
+		"WDMM"
+	],
+	"reprintedAs": [
+		"Enlarge/Reduce|XPHB"
+	],
+	"level": 2,
+	"school": "T",
+	"time": [
+		{
+			"number": 1,
+			"unit": "action"
+		}
+	],
+	"range": {
+		"type": "point",
+		"distance": {
+			"type": "feet",
+			"amount": 30
+		}
+	},
+	"components": {
+		"v": true,
+		"s": true,
+		"m": "a pinch of powdered iron"
+	},
+	"duration": [
+		{
+			"type": "timed",
+			"duration": {
+				"type": "minute",
+				"amount": 1
+			},
+			"concentration": true
+		}
+	],
+	"entries": [
+		"You cause a creature or an object you can see within range to grow larger or smaller for the duration. Choose either a creature or an object that is neither worn nor carried. If the target is unwilling, it can make a Constitution saving throw. On a success, the spell has no effect.",
+		"If the target is a creature, everything it is wearing and carrying changes size with it. Any item dropped by an affected creature returns to normal size at once.",
+		{
+			"name": "Enlarge",
+			"type": "entries",
+			"entries": [
+				"The target's size doubles in all dimensions, and its weight is multiplied by eight. This growth increases its size by one category—from Medium to Large, for example. If there isn't enough room for the target to double its size, the creature or object attains the maximum possible size in the space available. Until the spell ends, the target also has advantage on Strength checks and Strength saving throws. The target's weapons also grow to match its new size. While these weapons are enlarged, the target's attacks with them deal {@damage 1d4} extra damage."
+			]
+		},
+		{
+			"name": "Reduce",
+			"type": "entries",
+			"entries": [
+				"The target's size is halved in all dimensions, and its weight is reduced to one-eighth of normal. This reduction decreases its size by one category—from Medium to Small, for example. Until the spell ends, the target also has disadvantage on Strength checks and Strength saving throws. The target's weapons also shrink to match its new size. While these weapons are reduced, the target's attacks with them deal {@damage 1d4} less damage (this can't reduce the damage below 1)."
+			]
+		}
+	],
+	"savingThrow": [
+		"constitution"
+	],
+	"miscTags": [
+		"ADV",
+		"OBJ",
+		"SGT"
+	],
+	"areaTags": [
+		"ST"
+	],
+	"classes": {
+		"fromClassList": [
+			{
+				"name": "Sorcerer",
+				"source": "PHB"
+			},
+			{
+				"name": "Wizard",
+				"source": "PHB"
+			},
+			{
+				"name": "Artificer",
+				"source": "TCE"
+			}
+		],
+		"fromClassListVariant": [
+			{
+				"name": "Bard",
+				"source": "PHB",
+				"definedInSource": "TCE"
+			},
+			{
+				"name": "Druid",
+				"source": "PHB",
+				"definedInSource": "TCE"
+			}
+		],
+		"fromSubclass": [
+			{
+				"class": {
+					"name": "Bard",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "College of Lore",
+					"shortName": "Lore",
+					"source": "XPHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Fighter",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "Eldritch Knight",
+					"shortName": "Eldritch Knight",
+					"source": "XPHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Rogue",
+					"source": "XPHB"
+				},
+				"subclass": {
+					"name": "Arcane Trickster",
+					"shortName": "Arcane Trickster",
+					"source": "XPHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Fighter",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "Eldritch Knight",
+					"shortName": "Eldritch Knight",
+					"source": "PHB"
+				}
+			},
+			{
+				"class": {
+					"name": "Rogue",
+					"source": "PHB"
+				},
+				"subclass": {
+					"name": "Arcane Trickster",
+					"shortName": "Arcane Trickster",
+					"source": "PHB"
+				}
+			}
+		]
+	},
+	"races": [
+		{
+			"name": "Duergar",
+			"source": "MPMM"
+		},
+		{
+			"name": "Fairy",
+			"source": "MPMM"
+		},
+		{
+			"name": "Dwarf (Duergar)",
+			"source": "MTF",
+			"baseName": "Dwarf",
+			"baseSource": "PHB"
+		},
+		{
+			"name": "Faerie",
+			"source": "LFL"
+		},
+		{
+			"name": "Fairy",
+			"source": "WBtW"
+		}
+	],
+	"backgrounds": [
+		{
+			"name": "Quandrix Student",
+			"source": "SCC"
+		},
+		{
+			"name": "Simic Scientist",
+			"source": "GGR"
+		}
+	],
+	"feats": [
+		{
+			"name": "Adept of the Red Robes",
+			"source": "DSotDQ"
+		},
+		{
+			"name": "Boon of Siberys",
+			"source": "EFA"
+		}
+	],
+	"rewards": [
+		{
+			"name": "Simic Charm",
+			"source": "GGR"
+		}
+	]
+}]

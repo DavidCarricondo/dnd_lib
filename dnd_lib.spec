@@ -19,6 +19,8 @@ ROOT = Path(SPECPATH)  # noqa: F821 – SPECPATH is injected by PyInstaller
 datas = [
     # Read-only SRD JSON data
     (str(ROOT / "data" / "2014"), "data/2014"),
+    # 5etools-format JSON data
+    (str(ROOT / "data" / "5etools"), "data/5etools"),
     # Web assets
     (str(ROOT / "src" / "dnd_lib" / "static"), "static"),
     (str(ROOT / "src" / "dnd_lib" / "templates"), "templates"),
