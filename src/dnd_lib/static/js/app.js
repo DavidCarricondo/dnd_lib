@@ -477,7 +477,8 @@ function renderSpellcasting(ability) {
         }
         const spellLinks = byLevel[lvl].map(sp => {
             const idx = sp.url ? sp.url.split("/").pop() : sp.name.toLowerCase().replace(/ /g, "-");
-            return `<span class="ref-link" onclick="showRefPopup('${escapeAttr(idx)}')">${escapeHtml(sp.name)}</span>`;
+            const resolvedIdx = globalIndex[idx] ? idx : globalIndex[`${idx}_custom`] ? `${idx}_custom` : idx;
+            return `<span class="ref-link" onclick="showRefPopup('${escapeAttr(resolvedIdx)}')">${escapeHtml(sp.name)}</span>`;
         }).join(", ");
         h += `<div class="spell-level-row"><span class="spell-level-label">${escapeHtml(name)}${slotInfo}:</span> ${spellLinks}</div>`;
     });
@@ -545,8 +546,12 @@ function renderSpellToken(token) {
         .trim()
         .replace(/\s+/g, "-");
 
-    if (idx && globalIndex[idx]) {
-        return `<span class="ref-link" onclick="showRefPopup('${escapeAttr(idx)}')">${escapeHtml(spellName)}</span>${escapeHtml(note)}`;
+    const resolvedIdx = (idx && globalIndex[idx]) ? idx
+        : (idx && globalIndex[`${idx}_custom`]) ? `${idx}_custom`
+        : null;
+
+    if (resolvedIdx) {
+        return `<span class="ref-link" onclick="showRefPopup('${escapeAttr(resolvedIdx)}')">${escapeHtml(spellName)}</span>${escapeHtml(note)}`;
     }
     return `${escapeHtml(spellName)}${escapeHtml(note)}`;
 }
