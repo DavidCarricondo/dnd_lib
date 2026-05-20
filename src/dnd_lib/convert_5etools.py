@@ -399,19 +399,18 @@ def _convert_spellcasting(spellcasting_arr):
         will_spells = sc.get("will", [])
         if will_spells:
             cleaned = [_strip_5etools_tags(s) for s in will_spells]
-            desc_parts.append(f"At will: {', '.join(cleaned)}")
+            desc_parts.append(f"- At will: {', '.join(cleaned)}")
 
         # Daily spells
         daily = sc.get("daily", {})
         for freq, spells in sorted(daily.items()):
             cleaned = [_strip_5etools_tags(s) for s in spells]
-            freq_label = freq.replace("e", "/day each").replace("1/day each", "1/day each")
             if freq.endswith("e"):
                 freq_num = freq[:-1]
                 freq_label = f"{freq_num}/day each"
             else:
                 freq_label = f"{freq}/day"
-            desc_parts.append(f"{freq_label}: {', '.join(cleaned)}")
+            desc_parts.append(f"- {freq_label}: {', '.join(cleaned)}")
 
         # Leveled spells
         spells_obj = sc.get("spells", {})
@@ -421,11 +420,11 @@ def _convert_spellcasting(spellcasting_arr):
                 spell_list = [_strip_5etools_tags(s) for s in level_data.get("spells", [])]
                 slots = level_data.get("slots")
                 if int(level_str) == 0:
-                    desc_parts.append(f"Cantrips (at will): {', '.join(spell_list)}")
+                    desc_parts.append(f"- Cantrips (at will): {', '.join(spell_list)}")
                 else:
                     slot_text = f"{slots} slot{'s' if slots != 1 else ''}" if slots else ""
                     ordinal = _ordinal(int(level_str))
-                    desc_parts.append(f"{ordinal} level ({slot_text}): {', '.join(spell_list)}")
+                    desc_parts.append(f"- {ordinal} level ({slot_text}): {', '.join(spell_list)}")
 
         if footer:
             desc_parts.append(footer)
